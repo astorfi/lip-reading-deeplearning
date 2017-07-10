@@ -16,14 +16,18 @@ audio-visual matching. Lip-reading can be a specifi application for this work.
 
 
 .. |im1| image:: _images/1.gif
-   :width: 20pt
-   :height: 20pt
+
+
+.. |im2| image:: _images/2.gif
+
 
 .. |im3| image:: _images/3.gif
-   :width: 20pt
-   :height: 20pt
 
-|im1| |im3|
+
+|im1| |im2| |im3|
+
+
+
 
 
 --------------
