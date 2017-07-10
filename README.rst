@@ -134,10 +134,10 @@ are performed on successive temporal frames for both audio-visual streams.
 Disclaimer
 -----------
 
-.. _link: https://github.com/tensorflow/models/tree/master/slim
+.. _Slim: https://github.com/tensorflow/models/tree/master/slim
 
-The code architecture part has been heavily inspired by Slim_ and Slim image classification
-library. Please refer to this link_ for further details.
+The code architecture part has been heavily inspired by `Slim`_ and Slim image classification
+library. Please refer to this Slim_ for further details.
 
 ---------
 Citation
