@@ -101,8 +101,8 @@ This representation is depicted in the following figure:
 .. image:: _images/Speech_GIF.gif
 
 The **speech features** have been extracted using [SpeechPy]_ package.
-**Visual Net**
 
+**Visual Net**
 
 The frame rate of each video clip used in this effort is 30 f/s.
 Consequently, 9 successive image frames form the 0.3 second visual stream.
