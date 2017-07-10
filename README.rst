@@ -98,7 +98,9 @@ forms a 40 MFEC features) can be derived which form a
 speech feature cube. Each input feature map for a single audio stream has the dimensionality of 15 × 40 × 3.
 This representation is depicted in the following figure:
 
+.. image:: _images/Speech_GIF.gif
 
+The **speech features** have been extracted using [SpeechPy]_ package.
 **Visual Net**
 
 
@@ -108,7 +110,7 @@ The input of the visual stream of the network is a cube of size 9x60x100,
 where 9 is the number of frames that represent the temporal information. Each
 channel is a 60x100 gray-scale image of mouth region.
 
-The **speech features** have been extracted using [SpeechPy]_ package.
+
 
 
 ~~~~~~~~~~~~
