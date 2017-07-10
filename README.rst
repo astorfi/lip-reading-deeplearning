@@ -26,6 +26,13 @@ audio-visual matching. Lip-reading can be a specifi application for this work.
 
 |im1| |im2| |im3|
 
+If you used this code, please kindly consider citing the following paper:
+
+.. code:: shell
+
+  @article{}
+  }
+
 
 
 
@@ -154,16 +161,6 @@ Disclaimer
 The code architecture part has been heavily inspired by `Slim`_ and Slim image classification
 library. Please refer to this Slim_ for further details.
 
----------
-Citation
----------
-
-If you used this code please cite the following paper:
-
-.. code:: shell
-
-  @article{}
-  }
 
 --------
 License
