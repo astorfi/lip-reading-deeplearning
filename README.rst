@@ -110,6 +110,7 @@ The input of the visual stream of the network is a cube of size 9x60x100,
 where 9 is the number of frames that represent the temporal information. Each
 channel is a 60x100 gray-scale image of mouth region.
 
+.. image:: _images/lip_motion.jpg
 
 
 
@@ -125,6 +126,8 @@ correlation. For the audio network, the extracted energy features are
 considered as a spatial dimension, and the stacked audio frames form the
 temporal dimension. In the proposed 3D CNN architecture, the convolutional operations
 are performed on successive temporal frames for both audio-visual streams.
+
+.. image:: _images/DNN-Coupled.png
 
 
 -----------
