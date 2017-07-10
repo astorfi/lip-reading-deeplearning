@@ -15,6 +15,17 @@ This code is aimed to provide the implementation for Coupled 3D Convolutional Ne
 audio-visual matching. Lip-reading can be a specifi application for this work.
 
 
+.. |im1| image:: _images/1.gif
+   :width: 20pt
+   :height: 20pt
+
+.. |im3| image:: _images/3.gif
+   :width: 20pt
+   :height: 20pt
+
+|im1| |im3|
+
+
 --------------
 General View
 --------------
