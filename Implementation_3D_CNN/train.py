@@ -9,11 +9,8 @@ import tables
 import numpy as np
 from sklearn.model_selection import KFold
 from tensorflow.python.ops import control_flow_ops
-from datasets import dataset_factory
-from deployment import model_deploy
 from nets import nets_factory
 from auxiliary import losses
-from preprocessing import preprocessing_factory
 from roc_curve import calculate_roc
 import matplotlib.pyplot as plt
 
@@ -24,10 +21,7 @@ slim = tf.contrib.slim
 ######################
 
 tf.app.flags.DEFINE_string(
-    'master', '', 'The address of the TensorFlow master to use.')
-
-tf.app.flags.DEFINE_string(
-    'train_dir', '/home/sina/TRAIN_LIPREAD_CNN_3D/train_logs',
+    'train_dir', 'TRAIN_CNN_3D/train_logs',
     'Directory where checkpoints and event logs are written to.')
 
 tf.app.flags.DEFINE_integer('num_clones', 1,
@@ -36,35 +30,10 @@ tf.app.flags.DEFINE_integer('num_clones', 1,
 tf.app.flags.DEFINE_boolean('clone_on_cpu', False,
                             'Use CPUs to deploy clones.')
 
-tf.app.flags.DEFINE_integer('worker_replicas', 1, 'Number of worker replicas.')
-
 tf.app.flags.DEFINE_integer(
-    'num_ps_tasks', 0,
-    'The number of parameter servers. If the value is 0, then the parameters '
-    'are handled locally by the worker.')
-
-tf.app.flags.DEFINE_integer(
-    'num_readers', 8,
-    'The number of parallel readers that read data from the dataset.')
-
-tf.app.flags.DEFINE_integer(
-    'num_preprocessing_threads', 8,
-    'The number of threads used to create the batches.')
-
-tf.app.flags.DEFINE_integer(
-    'log_every_n_steps', 20,
+    'log_every_n_steps', 1,
     'The frequency with which logs are print.')
 
-tf.app.flags.DEFINE_integer(
-    'save_summaries_secs', 10,
-    'The frequency with which summaries are saved, in seconds.')
-
-tf.app.flags.DEFINE_integer(
-    'save_interval_secs', 500,
-    'The frequency with which the model is saved, in seconds.')
-
-tf.app.flags.DEFINE_integer(
-    'task', 0, 'Task id of the replica running the training.')
 
 ######################
 # Optimization Flags #
@@ -78,13 +47,6 @@ tf.app.flags.DEFINE_string(
     'The name of the optimizer, one of "adadelta", "adagrad", "adam",'
     '"ftrl", "momentum", "sgd" or "rmsprop".')
 
-tf.app.flags.DEFINE_float(
-    'adadelta_rho', 0.95,
-    'The decay rate for adadelta.')
-
-tf.app.flags.DEFINE_float(
-    'adagrad_initial_accumulator_value', 0.1,
-    'Starting value for the AdaGrad accumulators.')
 
 tf.app.flags.DEFINE_float(
     'adam_beta1', 0.9,
@@ -96,26 +58,9 @@ tf.app.flags.DEFINE_float(
 
 tf.app.flags.DEFINE_float('opt_epsilon', 1.0, 'Epsilon term for the optimizer.')
 
-tf.app.flags.DEFINE_float('ftrl_learning_rate_power', -0.5,
-                          'The learning rate power.')
-
-tf.app.flags.DEFINE_float(
-    'ftrl_initial_accumulator_value', 0.1,
-    'Starting value for the FTRL accumulators.')
-
-tf.app.flags.DEFINE_float(
-    'ftrl_l1', 0.0, 'The FTRL l1 regularization strength.')
-
-tf.app.flags.DEFINE_float(
-    'ftrl_l2', 0.0, 'The FTRL l2 regularization strength.')
-
 tf.app.flags.DEFINE_float(
     'momentum', 0.9,
     'The momentum for the MomentumOptimizer and RMSPropOptimizer.')
-
-tf.app.flags.DEFINE_float('rmsprop_momentum', 0.9, 'Momentum.')
-
-tf.app.flags.DEFINE_float('rmsprop_decay', 0.9, 'Decay term for RMSProp.')
 
 #######################
 # Learning Rate Flags #
@@ -161,29 +106,11 @@ tf.app.flags.DEFINE_float(
 #######################
 
 tf.app.flags.DEFINE_string(
-    'dataset_name', 'lipread', 'The name of the dataset to load.')
-
-tf.app.flags.DEFINE_string(
-    'dataset_split_name', 'train', 'The name of the train/test split.')
-
-tf.app.flags.DEFINE_string(
-    'dataset_dir', '/home/sina/datasets/lip_read_features', 'The directory where the dataset files are stored.')
-
-tf.app.flags.DEFINE_integer(
-    'labels_offset', 0,
-    'An offset for the labels in the dataset. This flag is primarily used to '
-    'evaluate the VGG and ResNet architectures which do not use a background '
-    'class for the ImageNet dataset.')
-
-tf.app.flags.DEFINE_string(
     'model_speech_name', 'lipread_speech', 'The name of the architecture to train.')
 
 tf.app.flags.DEFINE_string(
     'model_mouth_name', 'lipread_mouth', 'The name of the architecture to train.')
 
-tf.app.flags.DEFINE_string(
-    'preprocessing_name', None, 'The name of the preprocessing to use. If left '
-                                'as `None`, then the model_name flag is used.')
 
 tf.app.flags.DEFINE_integer(
     'batch_size', 128, 'The number of samples in each batch.')
@@ -191,11 +118,6 @@ tf.app.flags.DEFINE_integer(
 tf.app.flags.DEFINE_integer(
     'num_epochs', 20, 'The number of epochs for training.')
 
-tf.app.flags.DEFINE_integer(
-    'train_image_size', None, 'Train image size')
-
-tf.app.flags.DEFINE_integer('max_number_of_steps', 125000,
-                            'The maximum number of training steps.')
 
 #####################
 # Fine-Tuning Flags #
@@ -275,101 +197,18 @@ def _configure_optimizer(learning_rate):
     Raises:
       ValueError: if FLAGS.optimizer is not recognized.
     """
-    if FLAGS.optimizer == 'adadelta':
-        optimizer = tf.train.AdadeltaOptimizer(
-            learning_rate,
-            rho=FLAGS.adadelta_rho,
-            epsilon=FLAGS.opt_epsilon)
-    elif FLAGS.optimizer == 'adagrad':
-        optimizer = tf.train.AdagradOptimizer(
-            learning_rate,
-            initial_accumulator_value=FLAGS.adagrad_initial_accumulator_value)
-    elif FLAGS.optimizer == 'adam':
+
+    if FLAGS.optimizer == 'adam':
         optimizer = tf.train.AdamOptimizer(
             learning_rate,
             beta1=FLAGS.adam_beta1,
             beta2=FLAGS.adam_beta2,
-            epsilon=FLAGS.opt_epsilon)
-    elif FLAGS.optimizer == 'ftrl':
-        optimizer = tf.train.FtrlOptimizer(
-            learning_rate,
-            learning_rate_power=FLAGS.ftrl_learning_rate_power,
-            initial_accumulator_value=FLAGS.ftrl_initial_accumulator_value,
-            l1_regularization_strength=FLAGS.ftrl_l1,
-            l2_regularization_strength=FLAGS.ftrl_l2)
-    elif FLAGS.optimizer == 'momentum':
-        optimizer = tf.train.MomentumOptimizer(
-            learning_rate,
-            momentum=FLAGS.momentum,
-            name='Momentum')
-    elif FLAGS.optimizer == 'rmsprop':
-        optimizer = tf.train.RMSPropOptimizer(
-            learning_rate,
-            decay=FLAGS.rmsprop_decay,
-            momentum=FLAGS.rmsprop_momentum,
             epsilon=FLAGS.opt_epsilon)
     elif FLAGS.optimizer == 'sgd':
         optimizer = tf.train.GradientDescentOptimizer(learning_rate)
     else:
         raise ValueError('Optimizer [%s] was not recognized', FLAGS.optimizer)
     return optimizer
-
-
-def _add_variables_summaries(learning_rate):
-    summaries = []
-    for variable in slim.get_model_variables():
-        summaries.append(tf.summary.histogram(variable.op.name, variable))
-    summaries.append(tf.summary.scalar('training/Learning Rate', learning_rate))
-    return summaries
-
-
-def _get_init_fn():
-    """Returns a function run by the chief worker to warm-start the training.
-
-    Note that the init_fn is only run when initializing the model during the very
-    first global step.
-
-    Returns:
-      An init function run by the supervisor.
-    """
-    if FLAGS.checkpoint_path is None:
-        return None
-
-    # Warn the user if a checkpoint exists in the train_dir. Then we'll be
-    # ignoring the checkpoint anyway.
-    if tf.train.latest_checkpoint(FLAGS.train_dir):
-        tf.logging.info(
-            'Ignoring --checkpoint_path because a checkpoint already exists in %s'
-            % FLAGS.train_dir)
-        return None
-
-    exclusions = []
-    if FLAGS.checkpoint_exclude_scopes:
-        exclusions = [scope.strip()
-                      for scope in FLAGS.checkpoint_exclude_scopes.split(',')]
-
-    # TODO(sguada) variables.filter_variables()
-    variables_to_restore = []
-    for var in slim.get_model_variables():
-        excluded = False
-        for exclusion in exclusions:
-            if var.op.name.startswith(exclusion):
-                excluded = True
-                break
-        if not excluded:
-            variables_to_restore.append(var)
-
-    if tf.gfile.IsDirectory(FLAGS.checkpoint_path):
-        checkpoint_path = tf.train.latest_checkpoint(FLAGS.checkpoint_path)
-    else:
-        checkpoint_path = FLAGS.checkpoint_path
-
-    tf.logging.info('Fine-tuning from %s' % checkpoint_path)
-
-    return slim.assign_from_checkpoint_fn(
-        checkpoint_path,
-        variables_to_restore,
-        ignore_missing_vars=FLAGS.ignore_missing_vars)
 
 
 def average_gradients(tower_grads):
@@ -472,8 +311,7 @@ test_label = np.random.randint(2, size=(num_testing_samples, 1))
 
 
 def main(_):
-    if not FLAGS.dataset_dir:
-        raise ValueError('You must supply the dataset directory with --dataset_dir')
+
 
     tf.logging.set_verbosity(tf.logging.INFO)
 
@@ -482,12 +320,6 @@ def main(_):
         ######################
         # Config model_deploy#
         ######################
-        deploy_config = model_deploy.DeploymentConfig(
-            num_clones=FLAGS.num_clones,
-            clone_on_cpu=FLAGS.clone_on_cpu,
-            replica_id=FLAGS.task,
-            num_replicas=FLAGS.worker_replicas,
-            num_ps_tasks=FLAGS.num_ps_tasks)
 
         # required from data
         num_samples_per_epoch = train_data['mouth'].shape[0]
@@ -556,9 +388,9 @@ def main(_):
         batch_labels = tf.placeholder(tf.uint8, (None, 1))
         margin_imp_tensor = tf.placeholder(tf.float32, ())
 
-        #############################
-        # Specify the loss function #
-        #############################
+        ################################
+        ## Feed forwarding to network ##
+        ################################
         tower_grads = []
         with tf.variable_scope(tf.get_variable_scope()):
             for i in xrange(FLAGS.num_clones):
@@ -613,24 +445,11 @@ def main(_):
                         tower_grads.append(grads)
 
 
-        # We must calculate the mean of each gradient. Note that this is the
-        # synchronization point across all towers.
+        # Calculate the mean of each gradient.
         grads = average_gradients(tower_grads)
-
-        # # Add a summary to track the learning rate.
-        # summaries.append(tf.summary.scalar('learning_rate', lr))
-
-        # # Add histograms for gradients.
-        # for grad, var in grads:
-        #     if grad is not None:
-        #         summaries.append(tf.summary.histogram(var.op.name + '/gradients', grad))
 
         # Apply the gradients to adjust the shared variables.
         apply_gradient_op = opt.apply_gradients(grads, global_step=global_step)
-
-        # # Add histograms for trainable variables.
-        # for var in tf.trainable_variables():
-        #     summaries.append(tf.summary.histogram(var.op.name, var))
 
         # Track the moving averages of all trainable variables.
         MOVING_AVERAGE_DECAY = 0.9999
@@ -701,6 +520,7 @@ def main(_):
         for epoch in range(FLAGS.num_epochs):
 
             # Loop over all batches
+
             for batch_num in range(num_batches_per_epoch):
                 step += 1
                 start_idx = batch_num * FLAGS.batch_size
@@ -774,14 +594,18 @@ def main(_):
                                batch_labels: label_train.reshape([label_train.shape[0], 1])})
                 summary_writer.add_summary(summary, epoch * num_batches_per_epoch + i)
 
-                # Calculation of ROC
-                EER, AUC, AP, fpr, tpr = calculate_roc.calculate_eer_auc_ap(label_train, score_dissimilarity)
+                # try and error method is used to handle the error due to ROC calculation
+                try:
+                    # Calculation of ROC
+                    EER, AUC, AP, fpr, tpr = calculate_roc.calculate_eer_auc_ap(label_train, score_dissimilarity)
 
-                if (batch_num + 1) % 1 == 0:
-                    print("Epoch " + str(epoch + 1) + ", Minibatch " + str(
-                        batch_num + 1) + " of %d " % num_batches_per_epoch + ", Minibatch Loss= " + \
-                          "{:.6f}".format(loss_value) + ", EER= " + "{:.5f}".format(EER) + ", AUC= " + "{:.5f}".format(
-                        AUC) + ", AP= " + "{:.5f}".format(AP) + ", contrib = %d pairs" % label_train.shape[0])
+                    if (batch_num + 1) % FLAGS.log_every_n_steps == 0:
+                        print("Epoch " + str(epoch + 1) + ", Minibatch " + str(
+                            batch_num + 1) + " of %d " % num_batches_per_epoch + ", Minibatch Loss= " + \
+                              "{:.6f}".format(loss_value) + ", EER= " + "{:.5f}".format(EER) + ", AUC= " + "{:.5f}".format(
+                            AUC) + ", AP= " + "{:.5f}".format(AP) + ", contrib = %d pairs" % label_train.shape[0])
+                except:
+                    print("Error: " ,sys.exc_info()[0])
 
             # Save the model
             saver.save(sess, FLAGS.train_dir, global_step=training_step)
@@ -814,7 +638,7 @@ def main(_):
                                                                          batch_mouth: mouth_test,
                                                                          batch_labels: label_test.reshape(
                                                                              [FLAGS.batch_size, 1])})
-                if (i + 1) % 1 == 0:
+                if (i + 1) % FLAGS.log_every_n_steps == 0:
                     print("TESTING: Epoch " + str(epoch + 1) + ", Minibatch " + str(
                         i + 1) + " of %d " % num_batches_per_epoch_test)
                 score_dissimilarity_vector[start_idx:end_idx] = score_dissimilarity
