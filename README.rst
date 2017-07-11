@@ -15,8 +15,7 @@ by: `Amirsina Torfi`_, `Seyed Mehdi Iranmanesh`_, `Nasser M. Nasrabadi`_ and Jer
 .. _Seyed Mehdi Iranmanesh: http://community.wvu.edu/~seiranmanesh/
 .. _Nasser M. Nasrabadi: http://nassernasrabadi.wixsite.com/mysite
 
-The code has been . The input pipeline must be prepared by the users.
-This code is aimed to provide the implementation for **Coupled 3D Convolutional Neural Networks** for
+The input pipeline must be prepared by the users. This code is aimed to provide the implementation for **Coupled 3D Convolutional Neural Networks** for
 audio-visual matching. **Lip-reading** can be a specific application for this work.
 
 
@@ -52,8 +51,8 @@ General View
 *Audio-visual recognition* (AVR) has been considered as
 a solution for speech recognition tasks when the audio is
 corrupted, as well as a visual recognition method used
-for speaker verification in multi-speaker scenarios. The approach of AVR systems is to leverage the extracted informa-
-tion from one modality to improve the recognition ability of
+for speaker verification in multi-speaker scenarios. The approach of AVR systems is to leverage the extracted
+information from one modality to improve the recognition ability of
 the other modality by complementing the missing information.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -84,19 +83,17 @@ Code Implementation
 --------------------
 
 The input pipeline must be provided by the user. The rest of the implementation consider the dataset
-which contains the utterance-based extracted features are stored in a ``HDF5`` file. However, this
-is not a necessity because by following the code, it can be seen that the experiments can be done by
-any file format as long as it is adaptable with ``TensorFlow``.
+which contains the utterance-based extracted features.
 
 
 ~~~~~~~~~~~
 Processing
 ~~~~~~~~~~~
 
-In the visual section, the videos are post-processed to have equal frame rate of 30 f/s. Then, face tracking and mouth area extraction is performed on the videos using the
-dlib library [dlib]_. Finally, all mouth areas are resized to have the same size, and concatenated to form the input feature
+In the visual section, the videos are post-processed to have an equal frame rate of 30 f/s. Then, face tracking and mouth area extraction are performed on the videos using the
+dlib library [dlib]_. Finally, all mouth areas are resized to have the same size and concatenated to form the input feature
 cube. The dataset does not contain any audio files. The audio files are extracted from
-videos using FFmpeg frame-work [ffmpeg]_. The processing pipeline is the below figure.
+videos using FFmpeg framework [ffmpeg]_. The processing pipeline is the below figure.
 
 .. image:: _images/processing-pipeline.png
 
@@ -110,23 +107,22 @@ Input Pipeline for this work
 The proposed architecture utilizes two non-identical ConvNets which uses a pair of speech and video
 streams. The network input is a pair of features that represent lip movement and
 speech features extracted from 0.3 second of a video clip. The main task is to determine if a
-stream of audio corresponds with a lip motion clip within a
-desired stream duration. In the two next sub-sections, we are going to explain the inputs for speech and
-visual streams.
+stream of audio corresponds with a lip motion clip within the desired stream duration. In the two next sub-sections,
+we are going to explain the inputs for speech and visual streams.
 
 
 **Speech Net**
 
 
-On the time axis, the temporal features are non-
-overlapping 20ms windows which are used for the gen-
-eration of spectrum features that possess a local characteristic.
+On the time axis, the temporal features are non-overlapping
+20ms windows which are used for the generation of spectrum features
+that possess a local characteristic.
 The input speech feature map, which is represented as an image cube,
 corresponds to the spectrogram
 as well as the first and second order derivatives of the
 MFEC features. These three channels correspond to the image depth. Collectively from a 0.3 second
 clip, 15 temporal feature sets (each
-forms a 40 MFEC features) can be derived which form a
+forms 40 MFEC features) can be derived which form a
 speech feature cube. Each input feature map for a single audio stream has the dimensionality of 15 × 40 × 3.
 This representation is depicted in the following figure:
 
@@ -152,21 +148,14 @@ Architecture
 
 The architecture is a **coupled 3D convolutional neural network** in which *two
 different networks with different sets of weights must be trained*.
-For the visual network, the lip motions spatial information alongside of the temporal information are
-incorporated jointly, and will be fused for exploiting the temporal
+For the visual network, the lip motions spatial information alongside the temporal information are
+incorporated jointly and will be fused for exploiting the temporal
 correlation. For the audio network, the extracted energy features are
 considered as a spatial dimension, and the stacked audio frames form the
 temporal dimension. In the proposed 3D CNN architecture, the convolutional operations
 are performed on successive temporal frames for both audio-visual streams.
 
 .. image:: _images/DNN-Coupled.png
-
-
---------
-License
---------
-
-The license is as follows:
 
 
 -------------
@@ -189,4 +178,4 @@ Once again, we appreciate your feedback and code inspections.
                     url          = {https://doi.org/10.5281/zenodo.810392}}
 
 .. [dlib] D. E. King. Dlib-ml: A machine learning toolkit. Journal of Machine Learning Research, 10:1755–1758, 2009.
-.. [ffmpeg] F. Developers. ffmpeg tool (version be1d324) [software], 2016.
+.. [ffmpeg] F. Developers. FFmpeg tool (version be1d324) [software], 2016.
