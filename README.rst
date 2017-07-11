@@ -1,9 +1,8 @@
-=====================================================================
-Coupled 3D Convolutional Neural Networks for Audio-Visual Recognition
-=====================================================================
+===================================================================================
+Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Networks
+===================================================================================
 
-This repository contains the code release for our paper titled as *"Coupled 3D
-Convolutional Neural Networks for Audio-Visual Recognition"*. The link to the paper_ is
+This repository contains the code release for our paper titled as *"Cross Audio-Visual Speaker Identification in the Wild Using Deep Learning"*. The link to the paper_ is
 provided as well.
 
 
@@ -30,12 +29,15 @@ If you used this code, please kindly consider citing the following paper:
 
 .. code:: shell
 
-  @article{}
-  }
-
-
-
-
+  @ARTICLE{2017arXiv170605739T,
+    author = {{Torfi}, A. and {Iranmanesh}, S.~M. and {Nasrabadi}, N.~M. and {Dawson}, J.},
+    title = "{Cross Audio-Visual Speaker Identification in the Wild Using Deep Learning}",
+    journal = {ArXiv e-prints},
+    archivePrefix = "arXiv",
+    eprint = {1706.05739},
+    year = 2017,
+    month = jun,
+    }
 
 --------------
 General View
@@ -150,16 +152,6 @@ temporal dimension. In the proposed 3D CNN architecture, the convolutional opera
 are performed on successive temporal frames for both audio-visual streams.
 
 .. image:: _images/DNN-Coupled.png
-
-
------------
-Disclaimer
------------
-
-.. _Slim: https://github.com/tensorflow/models/tree/master/slim
-
-The code architecture part has been heavily inspired by `Slim`_ and Slim image classification
-library. Please refer to this Slim_ for further details.
 
 
 --------
