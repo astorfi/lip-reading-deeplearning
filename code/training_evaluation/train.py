@@ -5,14 +5,12 @@ from __future__ import print_function
 import tensorflow as tf
 
 import sys
-import tables
 import numpy as np
 from sklearn.model_selection import KFold
 from tensorflow.python.ops import control_flow_ops
 from nets import nets_factory
 from auxiliary import losses
 from roc_curve import calculate_roc
-import matplotlib.pyplot as plt
 
 slim = tf.contrib.slim
 
@@ -113,10 +111,10 @@ tf.app.flags.DEFINE_string(
 
 
 tf.app.flags.DEFINE_integer(
-    'batch_size', 128, 'The number of samples in each batch.')
+    'batch_size', 64, 'The number of samples in each batch.')
 
 tf.app.flags.DEFINE_integer(
-    'num_epochs', 20, 'The number of epochs for training.')
+    'num_epochs', 1, 'The number of epochs for training.')
 
 
 #####################
