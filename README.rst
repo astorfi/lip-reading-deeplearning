@@ -94,7 +94,7 @@ corresponding directory:
 
 .. code:: shell
 
-    cd input/lip_tracking
+    cd code/lip_tracking
 
 The run the dedicated ``python file`` as below:
 
@@ -207,7 +207,7 @@ At first, clone the repository. Then, cd to the dedicated directory:
 
 .. code:: shell
 
-    cd code
+    cd code/training_evaluation
 
 Finally, the ``train.py`` file must be executed:
 
