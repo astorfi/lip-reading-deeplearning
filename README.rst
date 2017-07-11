@@ -89,7 +89,7 @@ which contains the utterance-based extracted features.
 Lip Tracking
 ~~~~~~~~~~~~~
 
-For lip tracking, the desired video must be feed as the input. At first, cd to the
+For lip tracking, the desired video must be fed as the input. At first, cd to the
 corresponding directory:
 
 .. code:: shell
@@ -102,8 +102,8 @@ The run the dedicated ``python file`` as below:
 
     python VisualizeLip.py --input input_video_file_name.ext --output output_video_file_name.ext
 
-Running the aformentioned script extracts the lip motions by saving the mouth
-area of each frame and create the output video with a rectangular arount the
+Running the aforementioned script extracts the lip motions by saving the mouth
+area of each frame and create the output video with a rectangular around the
 mouth area for better visualization.
 
 The required ``arguments`` are defined by the following python script which
@@ -215,7 +215,7 @@ Finally, the ``train.py`` file must be executed:
 
     python train.py
 
-For evaluation phase, similar script must be executed:
+For evaluation phase, a similar script must be executed:
 
 .. code:: shell
 
