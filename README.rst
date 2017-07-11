@@ -136,7 +136,7 @@ dlib library [dlib]_. Finally, all mouth areas are resized to have the same size
 cube. The dataset does not contain any audio files. The audio files are extracted from
 videos using FFmpeg framework [ffmpeg]_. The processing pipeline is the below figure.
 
-.. image:: _images/processing-pipeline.png
+.. image:: _images/processing.gif
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Input Pipeline for this work
