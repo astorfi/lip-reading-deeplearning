@@ -85,6 +85,47 @@ Code Implementation
 The input pipeline must be provided by the user. The rest of the implementation consider the dataset
 which contains the utterance-based extracted features.
 
+~~~~~~~~~~~~~
+Lip Tracking
+~~~~~~~~~~~~~
+
+For lip tracking, the desired video must be feed as the input. At first, cd to the
+corresponding directory:
+
+.. code:: shell
+
+    cd input/lip_tracking
+
+The run the dedicated ``python file`` as below:
+
+.. code:: shell
+
+    python VisualizeLip.py --input input_video_file_name.ext --output output_video_file_name.ext
+
+Running the aformentioned script extracts the lip motions by saving the mouth
+area of each frame and create the output video with a rectangular arount the
+mouth area for better visualization.
+
+The required ``arguments`` are defined by the following python script which
+have been defined in the ``VisualizeLip.py`` file:
+
+.. code:: python
+
+  ap = argparse.ArgumentParser()
+  ap.add_argument("-i", "--input", required=True,
+               help="path to input video file")
+  ap.add_argument("-o", "--output", required=True,
+               help="path to output video file")
+  ap.add_argument("-f", "--fps", type=int, default=30,
+               help="FPS of output video")
+  ap.add_argument("-c", "--codec", type=str, default="MJPG",
+               help="codec of output video")
+  args = vars(ap.parse_args())
+
+Some of the defined arguments have their default values and no further action is
+required by them.
+
+
 
 ~~~~~~~~~~~
 Processing
@@ -156,6 +197,30 @@ temporal dimension. In the proposed 3D CNN architecture, the convolutional opera
 are performed on successive temporal frames for both audio-visual streams.
 
 .. image:: _images/DNN-Coupled.png
+
+
+----------------------
+Training / Evaluation
+----------------------
+
+At first, clone the repository. Then, cd to the dedicated directory:
+
+.. code:: shell
+
+    cd Implementation_3D_CNN
+
+Finally, the ``train.py`` file must be executed:
+
+.. code:: shell
+
+    python train.py
+
+For evaluation phase, similar script must be executed:
+
+.. code:: shell
+
+    python test.py
+
 
 
 -------------
