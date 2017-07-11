@@ -222,6 +222,28 @@ For evaluation phase, a similar script must be executed:
     python test.py
 
 
+--------
+Results
+--------
+
+The below results demonstrate effects of the proposed method on the accuracy
+and the speed of convergence.
+
+.. |accuracy| image:: results/accuracy-bar-pairselection.png
+
+
+.. |converge| image:: results/convergence-speed.png
+
+
+|accuracy|
+
+The best results, which is the right-most one, belongs to our proposed method.
+
+|converge|
+
+The effect of proposed **Online Pair Selection** method has been shown in the figure.
+
+
 
 -------------
 Contribution
