@@ -5,7 +5,7 @@ Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Netwo
 This repository contains the code developed by TensorFlow_ for the following paper:
 
 
-| `Cross Audio-Visual Speaker Identification in the Wild Using Deep Learning`_,
+| `Cross Audio-Visual Recognition in the Wild Using Deep Learning`_,
 | by: `Amirsina Torfi`_, `Seyed Mehdi Iranmanesh`_, `Nasser M. Nasrabadi`_ and Jeremy Dawson
 
 
