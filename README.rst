@@ -16,13 +16,13 @@ This repository contains the code developed by TensorFlow_ for the following pap
 .. _Nasser M. Nasrabadi: http://nassernasrabadi.wixsite.com/mysite
 
 
-.. |im1| image:: _images/1.gif
+.. |im1| image:: data/images/1.gif
 
 
-.. |im2| image:: _images/2.gif
+.. |im2| image:: data/images/2.gif
 
 
-.. |im3| image:: _images/3.gif
+.. |im3| image:: data/images/3.gif
 
 
 |im1| |im2| |im3|
@@ -136,7 +136,7 @@ dlib library [dlib]_. Finally, all mouth areas are resized to have the same size
 cube. The dataset does not contain any audio files. The audio files are extracted from
 videos using FFmpeg framework [ffmpeg]_. The processing pipeline is the below figure.
 
-.. image:: _images/processing.gif
+.. image:: data/images/processing.gif
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Input Pipeline for this work
@@ -167,7 +167,7 @@ forms 40 MFEC features) can be derived which form a
 speech feature cube. Each input feature map for a single audio stream has the dimensionality of 15 × 40 × 3.
 This representation is depicted in the following figure:
 
-.. image:: _images/Speech_GIF.gif
+.. image:: data/images/Speech_GIF.gif
 
 The **speech features** have been extracted using [SpeechPy]_ package.
 
@@ -179,7 +179,7 @@ The input of the visual stream of the network is a cube of size 9x60x100,
 where 9 is the number of frames that represent the temporal information. Each
 channel is a 60x100 gray-scale image of mouth region.
 
-.. image:: _images/lip_motion.jpg
+.. image:: data/images/lip_motion.jpg
 
 
 
@@ -196,7 +196,7 @@ considered as a spatial dimension, and the stacked audio frames form the
 temporal dimension. In the proposed 3D CNN architecture, the convolutional operations
 are performed on successive temporal frames for both audio-visual streams.
 
-.. image:: _images/DNN-Coupled.png
+.. image:: data/images/DNN-Coupled.png
 
 
 ----------------------
@@ -207,7 +207,7 @@ At first, clone the repository. Then, cd to the dedicated directory:
 
 .. code:: shell
 
-    cd Implementation_3D_CNN
+    cd code
 
 Finally, the ``train.py`` file must be executed:
 
