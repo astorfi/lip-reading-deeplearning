@@ -15,8 +15,6 @@ This repository contains the code developed by TensorFlow_ for the following pap
 .. _Nasser M. Nasrabadi: http://nassernasrabadi.wixsite.com/mysite
 
 
-The input pipeline must be prepared by the users. This code is aimed to provide the implementation for **Coupled 3D Convolutional Neural Networks** for
-audio-visual matching. **Lip-reading** can be a specific application for this work.
 
 
 .. |im1| image:: _images/1.gif
@@ -29,6 +27,8 @@ audio-visual matching. **Lip-reading** can be a specific application for this wo
 
 
 |im1| |im2| |im3|
+The input pipeline must be prepared by the users. This code is aimed to provide the implementation for **Coupled 3D Convolutional Neural Networks** for
+audio-visual matching. **Lip-reading** can be a specific application for this work.
 
 If you used this code, please kindly consider citing the following paper:
 
