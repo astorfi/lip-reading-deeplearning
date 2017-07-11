@@ -3,73 +3,37 @@ from __future__ import division
 from __future__ import print_function
 
 import tensorflow as tf
-import matplotlib.pyplot as plt
+
 import sys
 import tables
 import numpy as np
+from sklearn.model_selection import KFold
 from tensorflow.python.ops import control_flow_ops
-from datasets import dataset_factory
-from deployment import model_deploy
 from nets import nets_factory
 from auxiliary import losses
-from preprocessing import preprocessing_factory
 from roc_curve import calculate_roc
-from roc_curve import PlotROC
-from roc_curve import PlotPR
-from roc_curve import PlotHIST
-import pickle
-
-
+import matplotlib.pyplot as plt
 
 slim = tf.contrib.slim
-
 
 ######################
 # Train Directory #
 ######################
 
 tf.app.flags.DEFINE_string(
-    'master', '', 'The address of the TensorFlow master to use.')
-
-tf.app.flags.DEFINE_string(
-    'train_dir', '/home/sina/TRAIN_LSTM/train_logs-46560.meta',
+    'train_dir', 'TRAIN_CNN_3D/train_logs',
     'Directory where checkpoints and event logs are written to.')
 
-tf.app.flags.DEFINE_integer('num_clones', 2,
+tf.app.flags.DEFINE_integer('num_clones', 1,
                             'Number of model clones to deploy.')
 
 tf.app.flags.DEFINE_boolean('clone_on_cpu', False,
                             'Use CPUs to deploy clones.')
 
-tf.app.flags.DEFINE_integer('worker_replicas', 1, 'Number of worker replicas.')
-
 tf.app.flags.DEFINE_integer(
-    'num_ps_tasks', 0,
-    'The number of parameter servers. If the value is 0, then the parameters '
-    'are handled locally by the worker.')
-
-tf.app.flags.DEFINE_integer(
-    'num_readers', 8,
-    'The number of parallel readers that read data from the dataset.')
-
-tf.app.flags.DEFINE_integer(
-    'num_preprocessing_threads', 8,
-    'The number of threads used to create the batches.')
-
-tf.app.flags.DEFINE_integer(
-    'log_every_n_steps', 20,
+    'log_every_n_steps', 1,
     'The frequency with which logs are print.')
 
-tf.app.flags.DEFINE_integer(
-    'save_summaries_secs', 10,
-    'The frequency with which summaries are saved, in seconds.')
-
-tf.app.flags.DEFINE_integer(
-    'save_interval_secs', 500,
-    'The frequency with which the model is saved, in seconds.')
-
-tf.app.flags.DEFINE_integer(
-    'task', 0, 'Task id of the replica running the training.')
 
 ######################
 # Optimization Flags #
@@ -79,17 +43,10 @@ tf.app.flags.DEFINE_float(
     'weight_decay', 0.00004, 'The weight decay on the model weights.')
 
 tf.app.flags.DEFINE_string(
-    'optimizer', 'sgd',
+    'optimizer', 'adam',
     'The name of the optimizer, one of "adadelta", "adagrad", "adam",'
     '"ftrl", "momentum", "sgd" or "rmsprop".')
 
-tf.app.flags.DEFINE_float(
-    'adadelta_rho', 0.95,
-    'The decay rate for adadelta.')
-
-tf.app.flags.DEFINE_float(
-    'adagrad_initial_accumulator_value', 0.1,
-    'Starting value for the AdaGrad accumulators.')
 
 tf.app.flags.DEFINE_float(
     'adam_beta1', 0.9,
@@ -101,26 +58,9 @@ tf.app.flags.DEFINE_float(
 
 tf.app.flags.DEFINE_float('opt_epsilon', 1.0, 'Epsilon term for the optimizer.')
 
-tf.app.flags.DEFINE_float('ftrl_learning_rate_power', -0.5,
-                          'The learning rate power.')
-
-tf.app.flags.DEFINE_float(
-    'ftrl_initial_accumulator_value', 0.1,
-    'Starting value for the FTRL accumulators.')
-
-tf.app.flags.DEFINE_float(
-    'ftrl_l1', 0.0, 'The FTRL l1 regularization strength.')
-
-tf.app.flags.DEFINE_float(
-    'ftrl_l2', 0.0, 'The FTRL l2 regularization strength.')
-
 tf.app.flags.DEFINE_float(
     'momentum', 0.9,
     'The momentum for the MomentumOptimizer and RMSPropOptimizer.')
-
-tf.app.flags.DEFINE_float('rmsprop_momentum', 0.9, 'Momentum.')
-
-tf.app.flags.DEFINE_float('rmsprop_decay', 0.9, 'Decay term for RMSProp.')
 
 #######################
 # Learning Rate Flags #
@@ -145,7 +85,7 @@ tf.app.flags.DEFINE_float(
     'learning_rate_decay_factor', 0.94, 'Learning rate decay factor.')
 
 tf.app.flags.DEFINE_float(
-    'num_epochs_per_decay', 2.0,
+    'num_epochs_per_decay', 5.0,
     'Number of epochs after which learning rate decays.')
 
 tf.app.flags.DEFINE_bool(
@@ -166,38 +106,18 @@ tf.app.flags.DEFINE_float(
 #######################
 
 tf.app.flags.DEFINE_string(
-    'dataset_name', 'lipread', 'The name of the dataset to load.')
-
-tf.app.flags.DEFINE_string(
-    'dataset_split_name', 'train', 'The name of the train/test split.')
-
-tf.app.flags.DEFINE_string(
-    'dataset_dir', '/home/sina/datasets/lip_read_features', 'The directory where the dataset files are stored.')
-
-tf.app.flags.DEFINE_integer(
-    'labels_offset', 0,
-    'An offset for the labels in the dataset. This flag is primarily used to '
-    'evaluate the VGG and ResNet architectures which do not use a background '
-    'class for the ImageNet dataset.')
-
-tf.app.flags.DEFINE_string(
     'model_speech_name', 'lipread_speech', 'The name of the architecture to train.')
 
 tf.app.flags.DEFINE_string(
     'model_mouth_name', 'lipread_mouth', 'The name of the architecture to train.')
 
-tf.app.flags.DEFINE_string(
-    'preprocessing_name', None, 'The name of the preprocessing to use. If left '
-                                'as `None`, then the model_name flag is used.')
 
 tf.app.flags.DEFINE_integer(
-    'batch_size', 512, 'The number of samples in each batch.')
+    'batch_size', 128, 'The number of samples in each batch.')
 
 tf.app.flags.DEFINE_integer(
-    'train_image_size', None, 'Train image size')
+    'num_epochs', 20, 'The number of epochs for training.')
 
-tf.app.flags.DEFINE_integer('max_number_of_steps', 125000,
-                            'The maximum number of training steps.')
 
 #####################
 # Fine-Tuning Flags #
@@ -277,38 +197,12 @@ def _configure_optimizer(learning_rate):
     Raises:
       ValueError: if FLAGS.optimizer is not recognized.
     """
-    if FLAGS.optimizer == 'adadelta':
-        optimizer = tf.train.AdadeltaOptimizer(
-            learning_rate,
-            rho=FLAGS.adadelta_rho,
-            epsilon=FLAGS.opt_epsilon)
-    elif FLAGS.optimizer == 'adagrad':
-        optimizer = tf.train.AdagradOptimizer(
-            learning_rate,
-            initial_accumulator_value=FLAGS.adagrad_initial_accumulator_value)
-    elif FLAGS.optimizer == 'adam':
+
+    if FLAGS.optimizer == 'adam':
         optimizer = tf.train.AdamOptimizer(
             learning_rate,
             beta1=FLAGS.adam_beta1,
             beta2=FLAGS.adam_beta2,
-            epsilon=FLAGS.opt_epsilon)
-    elif FLAGS.optimizer == 'ftrl':
-        optimizer = tf.train.FtrlOptimizer(
-            learning_rate,
-            learning_rate_power=FLAGS.ftrl_learning_rate_power,
-            initial_accumulator_value=FLAGS.ftrl_initial_accumulator_value,
-            l1_regularization_strength=FLAGS.ftrl_l1,
-            l2_regularization_strength=FLAGS.ftrl_l2)
-    elif FLAGS.optimizer == 'momentum':
-        optimizer = tf.train.MomentumOptimizer(
-            learning_rate,
-            momentum=FLAGS.momentum,
-            name='Momentum')
-    elif FLAGS.optimizer == 'rmsprop':
-        optimizer = tf.train.RMSPropOptimizer(
-            learning_rate,
-            decay=FLAGS.rmsprop_decay,
-            momentum=FLAGS.rmsprop_momentum,
             epsilon=FLAGS.opt_epsilon)
     elif FLAGS.optimizer == 'sgd':
         optimizer = tf.train.GradientDescentOptimizer(learning_rate)
@@ -317,61 +211,42 @@ def _configure_optimizer(learning_rate):
     return optimizer
 
 
-def _add_variables_summaries(learning_rate):
-    summaries = []
-    for variable in slim.get_model_variables():
-        summaries.append(tf.summary.histogram(variable.op.name, variable))
-    summaries.append(tf.summary.scalar('training/Learning Rate', learning_rate))
-    return summaries
+def average_gradients(tower_grads):
+    """Calculate the average gradient for each shared variable across all towers.
 
+    Note that this function provides a synchronization point across all towers.
 
-def _get_init_fn():
-    """Returns a function run by the chief worker to warm-start the training.
-
-    Note that the init_fn is only run when initializing the model during the very
-    first global step.
-
+    Args:
+      tower_grads: List of lists of (gradient, variable) tuples. The outer list
+        is over individual gradients. The inner list is over the gradient
+        calculation for each tower.
     Returns:
-      An init function run by the supervisor.
+       List of pairs of (gradient, variable) where the gradient has been averaged
+       across all towers.
     """
-    if FLAGS.checkpoint_path is None:
-        return None
+    average_grads = []
+    for grad_and_vars in zip(*tower_grads):
+        # Note that each grad_and_vars looks like the following:
+        #   ((grad0_gpu0, var0_gpu0), ... , (grad0_gpuN, var0_gpuN))
+        grads = []
+        for g, _ in grad_and_vars:
+            # Add 0 dimension to the gradients to represent the tower.
+            expanded_g = tf.expand_dims(g, 0)
 
-    # Warn the user if a checkpoint exists in the train_dir. Then we'll be
-    # ignoring the checkpoint anyway.
-    if tf.train.latest_checkpoint(FLAGS.train_dir):
-        tf.logging.info(
-            'Ignoring --checkpoint_path because a checkpoint already exists in %s'
-            % FLAGS.train_dir)
-        return None
+            # Append on a 'tower' dimension which we will average over below.
+            grads.append(expanded_g)
 
-    exclusions = []
-    if FLAGS.checkpoint_exclude_scopes:
-        exclusions = [scope.strip()
-                      for scope in FLAGS.checkpoint_exclude_scopes.split(',')]
+        # Average over the 'tower' dimension.
+        grad = tf.concat(axis=0, values=grads)
+        grad = tf.reduce_mean(grad, 0)
 
-    # TODO(sguada) variables.filter_variables()
-    variables_to_restore = []
-    for var in slim.get_model_variables():
-        excluded = False
-        for exclusion in exclusions:
-            if var.op.name.startswith(exclusion):
-                excluded = True
-                break
-        if not excluded:
-            variables_to_restore.append(var)
-
-    if tf.gfile.IsDirectory(FLAGS.checkpoint_path):
-        checkpoint_path = tf.train.latest_checkpoint(FLAGS.checkpoint_path)
-    else:
-        checkpoint_path = FLAGS.checkpoint_path
-
-    tf.logging.info('Fine-tuning from %s' % checkpoint_path)
-
-    return slim.assign_from_checkpoint_fn(
-        checkpoint_path,
-        variables_to_restore,
-        ignore_missing_vars=FLAGS.ignore_missing_vars)
+        # Keep in mind that the Variables are redundant because they are shared
+        # across towers. So .. we will just return the first tower's pointer to
+        # the Variable.
+        v = grad_and_vars[0][1]
+        grad_and_var = (grad, v)
+        average_grads.append(grad_and_var)
+    return average_grads
 
 
 def _get_variables_to_train():
@@ -392,160 +267,202 @@ def _get_variables_to_train():
     return variables_to_train
 
 
+# Definign arbitrary data
+num_training_samples = 1000
+num_testing_samples = 1000
+train_data = {}
+
+train_data = {'mouth': np.random.random_sample(size=(num_training_samples, 9, 60, 100, 1)),
+              'speech': np.random.random_sample(size=(num_training_samples, 15, 40, 1, 3))}
+test_data = {'mouth': np.random.random_sample(size=(num_testing_samples, 9, 60, 100, 1)),
+             'speech': np.random.random_sample(size=(num_testing_samples, 15, 40, 1, 3))}
+
+train_label = np.random.randint(2, size=(num_training_samples, 1))
+test_label = np.random.randint(2, size=(num_testing_samples, 1))
+
+
+# # Uncomment if data standardalization is required and the mean and std vectors have been calculated.
+# ############ Get the mean vectors ####################
+#
+# # mean mouth
+# mean_mouth = np.load('/path/to/mean/file/mouth.npy')
+# # mean_mouth = np.tile(mean_mouth.reshape(47, 73, 1), (1, 1, 9))
+# mean_mouth = mean_mouth[None, :]
+# mean_channel_mouth = np.mean(mean_mouth)
+#
+# # mean speech
+# mean_speech = np.load('/path/to/mean/file/speech.npy')
+# mean_speech = mean_speech[None, :]
+# # mean_channel_speech = np.hstack((
+# #     [np.mean(mean_speech[:, :, :, 0])], [np.mean(mean_speech[:, :, :, 1])], [np.mean(mean_speech[:, :, :, 2])]))
+#
+# ############ Get the std vectors ####################
+#
+# # mean std
+# std_mouth = np.load('/path/to/std/file/mouth.npy')
+# std_mouth = np.tile(std_mouth.reshape(60, 100, 1), (1, 1, 9))
+# std_mouth = std_mouth[None, :]
+#
+# # mean speech
+# std_speech = np.load('/path/to/std/file/speech.npy')
+# std_speech = std_speech[None, :]
+
+
+
+
 def main(_):
-    if not FLAGS.dataset_dir:
-        raise ValueError('You must supply the dataset directory with --dataset_dir')
+
 
     tf.logging.set_verbosity(tf.logging.INFO)
 
     graph = tf.Graph()
-    with graph.as_default():
+    with graph.as_default(), tf.device('/cpu:0'):
         ######################
         # Config model_deploy#
         ######################
-        deploy_config = model_deploy.DeploymentConfig(
-            num_clones=FLAGS.num_clones,
-            clone_on_cpu=FLAGS.clone_on_cpu,
-            replica_id=FLAGS.task,
-            num_replicas=FLAGS.worker_replicas,
-            num_ps_tasks=FLAGS.num_ps_tasks)
 
-        # # Create global_step
-        # with tf.device(deploy_config.variables_device()):
-        #     global_step = slim.create_global_step()
-
-        ###############################
-        # Select and load the dataset #
-        ###############################
-
-        dataset = dataset_factory.get_dataset(
-            FLAGS.dataset_name, FLAGS.dataset_split_name, FLAGS.dataset_dir)
-
-        # Load the dataset
-        fileh = tables.open_file(
-            '/home/sina/datasets/lip_read_features/lipread_mouth_100x60_mscc_40x-X3_0.3_train.hdf5', mode='r')
-        fileh_test = tables.open_file(
-            '/home/sina/datasets/lip_read_features/lipread_mouth_100x60_mscc_40x-X3_0.5sec_validation.hdf5',
-            mode='r')
-        scale_channel_speech = np.max(fileh.root.speech[:, :, :, 0]) - np.min(fileh.root.speech[:, :, :, 0])
-
-        # scale_channel_speech = np.hstack(([np.max(fileh.root.speech[:, :, :, 0]) - np.min(fileh.root.speech[:, :, :, 0])],
-        #                                   [np.max(fileh.root.speech[:, :, :, 1]) - np.min(fileh.root.speech[:, :, :, 1])],
-        #                                   [np.max(fileh.root.speech[:, :, :, 2]) - np.min(fileh.root.speech[:, :, :, 2])]))
-
-        ############ Get the mean vectors ####################
-
-        # mean mouth
-        mean_mouth = np.load('/home/sina/GITHUB/LIPREAD_PROJECT/data_preprocessing/mean_mouth_mscc_100x60x9_0.3.npy')
-        # mean_mouth = np.tile(mean_mouth.reshape(47, 73, 1), (1, 1, 9))
-        mean_mouth = mean_mouth[None, :]
-        mean_channel_mouth = np.mean(mean_mouth)
-
-        # mean speech
-        mean_speech = np.load('/home/sina/GITHUB/LIPREAD_PROJECT/data_preprocessing/mean_speech_mscc_40x15x3_0.3.npy')
-        mean_speech = mean_speech[None, :]
-        # mean_channel_speech = np.hstack((
-        #     [np.mean(mean_speech[:, :, :, 0])], [np.mean(mean_speech[:, :, :, 1])], [np.mean(mean_speech[:, :, :, 2])]))
-
-        ############ Get the std vectors ####################
-
-        # mean std
-        std_mouth = np.load('/home/sina/GITHUB/LIPREAD_PROJECT/data_preprocessing/std_mouth_mscc_100x60x9_0.3.npy')
-        std_mouth = np.tile(std_mouth.reshape(60, 100, 1), (1, 1, 9))
-        std_mouth = std_mouth[None, :]
-
-        # mean speech
-        std_speech = np.load('/home/sina/GITHUB/LIPREAD_PROJECT/data_preprocessing/std_speech_mscc_40x15x3_0.3.npy')
-        std_speech = std_speech[None, :]
-
-        num_samples_per_epoch = fileh_test.root.label.shape[0]
+        # required from data
+        num_samples_per_epoch = train_data['mouth'].shape[0]
         num_batches_per_epoch = int(num_samples_per_epoch / FLAGS.batch_size)
+
+        num_samples_per_epoch_test = test_data['mouth'].shape[0]
+        num_batches_per_epoch_test = int(num_samples_per_epoch_test / FLAGS.batch_size)
+
+        # Create global_step
+        global_step = tf.Variable(0, name='global_step', trainable=False)
+
+        #########################################
+        # Configure the larning rate. #
+        #########################################
+        learning_rate = _configure_learning_rate(num_samples_per_epoch, global_step)
+        opt = _configure_optimizer(learning_rate)
 
         ######################
         # Select the network #
         ######################
+        is_training = tf.placeholder(tf.bool)
 
         network_speech_fn = nets_factory.get_network_fn(
             FLAGS.model_speech_name,
-            num_classes=(dataset.num_classes - FLAGS.labels_offset),
+            num_classes=2,
             weight_decay=FLAGS.weight_decay,
-            is_training=False)
+            is_training=is_training)
 
         network_mouth_fn = nets_factory.get_network_fn(
             FLAGS.model_mouth_name,
-            num_classes=(dataset.num_classes - FLAGS.labels_offset),
+            num_classes=2,
             weight_decay=FLAGS.weight_decay,
-            is_training=False)
+            is_training=is_training)
 
         #####################################
         # Select the preprocessing function #
         #####################################
 
-        #TODO: Do some preprocessing if necessary.
+        # TODO: Do some preprocessing if necessary.
 
         ##############################################################
         # Create a dataset provider that loads data from the dataset #
         ##############################################################
-        with tf.device(deploy_config.inputs_device()):
-            """
-            Define the place holders and creating the batch tensor.
-            """
+        # with tf.device(deploy_config.inputs_device()):
+        """
+        Define the place holders and creating the batch tensor.
+        """
 
-            # Mouth spatial set
-            INPUT_SEQ_LENGTH = 9
-            INPUT_HEIGHT = 60
-            INPUT_WIDTH = 100
-            INPUT_CHANNELS = 1
-            batch_mouth = tf.placeholder(tf.float32, shape=(
-            FLAGS.batch_size, INPUT_SEQ_LENGTH, INPUT_HEIGHT, INPUT_WIDTH, INPUT_CHANNELS))
+        # Mouth spatial set
+        INPUT_SEQ_LENGTH = 9
+        INPUT_HEIGHT = 60
+        INPUT_WIDTH = 100
+        INPUT_CHANNELS = 1
+        batch_mouth = tf.placeholder(tf.float32, shape=(
+            [None, INPUT_SEQ_LENGTH, INPUT_HEIGHT, INPUT_WIDTH, INPUT_CHANNELS]))
 
-            # Speech spatial set
-            INPUT_SEQ_LENGTH_SPEECH = 15
-            INPUT_HEIGHT_SPEECH = 40
-            INPUT_WIDTH_SPEECH = 1
-            INPUT_CHANNELS_SPEECH = 3
-            batch_speech = tf.placeholder(tf.float32, shape=(
-            FLAGS.batch_size, INPUT_SEQ_LENGTH_SPEECH, INPUT_HEIGHT_SPEECH, INPUT_WIDTH_SPEECH, INPUT_CHANNELS_SPEECH))
+        # Speech spatial set
+        INPUT_SEQ_LENGTH_SPEECH = 15
+        INPUT_HEIGHT_SPEECH = 40
+        INPUT_WIDTH_SPEECH = 1
+        INPUT_CHANNELS_SPEECH = 3
+        batch_speech = tf.placeholder(tf.float32, shape=(
+            [None, INPUT_SEQ_LENGTH_SPEECH, INPUT_HEIGHT_SPEECH, INPUT_WIDTH_SPEECH, INPUT_CHANNELS_SPEECH]))
 
-            # Label
-            batch_labels = tf.placeholder(tf.uint8, (FLAGS.batch_size, 1))
-            batch_dynamic = tf.placeholder(tf.int32, ())
-            margin_imp_tensor = tf.placeholder(tf.float32, ())
+        # Label
+        batch_labels = tf.placeholder(tf.uint8, (None, 1))
+        margin_imp_tensor = tf.placeholder(tf.float32, ())
 
-        ####################
-        # Run the model #
-        ####################
+        ################################
+        ## Feed forwarding to network ##
+        ################################
+        tower_grads = []
+        with tf.variable_scope(tf.get_variable_scope()):
+            for i in xrange(FLAGS.num_clones):
+                with tf.device('/gpu:%d' % i):
+                    with tf.name_scope('%s_%d' % ('tower', i)) as scope:
+                        """
+                        Two distance metric are defined:
+                           1 - distance_weighted: which is a weighted average of the distance between two structures.
+                           2 - distance_l2: which is the regular l2-norm of the two networks outputs.
+                        Place holders
 
-        # Outputs of two networks
-        logits_speech, end_points_speech = network_speech_fn(batch_speech)
-        logits_mouth, end_points_mouth = network_mouth_fn(batch_mouth)
+                        """
+                        ########################################
+                        ######## Outputs of two networks #######
+                        ########################################
 
-        #############################
-        # Specify the loss function #
-        #############################
+                        logits_speech, end_points_speech = network_speech_fn(batch_speech)
+                        logits_mouth, end_points_mouth = network_mouth_fn(batch_mouth)
 
-        # Two distance metric are defined:
-        #    1 - distance_weighted: which is a weighted average of the distance between two structures.
-        #    2 - distance_l2: which is the regular l2-norm of the two networks outputs.
+                        # # Uncomment if the output embedding is desired to be as |f(x)| = 1
+                        # logits_speech = tf.nn.l2_normalize(logits_speech, dim=1, epsilon=1e-12, name=None)
+                        # logits_mouth = tf.nn.l2_normalize(logits_mouth, dim=1, epsilon=1e-12, name=None)
 
-        #### Weighted distance ######
-        distance_vector = tf.subtract(logits_speech, logits_mouth, name=None)
-        # distance_weighted = slim.fully_connected(distance_vector, 1, activation_fn=None, normalizer_fn=None,
-        #                                          scope='fc_weighted')
+                        #################################################
+                        ########### Loss Calculation ####################
+                        #################################################
 
-        #### Euclidean distance ####
-        distance_l2 = tf.sqrt(tf.reduce_sum(tf.pow(tf.subtract(logits_speech, logits_mouth), 2), 1, keep_dims=True))
+                        # ##### Weighted distance using a fully connected layer #####
+                        # distance_vector = tf.subtract(logits_speech, logits_mouth,  name=None)
+                        # distance_weighted = slim.fully_connected(distance_vector, 1, activation_fn=tf.nn.sigmoid,
+                        #                                          normalizer_fn=None,
+                        #                                          scope='fc_weighted')
 
-        #### Contrastive loss #####
-        loss = losses.contrastive_loss(batch_labels, distance_l2, 1)
+                        ##### Euclidean distance ####
+                        distance_l2 = tf.sqrt(
+                            tf.reduce_sum(tf.pow(tf.subtract(logits_speech, logits_mouth), 2), 1, keep_dims=True))
 
-        # Adding the accuracy metric
-        with tf.name_scope('accuracy'):
-            predictions = tf.to_int64(tf.sign(tf.sign(distance_l2 - 0.5) + 1))
-            labels = tf.argmax(distance_l2, 1)
-            accuracy = tf.reduce_mean(tf.to_float(tf.equal(predictions, labels)))
-            tf.add_to_collection('accuracy', accuracy)
+                        ##### Contrastive loss ######
+                        loss = losses.contrastive_loss(batch_labels, distance_l2, margin_imp=margin_imp_tensor,
+                                                       scope=scope)
 
+                        # ##### call the optimizer ######
+                        # # TODO: call optimizer object outside of this gpu environment
+                        #
+                        # Reuse variables for the next tower.
+                        tf.get_variable_scope().reuse_variables()
+
+                        # Calculate the gradients for the batch of data on this CIFAR tower.
+                        grads = opt.compute_gradients(loss)
+
+                        # Keep track of the gradients across all towers.
+                        tower_grads.append(grads)
+
+
+        # Calculate the mean of each gradient.
+        grads = average_gradients(tower_grads)
+
+        # Apply the gradients to adjust the shared variables.
+        apply_gradient_op = opt.apply_gradients(grads, global_step=global_step)
+
+        # Track the moving averages of all trainable variables.
+        MOVING_AVERAGE_DECAY = 0.9999
+        variable_averages = tf.train.ExponentialMovingAverage(
+            MOVING_AVERAGE_DECAY, global_step)
+        variables_averages_op = variable_averages.apply(tf.trainable_variables())
+
+        # Group all updates to into a single train op.
+        train_op = tf.group(apply_gradient_op, variables_averages_op)
+
+        #################################################
+        ########### Summary Section #####################
+        #################################################
 
         # Gather initial summaries.
         summaries = set(tf.get_collection(tf.GraphKeys.SUMMARIES))
@@ -553,195 +470,99 @@ def main(_):
         # Add summaries for all end_points.
         for end_point in end_points_speech:
             x = end_points_speech[end_point]
-            summaries.add(tf.summary.histogram('activations_speech/' + end_point, x))
+            # summaries.add(tf.summary.histogram('activations_speech/' + end_point, x))
             summaries.add(tf.summary.scalar('sparsity_speech/' + end_point,
                                             tf.nn.zero_fraction(x)))
 
         for end_point in end_points_mouth:
             x = end_points_mouth[end_point]
-            summaries.add(tf.summary.histogram('activations_mouth/' + end_point, x))
+            # summaries.add(tf.summary.histogram('activations_mouth/' + end_point, x))
             summaries.add(tf.summary.scalar('sparsity_mouth/' + end_point,
                                             tf.nn.zero_fraction(x)))
-
-        # # Add summaries for losses.
-        # for loss in tf.get_collection(tf.GraphKeys.LOSSES, first_clone_scope):
-        #     summaries.add(tf.summary.scalar('losses/%s' % loss.op.name, loss))
 
         # Add summaries for variables.
         for variable in slim.get_model_variables():
             summaries.add(tf.summary.histogram(variable.op.name, variable))
 
-        #################################
-        # Configure the moving averages #
-        #################################
-        if FLAGS.moving_average_decay:
-            moving_average_variables = slim.get_model_variables()
-            variable_averages = tf.train.ExponentialMovingAverage(
-                FLAGS.moving_average_decay, global_step)
-        else:
-            moving_average_variables, variable_averages = None, None
+        # Add to parameters to summaries
+        summaries.add(tf.summary.scalar('learning_rate', learning_rate))
+        summaries.add(tf.summary.scalar('eval/Loss', loss))
+        summaries |= set(tf.get_collection(tf.GraphKeys.SUMMARIES))
 
-        #########################################
-        # Configure the optimization procedure. #
-        #########################################
-        # deploy_config.optimizer_device()
-        # with tf.device(deploy_config.optimizer_device()):
-        # learning_rate = _configure_learning_rate(num_samples_per_epoch, global_step)
-        # optimizer = _configure_optimizer(learning_rate)
-        # optimizer = optimizer.minimize(loss)
-        # summaries.add(tf.summary.scalar('learning_rate', learning_rate))
-        # if FLAGS.sync_replicas:
-        #     # If sync_replicas is enabled, the averaging will be done in the chief
-        #     # queue runner.
-        #     optimizer = tf.train.SyncReplicasOptimizer(
-        #         opt=optimizer,
-        #         replicas_to_aggregate=FLAGS.replicas_to_aggregate,
-        #         variable_averages=variable_averages,
-        #         variables_to_average=moving_average_variables,
-        #         replica_id=tf.constant(FLAGS.task, tf.int32, shape=()),
-        #         total_num_replicas=FLAGS.worker_replicas)
-        # elif FLAGS.moving_average_decay:
-        #     # Update ops executed locally by trainer.
-        #     update_ops.append(variable_averages.apply(moving_average_variables))
-        #
-        # summaries.add(tf.summary.scalar('eval/Loss', loss))
-        #
-        # summaries |= set(tf.get_collection(tf.GraphKeys.SUMMARIES))
-        #
-        # # Merge all summaries together.
-        # summary_op = tf.summary.merge(list(summaries), name='summary_op')
+        # Merge all summaries together.
+        summary_op = tf.summary.merge(list(summaries), name='summary_op')
 
     ###########################
-    # Kicks off the training. #
+    ######## Training #########
     ###########################
-    with tf.Session(graph=graph) as sess:
+
+    with tf.Session(graph=graph, config=tf.ConfigProto(allow_soft_placement=True)) as sess:
 
         # Initialization of the network.
         variables_to_restore = slim.get_variables_to_restore()
-        saver = tf.train.Saver(slim.get_variables_to_restore(),max_to_keep=15)
+        saver = tf.train.Saver(variables_to_restore, max_to_keep=20)
         coord = tf.train.Coordinator()
         sess.run(tf.global_variables_initializer())
         sess.run(tf.local_variables_initializer())
-        num_epoch = 1
 
-        # Save the model
-        list_checkpoints = ['1093','2176','3279','5465']
-        list_checkpoints = ['2187','4374','6561','41553']
-        FPR = []
-        TPR = []
-        for checkpoint_num, checkpoint_index in enumerate(list_checkpoints):
-            checkpoint_dir = '/home/sina/TRAIN_LIPREAD_LSTM/train_logs-' + checkpoint_index
-            saver.restore(sess, checkpoint_dir)
+        # Restore the model
+        latest_checkpoint = tf.train.latest_checkpoint(checkpoint_dir='TRAIN_CNN_3D/')
+        saver.restore(sess, latest_checkpoint)
 
-            # op to write logs to Tensorboard
-            summary_writer = tf.summary.FileWriter(FLAGS.train_dir, graph=graph)
+        # op to write logs to Tensorboard
+        summary_writer = tf.summary.FileWriter(FLAGS.train_dir, graph=graph)
 
-            # score_dissimilarity_vector = np.zeros((FLAGS.batch_size * num_batches_per_epoch , 1))
-            # label_vector = np.zeros((FLAGS.batch_size * num_batches_per_epoch,))
+        ###################################################
+        ############################ TEST  ################
+        ###################################################
+        score_dissimilarity_vector = np.zeros((FLAGS.batch_size * num_batches_per_epoch_test, 1))
+        label_vector = np.zeros((FLAGS.batch_size * num_batches_per_epoch_test, 1))
 
-            # num_batches_per_epoch = 20
-            score_dissimilarity_vector = np.zeros((FLAGS.batch_size * num_batches_per_epoch, 1))
-            label_vector = np.zeros((FLAGS.batch_size * num_batches_per_epoch,))
+        # Loop over all batches
+        for i in range(num_batches_per_epoch_test):
+            start_idx = i * FLAGS.batch_size
+            end_idx = (i + 1) * FLAGS.batch_size
+            speech_test, mouth_test, label_test = test_data['speech'][start_idx:end_idx], test_data['mouth'][
+                                                                                          start_idx:end_idx], test_label[
+                                                                                                              start_idx:end_idx]
 
+            # # # Uncomment if standardalization is needed
+            # # mean subtraction if necessary
+            # speech_test = (speech_test - mean_speech) / std_speech
+            # mouth_test = (mouth_test - mean_mouth) / std_mouth
 
-            for epoch in range(num_epoch):
+            # Evaluation phase
+            # WARNING: margin_imp_tensor has no effect here but it needs to be there because its tensor required a value to feed in!!
+            loss_value, score_dissimilarity, _ = sess.run([loss, distance_l2, is_training],
+                                                          feed_dict={is_training: False,
+                                                                     margin_imp_tensor: 50,
+                                                                     batch_speech: speech_test,
+                                                                     batch_mouth: mouth_test,
+                                                                     batch_labels: label_test.reshape(
+                                                                         [FLAGS.batch_size, 1])})
+            if (i + 1) % FLAGS.log_every_n_steps == 0:
+                print("TESTING:" + ", Minibatch " + str(
+                    i + 1) + " of %d " % num_batches_per_epoch_test)
+            score_dissimilarity_vector[start_idx:end_idx] = score_dissimilarity
+            label_vector[start_idx:end_idx] = label_test
 
-                # Loop over all batches
-                # num_batches_per_epoch
-                for i in range(num_batches_per_epoch):
-                    start_idx = i * FLAGS.batch_size
-                    end_idx = (i + 1) * FLAGS.batch_size
-                    speech, mouth, label = fileh.root.speech[start_idx:end_idx], fileh.root.mouth[
-                                                                                 start_idx:end_idx], fileh.root.label[
-                                                                                                     start_idx:end_idx]
-                    # # mean subtraction
-                    # speech = (speech - mean_speech) / std_speech
-                    # mouth = (mouth - mean_mouth) / std_mouth
+        ##############################
+        ##### K-fold validation ######
+        ##############################
+        K = 10
+        EER = np.zeros((K, 1))
+        AUC = np.zeros((K, 1))
+        AP = np.zeros((K, 1))
+        batch_k_validation = int(label_vector.shape[0] / float(K))
 
-                    # mean subtraction
-                    speech = (speech - mean_speech) / std_speech
-                    speech = speech[:, :, :, :, None]
-                    speech = np.transpose(speech, (0, 2, 1, 4, 3))
+        for i in range(K):
+            EER[i, :], AUC[i, :], AP[i, :], fpr, tpr = calculate_roc.calculate_eer_auc_ap(
+                label_vector[i * batch_k_validation:(i + 1) * batch_k_validation],
+                score_dissimilarity_vector[i * batch_k_validation:(i + 1) * batch_k_validation])
 
-                    mouth = (mouth - mean_mouth) / std_mouth
-                    mouth = mouth[:, :, :, :, None]
-                    mouth = np.transpose(mouth, (0, 3, 1, 2, 4))
-
-
-                    score_dissimilarity, test_accuracy = sess.run([distance_l2, accuracy],
-                                                  feed_dict={batch_speech: speech, batch_mouth: mouth,
-                                                             batch_labels: label.reshape([FLAGS.batch_size, 1])})
-
-
-                    print("Epoch " + str(epoch + 1) + ", Minibatch " + str(i+1) + " of %d " % num_batches_per_epoch)
-                    score_dissimilarity_vector[start_idx:end_idx] = score_dissimilarity
-                    label_vector[start_idx:end_idx] = label
-
-            # ROC
-
-            ##############################
-            ##### K-split validation #####
-            ##############################
-            K = 10
-            EER = np.zeros((len(list_checkpoints), K, 1))
-            AUC = np.zeros((len(list_checkpoints), K, 1))
-            AP = np.zeros((len(list_checkpoints), K, 1))
-
-            batch_k_validation = int(label_vector.shape[0] / float(K))
-
-
-            # PlotROC.Plot_ROC_Fn(label_vector, score_dissimilarity_vector, phase='test')
-            # PlotPR.Plot_PR_Fn(label_vector, score_dissimilarity_vector, phase='test')
-            # PlotHIST.Plot_HIST_Fn(label_vector, score_dissimilarity_vector, phase='test')
-
-            for i in range(K):
-                EER[checkpoint_num,i,:], AUC[checkpoint_num,i,:], AP[checkpoint_num,i,:],fpr, tpr = calculate_roc.calculate_eer_auc_ap(label_vector[i * batch_k_validation:(i+1) * batch_k_validation], score_dissimilarity_vector[i * batch_k_validation:(i+1) * batch_k_validation])
-
-            FPR.append(fpr.tolist())
-            TPR.append(tpr.tolist())
-
-            print('EER=',np.mean(EER[checkpoint_num],axis=0),np.std(EER[checkpoint_num],axis=0))
-            print('STD=',np.mean(AUC[checkpoint_num],axis=0),np.std(AUC[checkpoint_num],axis=0))
-            print('AP=', np.mean(AP[checkpoint_num], axis=0), np.std(AP[checkpoint_num], axis=0))
-
-        pickle.dump(FPR, open("fpr.p", "wb"))
-        pickle.dump(TPR, open("tpr.p", "wb"))
-
-
-
-        # color = ['red','blue']
-        # fig = plt.figure()
-        # ax = fig.gca()
-        # for i in range(len(FPR)):
-        #     # Plot the ROC
-        #     plt.plot(FPR[i], TPR[i], color = color[i], linewidth=2, label='ROC Curve' + '_' + str(i))
-        #
-        # plt.plot([0, 1], [0, 1], 'k--', lw=1)
-        # plt.xlim([0.0, 1.0])
-        # plt.ylim([0.0, 1.05])
-        # # ax.set_xticks(np.arange(0, 1.1, 0.1))
-        # # ax.set_yticks(np.arange(0, 1.1, 0.1))
-        # plt.title('ROC.jpg')
-        # plt.xlabel('False Positive Rate')
-        # plt.ylabel('True Positive Rate')
-        #
-        # # # Cutting the floating number
-        # # AUC = '%.2f' % AUC
-        # # EER = '%.2f' % EER
-        # # # AP = '%.2f' % AP
-        # #
-        # # # Setting text to plot
-        # # # plt.text(0.5, 0.6, 'AP = ' + str(AP), fontdict=None)
-        # # plt.text(0.5, 0.5, 'AUC = ' + str(AUC), fontdict=None)
-        # # plt.text(0.5, 0.4, 'EER = ' + str(EER), fontdict=None)
-        # plt.grid(True)
-        # plt.legend(loc="lower right")
-        # plt.show()
-        # fig.savefig('ROC.jpg')
-
-
-
-
+        # Printing Equal Error Rate(EER), Area Under the Curve(AUC) and Average Precision(AP)
+        print("TESTING:" +", EER= " + str(np.mean(EER, axis=0)) + ", AUC= " + str(
+            np.mean(AUC, axis=0)) + ", AP= " + str(np.mean(AP, axis=0)))
 
 
 if __name__ == '__main__':
