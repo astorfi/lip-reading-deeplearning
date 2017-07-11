@@ -53,6 +53,13 @@ If you used this code, please kindly consider citing the following paper:
     month = jun,
     }
 
+#################
+Table of Contents
+#################
+.. contents:: 
+  :local:
+  :depth: 3
+
 --------------
 General View
 --------------
