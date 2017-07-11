@@ -2,14 +2,20 @@
 Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Networks
 ===================================================================================
 
-This repository contains the code release for our paper titled as *"Cross Audio-Visual Speaker Identification in the Wild Using Deep Learning"*. The link to the paper_ is
-provided as well.
+This repository contains the code developed by TensorFlow_ for the following paper:
 
 
-.. _paper: https://arxiv.org/abs/1706.05739
+`Cross Audio-Visual Speaker Identification in the Wild Using Deep Learning`_
+
+`Amirsina Torfi`_, `Seyed Mehdi Iranmanesh`_, `Nasser M. Nasrabadi`_ and Jeremy Dawson
+
+.. _Cross Audio-Visual Speaker Identification in the Wild Using Deep Learning: https://arxiv.org/abs/1706.05739
 .. _TensorFlow: https://www.tensorflow.org/
+.. _Amirsina Torfi: https://astorfi.github.io/
+.. _Seyed Mehdi Iranmanesh:
+.. _Nasser M. Nasrabadi: http://nassernasrabadi.wixsite.com/mysite
 
-The code has been developed using TensorFlow_. The input pipeline must be prepared by the users.
+The code has been . The input pipeline must be prepared by the users.
 This code is aimed to provide the implementation for Coupled 3D Convolutional Neural Networks for
 audio-visual matching. Lip-reading can be a specifi application for this work.
 
@@ -91,6 +97,8 @@ In the visual section, the videos are post-processed to have equal frame rate of
 dlib library [dlib]_. Finally, all mouth areas are resized to have the same size, and concatenated to form the input feature
 cube. The dataset does not contain any audio files. The audio files are extracted from
 videos using FFmpeg frame-work [ffmpeg]_. The processing pipeline is the below figure.
+
+.. image:: _images/processing-pipeline.png
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Input Pipeline for this work
