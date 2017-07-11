@@ -6,7 +6,7 @@ This repository contains the code developed by TensorFlow_ for the following pap
 
 
 | `Cross Audio-Visual Speaker Identification in the Wild Using Deep Learning`_,
-| by: *`Amirsina Torfi`_, `Seyed Mehdi Iranmanesh`_, `Nasser M. Nasrabadi`_ and Jeremy Dawson*
+| by: `Amirsina Torfi`_, `Seyed Mehdi Iranmanesh`_, `Nasser M. Nasrabadi`_ and Jeremy Dawson
 
 .. _Cross Audio-Visual Speaker Identification in the Wild Using Deep Learning: https://arxiv.org/abs/1706.05739
 .. _TensorFlow: https://www.tensorflow.org/
