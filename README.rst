@@ -14,6 +14,7 @@ This repository contains the code developed by TensorFlow_ for the following pap
 .. _Seyed Mehdi Iranmanesh: http://community.wvu.edu/~seiranmanesh/
 .. _Nasser M. Nasrabadi: http://nassernasrabadi.wixsite.com/mysite
 
+
 The input pipeline must be prepared by the users. This code is aimed to provide the implementation for **Coupled 3D Convolutional Neural Networks** for
 audio-visual matching. **Lip-reading** can be a specific application for this work.
 
