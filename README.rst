@@ -7,7 +7,7 @@ This repository contains the code developed by TensorFlow_ for the following pap
 
 `Cross Audio-Visual Speaker Identification in the Wild Using Deep Learning`_
 
-`Amirsina Torfi`_, `Seyed Mehdi Iranmanesh`_, `Nasser M. Nasrabadi`_ and Jeremy Dawson
+by: `Amirsina Torfi`_, `Seyed Mehdi Iranmanesh`_, `Nasser M. Nasrabadi`_ and Jeremy Dawson
 
 .. _Cross Audio-Visual Speaker Identification in the Wild Using Deep Learning: https://arxiv.org/abs/1706.05739
 .. _TensorFlow: https://www.tensorflow.org/
@@ -16,8 +16,8 @@ This repository contains the code developed by TensorFlow_ for the following pap
 .. _Nasser M. Nasrabadi: http://nassernasrabadi.wixsite.com/mysite
 
 The code has been . The input pipeline must be prepared by the users.
-This code is aimed to provide the implementation for Coupled 3D Convolutional Neural Networks for
-audio-visual matching. Lip-reading can be a specifi application for this work.
+This code is aimed to provide the implementation for **Coupled 3D Convolutional Neural Networks** for
+audio-visual matching. **Lip-reading** can be a specific application for this work.
 
 
 .. |im1| image:: _images/1.gif
