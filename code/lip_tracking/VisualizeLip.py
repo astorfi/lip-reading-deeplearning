@@ -34,7 +34,7 @@ PART2: Calling and defining required parameters for:
 predictor_path = 'dlib/shape_predictor_68_face_landmarks.dat'
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(predictor_path)
-mouth_destination_path = 'mouth'
+mouth_destination_path = os.path.dirname(args["output"]) + '/' + 'mouth'
 if not os.path.exists(mouth_destination_path):
     os.makedirs(mouth_destination_path)
 
@@ -53,6 +53,7 @@ max_counter = 150
 total_num_frames = int(video_shape[0])
 num_frames = min(total_num_frames,max_counter)
 counter = 0
+font = cv2.FONT_HERSHEY_SIMPLEX
 
 # Define the writer
 writer = skvideo.io.FFmpegWriter(args["output"])
@@ -218,11 +219,8 @@ The python script for loading a list:
     with open(the_filename, 'rb') as f:
         my_list = pickle.load(f)
 """
-activation_destination_path = 'activation'
-if not os.path.exists(activation_destination_path):
-    os.makedirs(activation_destination_path)
 
-the_filename = activation_destination_path + '/' +args["input"].split('.')[0] + '_' + 'activation'
+the_filename = os.path.dirname(args["output"]) + '/' + 'activation'
 my_list = activation
 with open(the_filename, 'wb') as f:
     pickle.dump(my_list, f)

@@ -145,7 +145,7 @@ dlib library [dlib]_. Finally, all mouth areas are resized to have the same size
 cube. The dataset does not contain any audio files. The audio files are extracted from
 videos using FFmpeg framework [ffmpeg]_. The processing pipeline is the below figure.
 
-.. image:: data/images/processing.gif
+.. image:: readme_images/processing.gif
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Input Pipeline for this work
@@ -176,7 +176,7 @@ forms 40 MFEC features) can be derived which form a
 speech feature cube. Each input feature map for a single audio stream has the dimensionality of 15 × 40 × 3.
 This representation is depicted in the following figure:
 
-.. image:: data/images/Speech_GIF.gif
+.. image:: readme_images/Speech_GIF.gif
 
 The **speech features** have been extracted using [SpeechPy]_ package.
 
@@ -188,7 +188,7 @@ The input of the visual stream of the network is a cube of size 9x60x100,
 where 9 is the number of frames that represent the temporal information. Each
 channel is a 60x100 gray-scale image of mouth region.
 
-.. image:: data/images/lip_motion.jpg
+.. image:: readme_images/lip_motion.jpg
 
 
 
@@ -205,7 +205,7 @@ considered as a spatial dimension, and the stacked audio frames form the
 temporal dimension. In the proposed 3D CNN architecture, the convolutional operations
 are performed on successive temporal frames for both audio-visual streams.
 
-.. image:: data/images/DNN-Coupled.png
+.. image:: readme_images/DNN-Coupled.png
 
 
 ----------------------
@@ -238,10 +238,10 @@ Results
 The below results demonstrate effects of the proposed method on the accuracy
 and the speed of convergence.
 
-.. |accuracy| image:: results/accuracy-bar-pairselection.png
+.. |accuracy| image:: readme_images/accuracy-bar-pairselection.png
 
 
-.. |converge| image:: results/convergence-speed.png
+.. |converge| image:: readme_images/convergence-speed.png
 
 
 |accuracy|

@@ -111,7 +111,7 @@ tf.app.flags.DEFINE_string(
 
 
 tf.app.flags.DEFINE_integer(
-    'batch_size', 16, 'The number of samples in each batch.')
+    'batch_size', 64, 'The number of samples in each batch.')
 
 tf.app.flags.DEFINE_integer(
     'num_epochs', 1, 'The number of epochs for training.')
@@ -266,8 +266,8 @@ def _get_variables_to_train():
 
 
 # Definign arbitrary data
-num_training_samples = 100
-num_testing_samples = 100
+num_training_samples = 1000
+num_testing_samples = 1000
 train_data = {}
 
 train_data = {'mouth': np.random.random_sample(size=(num_training_samples, 9, 60, 100, 1)),

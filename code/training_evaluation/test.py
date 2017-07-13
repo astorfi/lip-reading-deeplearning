@@ -12,8 +12,7 @@ from tensorflow.python.ops import control_flow_ops
 from nets import nets_factory
 from auxiliary import losses
 from roc_curve import calculate_roc
-import matplotlib.pyplot as plt
-
+# import matplotlib.pyplot as plt
 slim = tf.contrib.slim
 
 ######################
@@ -21,8 +20,13 @@ slim = tf.contrib.slim
 ######################
 
 tf.app.flags.DEFINE_string(
-    'train_dir', 'TRAIN_CNN_3D/train_logs',
+    'test_dir', 'results/TRAIN_CNN_3D/test_logs',
     'Directory where checkpoints and event logs are written to.')
+
+tf.app.flags.DEFINE_string(
+    'checkpoint_dir', 'results/TRAIN_CNN_3D',
+    'Directory where checkpoints and event logs are written to.')
+
 
 tf.app.flags.DEFINE_integer('num_clones', 1,
                             'Number of model clones to deploy.')
@@ -71,7 +75,7 @@ tf.app.flags.DEFINE_string(
     'exponential',
     'Specifies how the learning rate is decayed. One of "fixed", "exponential",'
     ' or "polynomial"')
-
+ 
 tf.app.flags.DEFINE_float('learning_rate', 0.01, 'Initial learning rate.')
 
 tf.app.flags.DEFINE_float(
@@ -125,7 +129,7 @@ tf.app.flags.DEFINE_integer(
 
 tf.app.flags.DEFINE_string(
     'checkpoint_path', None,
-    'The path to a checkpoint from which to fine-tune. ex:/home/sina/TRAIN_CASIA/train_logs/vgg_19.cpkt')
+    'The path to a checkpoint from which to fine-tune. ex:/home/user/TRAIN/train_logs')
 
 tf.app.flags.DEFINE_string(
     'checkpoint_exclude_scopes', None,
@@ -506,11 +510,11 @@ def main(_):
         sess.run(tf.local_variables_initializer())
 
         # Restore the model
-        latest_checkpoint = tf.train.latest_checkpoint(checkpoint_dir='TRAIN_CNN_3D/')
+        latest_checkpoint = tf.train.latest_checkpoint(checkpoint_dir=FLAGS.checkpoint_dir)
         saver.restore(sess, latest_checkpoint)
 
         # op to write logs to Tensorboard
-        summary_writer = tf.summary.FileWriter(FLAGS.train_dir, graph=graph)
+        summary_writer = tf.summary.FileWriter(FLAGS.test_dir, graph=graph)
 
         ###################################################
         ############################ TEST  ################
