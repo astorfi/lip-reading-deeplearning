@@ -13,7 +13,7 @@ install:
 
 script:
 
-  - coverage run --omit=*.virtualenvs*,*virtualenv* code/training_evaluation/train.py test
+  - coverage run --omit=*.virtualenvs*,*virtualenv* code/lip_tracking/VisualizeLip.py test
 
 after_success:
   coveralls
