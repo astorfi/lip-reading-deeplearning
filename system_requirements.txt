@@ -1,4 +1,3 @@
 cmake
 libboost-python-dev
-ffmpeg
 libglib2.0-0
