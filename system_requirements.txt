@@ -1,6 +1,4 @@
-# The following packages must be installed using ``sudo apt-get`` or from their source. 
-
 cmake
-ffmpeg
 libboost-python-dev
+ffmpeg
 libglib2.0-0
