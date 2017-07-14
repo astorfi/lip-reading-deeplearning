@@ -7,13 +7,12 @@ python:
 
 # command to install dependencies
 install:
-  - cat system_requirements.txt | xargs sudo apt-get install
-  - pip install -r python_requirements.txt
+  - pip install -r training_requirements.txt
   - pip install coveralls
 
 script:
 
-  - coverage run --omit=*.virtualenvs*,*virtualenv* code/lip_tracking/VisualizeLip.py test
+  - coverage run --omit=*.virtualenvs*,*virtualenv* code/training_evaluation/train.py test
 
 after_success:
   coveralls
