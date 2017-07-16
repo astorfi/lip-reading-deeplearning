@@ -9,7 +9,6 @@ import pdb
 import sys
 import scipy.io as sio
 from sklearn import *
-import matplotlib.pyplot as plt
 
 def calculate_eer_auc_ap(label,distance):
 
