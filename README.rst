@@ -60,6 +60,30 @@ Table of Contents
   :local:
   :depth: 3
 
+
+-----
+DEMO
+-----
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+Training/Evaluation DEMO
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+|training|
+
+.. |training| image:: readme_images/liptrackingdemo.png
+    :target: https://asciinema.org/a/kXIDzZt1UzRioL1gDPzOy9VkZ
+
+~~~~~~~~~~~~~
+Lip Tracking
+~~~~~~~~~~~~~
+
+|liptrackingdemo|
+
+.. |Asciinema| image:: readme_images/liptrackingdemo.png
+    :target: https://asciinema.org/a/RiZtscEJscrjLUIhZKkoG3GVm
+.. https://asciinema.org/a/m1r1OaoUXsEECNZKzpkfAXg7y
+
 --------------
 General View
 --------------
