@@ -74,13 +74,13 @@ Training/Evaluation DEMO
 .. |training| image:: readme_images/liptrackingdemo.png
     :target: https://asciinema.org/a/kXIDzZt1UzRioL1gDPzOy9VkZ
 
-~~~~~~~~~~~~~
-Lip Tracking
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+Lip Tracking DEMO
+~~~~~~~~~~~~~~~~~
 
 |liptrackingdemo|
 
-.. |Asciinema| image:: readme_images/liptrackingdemo.png
+.. |liptrackingdemo| image:: readme_images/liptrackingdemo.png
     :target: https://asciinema.org/a/RiZtscEJscrjLUIhZKkoG3GVm
 .. https://asciinema.org/a/m1r1OaoUXsEECNZKzpkfAXg7y
 
