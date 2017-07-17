@@ -15,6 +15,11 @@ from roc_curve import calculate_roc
 # import matplotlib.pyplot as plt
 slim = tf.contrib.slim
 
+try:
+    xrange          # Python 2
+except NameError:
+    xrange = range  # Python 3
+
 ######################
 # Train Directory #
 ######################
