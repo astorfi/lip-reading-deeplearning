@@ -111,7 +111,7 @@ tf.app.flags.DEFINE_string(
 
 
 tf.app.flags.DEFINE_integer(
-    'batch_size', 64, 'The number of samples in each batch.')
+    'batch_size', 128, 'The number of samples in each batch.')
 
 tf.app.flags.DEFINE_integer(
     'num_epochs', 1, 'The number of epochs for training.')
