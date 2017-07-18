@@ -15,10 +15,6 @@ from roc_curve import calculate_roc
 # import matplotlib.pyplot as plt
 slim = tf.contrib.slim
 
-try:
-    xrange          # Python 2
-except NameError:
-    xrange = range  # Python 3
 
 ######################
 # Train Directory #
@@ -402,7 +398,7 @@ def main(_):
         ################################
         tower_grads = []
         with tf.variable_scope(tf.get_variable_scope()):
-            for i in xrange(FLAGS.num_clones):
+            for i in range(FLAGS.num_clones):
                 with tf.device('/gpu:%d' % i):
                     with tf.name_scope('%s_%d' % ('tower', i)) as scope:
                         """
