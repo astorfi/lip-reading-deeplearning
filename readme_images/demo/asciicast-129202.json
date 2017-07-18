@@ -1,0 +1,3182 @@
+{
+  "height": 24,
+  "width": 80,
+  "stdout": [
+    [
+      0.085227,
+      "\u001b]0;sina@sina-Alienware-Area-51-R2: ~\u0007sina@sina-Alienware-Area-51-R2:~$ "
+    ],
+    [
+      1.295695,
+      "#"
+    ],
+    [
+      0.303875,
+      " "
+    ],
+    [
+      0.287901,
+      "W"
+    ],
+    [
+      0.303953,
+      "e"
+    ],
+    [
+      0.704455,
+      "l"
+    ],
+    [
+      0.191576,
+      "c"
+    ],
+    [
+      0.192178,
+      "o"
+    ],
+    [
+      0.28782,
+      "m"
+    ],
+    [
+      0.096094,
+      "e"
+    ],
+    [
+      0.079861,
+      " "
+    ],
+    [
+      0.224027,
+      "t"
+    ],
+    [
+      0.111949,
+      "o"
+    ],
+    [
+      0.17616,
+      " "
+    ],
+    [
+      0.368295,
+      "l"
+    ],
+    [
+      0.656011,
+      "i"
+    ],
+    [
+      0.223601,
+      "p"
+    ],
+    [
+      0.128003,
+      " "
+    ],
+    [
+      0.255975,
+      "t"
+    ],
+    [
+      0.224044,
+      "r"
+    ],
+    [
+      0.160089,
+      "a"
+    ],
+    [
+      0.191903,
+      "c"
+    ],
+    [
+      0.111563,
+      "k"
+    ],
+    [
+      0.19246,
+      "i"
+    ],
+    [
+      0.223903,
+      "n"
+    ],
+    [
+      0.016024,
+      "g"
+    ],
+    [
+      0.080026,
+      " "
+    ],
+    [
+      0.208323,
+      "d"
+    ],
+    [
+      0.207858,
+      "e"
+    ],
+    [
+      0.576405,
+      "m"
+    ],
+    [
+      0.287725,
+      "o"
+    ],
+    [
+      0.239806,
+      "\r\n"
+    ],
+    [
+      0.000443,
+      "\u001b]0;sina@sina-Alienware-Area-51-R2: ~\u0007sina@sina-Alienware-Area-51-R2:~$ "
+    ],
+    [
+      1.119743,
+      "#"
+    ],
+    [
+      0.207845,
+      " "
+    ],
+    [
+      0.656139,
+      "F"
+    ],
+    [
+      0.239955,
+      "i"
+    ],
+    [
+      0.063437,
+      "r"
+    ],
+    [
+      0.160394,
+      "s"
+    ],
+    [
+      0.224185,
+      "t"
+    ],
+    [
+      0.047848,
+      " "
+    ],
+    [
+      0.512197,
+      "c"
+    ],
+    [
+      0.191742,
+      "l"
+    ],
+    [
+      0.192086,
+      "o"
+    ],
+    [
+      0.256141,
+      "n"
+    ],
+    [
+      0.063867,
+      "e"
+    ],
+    [
+      0.080054,
+      " "
+    ],
+    [
+      0.239962,
+      "t"
+    ],
+    [
+      0.07952,
+      "h"
+    ],
+    [
+      0.144438,
+      "e"
+    ],
+    [
+      0.080002,
+      " "
+    ],
+    [
+      0.240092,
+      "p"
+    ],
+    [
+      0.336032,
+      "r"
+    ],
+    [
+      0.095829,
+      "o"
+    ],
+    [
+      0.288015,
+      "j"
+    ],
+    [
+      0.095994,
+      "e"
+    ],
+    [
+      0.224175,
+      "c"
+    ],
+    [
+      0.239948,
+      "t"
+    ],
+    [
+      1.424455,
+      "\r\n"
+    ],
+    [
+      0.000428,
+      "\u001b]0;sina@sina-Alienware-Area-51-R2: ~\u0007sina@sina-Alienware-Area-51-R2:~$ "
+    ],
+    [
+      0.926929,
+      "#"
+    ],
+    [
+      0.208304,
+      " "
+    ],
+    [
+      0.319734,
+      "S"
+    ],
+    [
+      0.368193,
+      "e"
+    ],
+    [
+      0.496036,
+      "c"
+    ],
+    [
+      0.287922,
+      "o"
+    ],
+    [
+      0.287795,
+      "n"
+    ],
+    [
+      0.159976,
+      "d"
+    ],
+    [
+      0.064125,
+      " "
+    ],
+    [
+      0.320158,
+      "p"
+    ],
+    [
+      0.223938,
+      "l"
+    ],
+    [
+      0.031872,
+      "e"
+    ],
+    [
+      0.192058,
+      "a"
+    ],
+    [
+      0.144599,
+      "s"
+    ],
+    [
+      0.207342,
+      "e"
+    ],
+    [
+      0.09573,
+      " "
+    ],
+    [
+      1.728707,
+      "c"
+    ],
+    [
+      0.127585,
+      "d"
+    ],
+    [
+      0.096019,
+      " "
+    ],
+    [
+      0.768122,
+      "t"
+    ],
+    [
+      0.160011,
+      "o"
+    ],
+    [
+      0.079421,
+      " "
+    ],
+    [
+      0.192364,
+      "t"
+    ],
+    [
+      0.112015,
+      "h"
+    ],
+    [
+      0.127855,
+      "e"
+    ],
+    [
+      0.064057,
+      " "
+    ],
+    [
+      0.208046,
+      "l"
+    ],
+    [
+      0.224125,
+      "o"
+    ],
+    [
+      0.047893,
+      "c"
+    ],
+    [
+      0.111986,
+      "a"
+    ],
+    [
+      0.192005,
+      "l"
+    ],
+    [
+      0.079624,
+      " "
+    ],
+    [
+      0.945017,
+      "d"
+    ],
+    [
+      0.271307,
+      "i"
+    ],
+    [
+      0.112063,
+      "r"
+    ],
+    [
+      0.176103,
+      "e"
+    ],
+    [
+      0.191964,
+      "c"
+    ],
+    [
+      0.271985,
+      "t"
+    ],
+    [
+      0.159835,
+      "o"
+    ],
+    [
+      0.304181,
+      "r"
+    ],
+    [
+      0.928404,
+      "d"
+    ],
+    [
+      0.127693,
+      "y"
+    ],
+    [
+      0.384397,
+      "\b\u001b[K"
+    ],
+    [
+      0.175349,
+      "\b\u001b[K"
+    ],
+    [
+      0.928662,
+      "y"
+    ],
+    [
+      0.079458,
+      " "
+    ],
+    [
+      0.207912,
+      "o"
+    ],
+    [
+      0.080079,
+      "f"
+    ],
+    [
+      0.080016,
+      " "
+    ],
+    [
+      0.208035,
+      "t \r"
+    ],
+    [
+      0.095905,
+      "h"
+    ],
+    [
+      0.112075,
+      "e"
+    ],
+    [
+      0.079955,
+      " "
+    ],
+    [
+      0.223892,
+      "p"
+    ],
+    [
+      0.160053,
+      "r"
+    ],
+    [
+      0.127941,
+      "o"
+    ],
+    [
+      0.400155,
+      "j"
+    ],
+    [
+      0.079798,
+      "e"
+    ],
+    [
+      0.24021,
+      "c"
+    ],
+    [
+      0.271988,
+      "t"
+    ],
+    [
+      0.09554,
+      " "
+    ],
+    [
+      0.160478,
+      "a"
+    ],
+    [
+      0.128034,
+      "s"
+    ],
+    [
+      0.112019,
+      " "
+    ],
+    [
+      0.191916,
+      "f"
+    ],
+    [
+      0.159918,
+      "o"
+    ],
+    [
+      0.224146,
+      "l"
+    ],
+    [
+      0.159894,
+      "l"
+    ],
+    [
+      0.25605,
+      "o"
+    ],
+    [
+      0.127953,
+      "w"
+    ],
+    [
+      0.240003,
+      "s"
+    ],
+    [
+      0.544174,
+      "\r\n"
+    ],
+    [
+      0.000441,
+      "\u001b]0;sina@sina-Alienware-Area-51-R2: ~\u0007sina@sina-Alienware-Area-51-R2:~$ "
+    ],
+    [
+      1.839882,
+      "c"
+    ],
+    [
+      0.111531,
+      "d"
+    ],
+    [
+      0.080225,
+      " "
+    ],
+    [
+      0.62404,
+      "G"
+    ],
+    [
+      0.191818,
+      "I"
+    ],
+    [
+      0.063967,
+      "T"
+    ],
+    [
+      0.35807,
+      "HUB/"
+    ],
+    [
+      0.425972,
+      "\r\n"
+    ],
+    [
+      0.000513,
+      "\u001b]0;sina@sina-Alienware-Area-51-R2: ~/GITHUB\u0007sina@sina-Alienware-Area-51-R2:~/GITHUB$ "
+    ],
+    [
+      0.287578,
+      "c"
+    ],
+    [
+      0.095873,
+      "d"
+    ],
+    [
+      0.096032,
+      " "
+    ],
+    [
+      2.912555,
+      "l"
+    ],
+    [
+      0.223273,
+      "i"
+    ],
+    [
+      0.208106,
+      "p"
+    ],
+    [
+      0.149301,
+      "-reading-deeplearning/"
+    ],
+    [
+      1.419226,
+      "\r\n"
+    ],
+    [
+      0.001113,
+      "\u001b]0;sina@sina-Alienware-Area-51-R2: ~/GITHUB/lip-reading-deeplearning\u0007sina@sina-Alienware-Area-51-R2:~/GITHUB/lip-reading-deeplearning$ "
+    ],
+    [
+      1.326499,
+      "#"
+    ],
+    [
+      0.304228,
+      " "
+    ],
+    [
+      0.511818,
+      "N"
+    ],
+    [
+      0.239662,
+      "o"
+    ],
+    [
+      0.336452,
+      "w"
+    ],
+    [
+      0.111295,
+      " "
+    ],
+    [
+      1.505025,
+      "r"
+    ],
+    [
+      0.191471,
+      "i"
+    ],
+    [
+      0.30408,
+      "\b\u001b[K"
+    ],
+    [
+      0.271988,
+      "u"
+    ],
+    [
+      0.223802,
+      "n"
+    ],
+    [
+      0.079598,
+      " "
+    ],
+    [
+      0.192692,
+      "t"
+    ],
+    [
+      0.063355,
+      "h"
+    ],
+    [
+      0.144495,
+      "e"
+    ],
+    [
+      0.064047,
+      "  \r"
+    ],
+    [
+      1.088457,
+      "a"
+    ],
+    [
+      0.159469,
+      "s"
+    ],
+    [
+      0.159898,
+      "s"
+    ],
+    [
+      0.175931,
+      "o"
+    ],
+    [
+      0.112327,
+      "c"
+    ],
+    [
+      0.175815,
+      "i"
+    ],
+    [
+      0.063529,
+      "a"
+    ],
+    [
+      0.224545,
+      "t"
+    ],
+    [
+      0.191878,
+      "e"
+    ],
+    [
+      0.207934,
+      "d"
+    ],
+    [
+      0.096659,
+      " "
+    ],
+    [
+      0.575797,
+      "."
+    ],
+    [
+      0.383643,
+      "s"
+    ],
+    [
+      0.256126,
+      "h"
+    ],
+    [
+      0.095803,
+      " "
+    ],
+    [
+      0.68818,
+      "f"
+    ],
+    [
+      0.160006,
+      "i"
+    ],
+    [
+      0.239824,
+      "l"
+    ],
+    [
+      0.14407,
+      "e"
+    ],
+    [
+      0.512215,
+      "\r\n"
+    ],
+    [
+      0.000968,
+      "\u001b]0;sina@sina-Alienware-Area-51-R2: ~/GITHUB/lip-reading-deeplearning\u0007sina@sina-Alienware-Area-51-R2:~/GITHUB/lip-reading-deeplearning$ "
+    ],
+    [
+      1.135273,
+      "."
+    ],
+    [
+      0.223777,
+      "/"
+    ],
+    [
+      0.463816,
+      "l"
+    ],
+    [
+      0.224682,
+      "i"
+    ],
+    [
+      0.223377,
+      "p"
+    ],
+    [
+      0.25635,
+      "\u0007_tracking_\r_demo.sh"
+    ],
+    [
+      1.023945,
+      "\r\n"
+    ],
+    [
+      0.008742,
+      "ln: failed to create symbolic link ‘dlib/data’: File exists\r\n"
+    ],
+    [
+      0.445843,
+      "/home/sina/anaconda/lib/python2.7/site-packages/skvideo/__init__.py:356: UserWarning: avconv/avprobe not found in path: \r\n  warnings.warn(\"avconv/avprobe not found in path: \" + str(path), UserWarning)\r\n"
+    ],
+    [
+      0.961672,
+      "(266, 360, 480, 3)\r\n"
+    ],
+    [
+      0.033653,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.125409,
+      "0\r\n"
+    ],
+    [
+      6.6e-05,
+      "Mouth is not detectable. ...\r\nframe number 0 of 150\r\nwriting frame 1 with activation 0\r\n"
+    ],
+    [
+      0.010048,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.121794,
+      "0\r\n"
+    ],
+    [
+      2.6e-05,
+      "Mouth is not detectable. ...\r\n"
+    ],
+    [
+      2.1e-05,
+      "frame number 1 of 150\r\nwriting frame 2 with activation 0\r\n"
+    ],
+    [
+      0.001726,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.120988,
+      "0\r\n"
+    ],
+    [
+      3e-05,
+      "Mouth is not detectable. ...\r\nframe number 2 of 150\r\nwriting frame 3 with activation 0\r\n"
+    ],
+    [
+      0.001784,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.120019,
+      "0\r\n"
+    ],
+    [
+      0.00034,
+      "Mouth is not detectable. ...\r\nframe number 3 of 150\r\nwriting frame 4 with activation 0\r\n"
+    ],
+    [
+      0.001303,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.120451,
+      "0\r\n"
+    ],
+    [
+      3.1e-05,
+      "Mouth is not detectable. ...\r\nframe number 4 of 150\r\nwriting frame 5 with activation 0\r\n"
+    ],
+    [
+      0.001593,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11708,
+      "0\r\n"
+    ],
+    [
+      3.4e-05,
+      "Mouth is not detectable. ...\r\nframe number 5 of 150\r\nwriting frame 6 with activation 0\r\n"
+    ],
+    [
+      0.001592,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.117065,
+      "0\r\n"
+    ],
+    [
+      2.8e-05,
+      "Mouth is not detectable. ...\r\nframe number 6 of 150\r\nwriting frame 7 with activation 0\r\n"
+    ],
+    [
+      0.001596,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.118286,
+      "0\r\n"
+    ],
+    [
+      4.9e-05,
+      "Mouth is not detectable. ...\r\nframe number 7 of 150\r\nwriting frame 8 with activation 0\r\n"
+    ],
+    [
+      0.001658,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.119823,
+      "0\r\n"
+    ],
+    [
+      3.1e-05,
+      "Mouth is not detectable. ...\r\nframe number 8 of 150\r\nwriting frame 9 with activation 0\r\n"
+    ],
+    [
+      0.001575,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.119537,
+      "0\r\n"
+    ],
+    [
+      3.1e-05,
+      "Mouth is not detectable. ...\r\nframe number 9 of 150\r\nwriting frame 10 with activation 0\r\n"
+    ],
+    [
+      0.001555,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.120087,
+      "0\r\n"
+    ],
+    [
+      3e-05,
+      "Mouth is not detectable. ...\r\nframe number 10 of 150\r\nwriting frame 11 with activation 0\r\n"
+    ],
+    [
+      0.00167,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115149,
+      "0\r\n"
+    ],
+    [
+      3e-05,
+      "Mouth is not detectable. ...\r\nframe number 11 of 150\r\nwriting frame 12 with activation 0\r\n"
+    ],
+    [
+      0.001629,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11888,
+      "0\r\n"
+    ],
+    [
+      3.5e-05,
+      "Mouth is not detectable. ...\r\nframe number 12 of 150\r\nwriting frame 13 with activation 0\r\n"
+    ],
+    [
+      0.001547,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.118896,
+      "0\r\n"
+    ],
+    [
+      3e-05,
+      "Mouth is not detectable. ...\r\nframe number 13 of 150\r\nwriting frame 14 with activation 0\r\n"
+    ],
+    [
+      0.001595,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.114883,
+      "0\r\n"
+    ],
+    [
+      2.9e-05,
+      "Mouth is not detectable. ...\r\nframe number 14 of 150\r\nwriting frame 15 with activation 0\r\n"
+    ],
+    [
+      0.001589,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.114366,
+      "0\r\n"
+    ],
+    [
+      3.2e-05,
+      "Mouth is not detectable. ...\r\nframe number 15 of 150\r\nwriting frame 16 with activation 0\r\n"
+    ],
+    [
+      0.001594,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.114338,
+      "0\r\n"
+    ],
+    [
+      3.3e-05,
+      "Mouth is not detectable. ...\r\nframe number 16 of 150\r\nwriting frame 17 with activation 0\r\n"
+    ],
+    [
+      0.001819,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115415,
+      "0\r\n"
+    ],
+    [
+      3.3e-05,
+      "Mouth is not detectable. ...\r\nframe number 17 of 150\r\nwriting frame 18 with activation 0\r\n"
+    ],
+    [
+      0.00165,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.119006,
+      "0\r\n"
+    ],
+    [
+      5.7e-05,
+      "Mouth is not detectable. ...\r\nframe number 18 of 150\r\nwriting frame 19 with activation 0\r\n"
+    ],
+    [
+      0.001607,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.118371,
+      "0\r\n"
+    ],
+    [
+      3e-05,
+      "Mouth is not detectable. ...\r\nframe number 19 of 150\r\nwriting frame 20 with activation 0\r\n"
+    ],
+    [
+      0.001667,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.119002,
+      "0\r\nMouth is not detectable. ...\r\nframe number 20 of 150\r\nwriting frame 21 with activation 0\r\n"
+    ],
+    [
+      0.001622,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.120678,
+      "0\r\n"
+    ],
+    [
+      3.6e-05,
+      "Mouth is not detectable. ...\r\nframe number 21 of 150\r\nwriting frame 22 with activation 0\r\n"
+    ],
+    [
+      0.001533,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11498,
+      "0\r\n"
+    ],
+    [
+      2.9e-05,
+      "Mouth is not detectable. ...\r\nframe number 22 of 150\r\nwriting frame 23 with activation 0\r\n"
+    ],
+    [
+      0.001611,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11408,
+      "0\r\n"
+    ],
+    [
+      3.4e-05,
+      "Mouth is not detectable. ...\r\nframe number 23 of 150\r\nwriting frame 24 with activation 0\r\n"
+    ],
+    [
+      0.001621,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11522,
+      "0\r\n"
+    ],
+    [
+      3.3e-05,
+      "Mouth is not detectable. ...\r\nframe number 24 of 150\r\nwriting frame 25 with activation 0\r\n"
+    ],
+    [
+      0.001661,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.113952,
+      "0\r\n"
+    ],
+    [
+      3.1e-05,
+      "Mouth is not detectable. ...\r\nframe number 25 of 150\r\nwriting frame 26 with activation 0\r\n"
+    ],
+    [
+      0.001621,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.113928,
+      "0\r\n"
+    ],
+    [
+      3.5e-05,
+      "Mouth is not detectable. ...\r\nframe number 26 of 150\r\nwriting frame 27 with activation 0\r\n"
+    ],
+    [
+      0.0016,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116588,
+      "0\r\n"
+    ],
+    [
+      3.1e-05,
+      "Mouth is not detectable. ...\r\nframe number 27 of 150\r\nwriting frame 28 with activation 0\r\n"
+    ],
+    [
+      0.001617,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.113661,
+      "1\r\n"
+    ],
+    [
+      0.004771,
+      "The cropped mouth is detected ...\r\n"
+    ],
+    [
+      2.9e-05,
+      "frame number 28 of 150\r\nwriting frame 29 with activation 1\r\n"
+    ],
+    [
+      0.001623,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.114531,
+      "1\r\n"
+    ],
+    [
+      0.004588,
+      "The cropped mouth is detected ...\r\nframe number 29 of 150\r\nwriting frame 30 with activation 1\r\n"
+    ],
+    [
+      0.001588,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115872,
+      "1\r\n"
+    ],
+    [
+      0.004956,
+      "The cropped mouth is detected ...\r\nframe number 30 of 150\r\nwriting frame 31 with activation 1\r\n"
+    ],
+    [
+      0.001619,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.114815,
+      "1\r\n"
+    ],
+    [
+      0.004493,
+      "The cropped mouth is detected ...\r\nframe number 31 of 150\r\nwriting frame 32 with activation 1\r\n"
+    ],
+    [
+      0.001604,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.114283,
+      "1\r\n"
+    ],
+    [
+      0.004489,
+      "The cropped mouth is detected ...\r\nframe number 32 of 150\r\nwriting frame 33 with activation 1\r\n"
+    ],
+    [
+      0.001651,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.114235,
+      "1\r\n"
+    ],
+    [
+      0.004472,
+      "The cropped mouth is detected ...\r\nframe number 33 of 150\r\nwriting frame 34 with activation 1\r\n"
+    ],
+    [
+      0.001647,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.1158,
+      "1\r\n"
+    ],
+    [
+      0.004512,
+      "The cropped mouth is detected ...\r\nframe number 34 of 150\r\nwriting frame 35 with activation 1\r\n"
+    ],
+    [
+      0.001674,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.114677,
+      "1\r\n"
+    ],
+    [
+      0.004519,
+      "The cropped mouth is detected ...\r\nframe number 35 of 150\r\nwriting frame 36 with activation 1\r\n"
+    ],
+    [
+      0.001645,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116101,
+      "1\r\n"
+    ],
+    [
+      0.004522,
+      "The cropped mouth is detected ...\r\nframe number 36 of 150\r\nwriting frame 37 with activation 1\r\n"
+    ],
+    [
+      0.001643,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.114422,
+      "1\r\n"
+    ],
+    [
+      0.004673,
+      "The cropped mouth is detected ...\r\nframe number 37 of 150\r\nwriting frame 38 with activation 1\r\n"
+    ],
+    [
+      0.001663,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115885,
+      "1\r\n"
+    ],
+    [
+      0.004534,
+      "The cropped mouth is detected ...\r\nframe number 38 of 150\r\nwriting frame 39 with activation 1\r\n"
+    ],
+    [
+      0.001771,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.114593,
+      "1\r\n"
+    ],
+    [
+      0.004538,
+      "The cropped mouth is detected ...\r\nframe number 39 of 150\r\nwriting frame 40 with activation 1\r\n"
+    ],
+    [
+      0.001766,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.114468,
+      "1\r\n"
+    ],
+    [
+      0.00453,
+      "The cropped mouth is detected ...\r\nframe number 40 of 150\r\nwriting frame 41 with activation 1\r\n"
+    ],
+    [
+      0.001668,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115546,
+      "1\r\n"
+    ],
+    [
+      0.004492,
+      "The cropped mouth is detected ...\r\nframe number 41 of 150\r\nwriting frame 42 with activation 1\r\n"
+    ],
+    [
+      0.001637,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.117275,
+      "1\r\n"
+    ],
+    [
+      0.004481,
+      "The cropped mouth is detected ...\r\nframe number 42 of 150\r\nwriting frame 43 with activation 1\r\n"
+    ],
+    [
+      0.001624,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11448,
+      "1\r\n"
+    ],
+    [
+      0.004476,
+      "The cropped mouth is detected ...\r\nframe number 43 of 150\r\nwriting frame 44 with activation 1\r\n"
+    ],
+    [
+      0.001643,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115237,
+      "1\r\n"
+    ],
+    [
+      0.004526,
+      "The cropped mouth is detected ...\r\nframe number 44 of 150\r\nwriting frame 45 with activation 1\r\n"
+    ],
+    [
+      0.001616,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.114207,
+      "1\r\n"
+    ],
+    [
+      0.004499,
+      "The cropped mouth is detected ...\r\nframe number 45 of 150\r\nwriting frame 46 with activation 1\r\n"
+    ],
+    [
+      0.001751,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.1162,
+      "1\r\n"
+    ],
+    [
+      0.004488,
+      "The cropped mouth is detected ...\r\nframe number 46 of 150\r\nwriting frame 47 with activation 1\r\n"
+    ],
+    [
+      0.00159,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.1209,
+      "1\r\n"
+    ],
+    [
+      0.004542,
+      "The cropped mouth is detected ...\r\nframe number 47 of 150\r\nwriting frame 48 with activation 1\r\n"
+    ],
+    [
+      0.001649,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115537,
+      "1\r\n"
+    ],
+    [
+      0.004463,
+      "The cropped mouth is detected ...\r\nframe number 48 of 150\r\nwriting frame 49 with activation 1\r\n"
+    ],
+    [
+      0.001845,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116027,
+      "1\r\n"
+    ],
+    [
+      0.004473,
+      "The cropped mouth is detected ...\r\nframe number 49 of 150\r\nwriting frame 50 with activation 1\r\n"
+    ],
+    [
+      0.001747,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116394,
+      "1\r\n"
+    ],
+    [
+      0.004527,
+      "The cropped mouth is detected ...\r\nframe number 50 of 150\r\nwriting frame 51 with activation 1\r\n"
+    ],
+    [
+      0.001863,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116126,
+      "1\r\n"
+    ],
+    [
+      0.004465,
+      "The cropped mouth is detected ...\r\nframe number 51 of 150\r\nwriting frame 52 with activation 1\r\n"
+    ],
+    [
+      0.001793,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.117605,
+      "1\r\n"
+    ],
+    [
+      0.004503,
+      "The cropped mouth is detected ...\r\nframe number 52 of 150\r\nwriting frame 53 with activation 1\r\n"
+    ],
+    [
+      0.001823,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.117509,
+      "1\r\n"
+    ],
+    [
+      0.004508,
+      "The cropped mouth is detected ...\r\nframe number 53 of 150\r\nwriting frame 54 with activation 1\r\n"
+    ],
+    [
+      0.001748,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115823,
+      "1\r\n"
+    ],
+    [
+      0.004491,
+      "The cropped mouth is detected ...\r\nframe number 54 of 150\r\nwriting frame 55 with activation 1\r\n"
+    ],
+    [
+      0.001834,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.117625,
+      "1\r\n"
+    ],
+    [
+      0.004506,
+      "The cropped mouth is detected ...\r\nframe number 55 of 150\r\nwriting frame 56 with activation 1\r\n"
+    ],
+    [
+      0.001779,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116695,
+      "1\r\n"
+    ],
+    [
+      0.004497,
+      "The cropped mouth is detected ...\r\nframe number 56 of 150\r\nwriting frame 57 with activation 1\r\n"
+    ],
+    [
+      0.00185,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116637,
+      "1\r\n"
+    ],
+    [
+      0.00444,
+      "The cropped mouth is detected ...\r\nframe number 57 of 150\r\nwriting frame 58 with activation 1\r\n"
+    ],
+    [
+      0.001769,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116092,
+      "1\r\n"
+    ],
+    [
+      0.004473,
+      "The cropped mouth is detected ...\r\nframe number 58 of 150\r\nwriting frame 59 with activation 1\r\n"
+    ],
+    [
+      0.001775,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.118358,
+      "1\r\n"
+    ],
+    [
+      0.004459,
+      "The cropped mouth is detected ...\r\nframe number 59 of 150\r\nwriting frame 60 with activation 1\r\n"
+    ],
+    [
+      0.001785,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116795,
+      "1\r\n"
+    ],
+    [
+      0.004478,
+      "The cropped mouth is detected ...\r\nframe number 60 of 150\r\nwriting frame 61 with activation 1\r\n"
+    ],
+    [
+      0.001677,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115902,
+      "1\r\n"
+    ],
+    [
+      0.004471,
+      "The cropped mouth is detected ...\r\nframe number 61 of 150\r\nwriting frame 62 with activation 1\r\n"
+    ],
+    [
+      0.001618,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115659,
+      "1\r\n"
+    ],
+    [
+      0.004478,
+      "The cropped mouth is detected ...\r\nframe number 62 of 150\r\nwriting frame 63 with activation 1\r\n"
+    ],
+    [
+      0.00185,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.119319,
+      "1\r\n"
+    ],
+    [
+      0.004493,
+      "The cropped mouth is detected ...\r\nframe number 63 of 150\r\nwriting frame 64 with activation 1\r\n"
+    ],
+    [
+      0.001769,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.118137,
+      "1\r\n"
+    ],
+    [
+      0.004474,
+      "The cropped mouth is detected ...\r\nframe number 64 of 150\r\nwriting frame 65 with activation 1\r\n"
+    ],
+    [
+      0.001629,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116022,
+      "1\r\n"
+    ],
+    [
+      0.004469,
+      "The cropped mouth is detected ...\r\nframe number 65 of 150\r\nwriting frame 66 with activation 1\r\n"
+    ],
+    [
+      0.001584,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116552,
+      "1\r\n"
+    ],
+    [
+      0.004488,
+      "The cropped mouth is detected ...\r\nframe number 66 of 150\r\nwriting frame 67 with activation 1\r\n"
+    ],
+    [
+      0.00161,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116621,
+      "1\r\n"
+    ],
+    [
+      0.004486,
+      "The cropped mouth is detected ...\r\nframe number 67 of 150\r\nwriting frame 68 with activation 1\r\n"
+    ],
+    [
+      0.001621,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116555,
+      "1\r\n"
+    ],
+    [
+      0.004557,
+      "The cropped mouth is detected ...\r\nframe number 68 of 150\r\nwriting frame 69 with activation 1\r\n"
+    ],
+    [
+      0.001659,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115854,
+      "1\r\n"
+    ],
+    [
+      0.004499,
+      "The cropped mouth is detected ...\r\nframe number 69 of 150\r\nwriting frame 70 with activation 1\r\n"
+    ],
+    [
+      0.001624,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115949,
+      "1\r\n"
+    ],
+    [
+      0.004521,
+      "The cropped mouth is detected ...\r\nframe number 70 of 150\r\nwriting frame 71 with activation 1\r\n"
+    ],
+    [
+      0.002804,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.117808,
+      "1\r\n"
+    ],
+    [
+      0.004471,
+      "The cropped mouth is detected ...\r\nframe number 71 of 150\r\nwriting frame 72 with activation 1\r\n"
+    ],
+    [
+      0.001659,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116444,
+      "1\r\n"
+    ],
+    [
+      0.004483,
+      "The cropped mouth is detected ...\r\nframe number 72 of 150\r\nwriting frame 73 with activation 1\r\n"
+    ],
+    [
+      0.001664,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116654,
+      "1\r\n"
+    ],
+    [
+      0.004531,
+      "The cropped mouth is detected ...\r\nframe number 73 of 150\r\nwriting frame 74 with activation 1\r\n"
+    ],
+    [
+      0.001622,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115295,
+      "1\r\n"
+    ],
+    [
+      0.004479,
+      "The cropped mouth is detected ...\r\nframe number 74 of 150\r\nwriting frame 75 with activation 1\r\n"
+    ],
+    [
+      0.001665,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116794,
+      "1\r\n"
+    ],
+    [
+      0.004478,
+      "The cropped mouth is detected ...\r\nframe number 75 of 150\r\nwriting frame 76 with activation 1\r\n"
+    ],
+    [
+      0.001621,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116515,
+      "1\r\n"
+    ],
+    [
+      0.004748,
+      "The cropped mouth is detected ...\r\nframe number 76 of 150\r\nwriting frame 77 with activation 1\r\n"
+    ],
+    [
+      0.001663,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11625,
+      "1\r\n"
+    ],
+    [
+      0.00449,
+      "The cropped mouth is detected ...\r\nframe number 77 of 150\r\nwriting frame 78 with activation 1\r\n"
+    ],
+    [
+      0.001705,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115373,
+      "1\r\n"
+    ],
+    [
+      0.004479,
+      "The cropped mouth is detected ...\r\nframe number 78 of 150\r\nwriting frame 79 with activation 1\r\n"
+    ],
+    [
+      0.001621,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.121388,
+      "1\r\n"
+    ],
+    [
+      0.004558,
+      "The cropped mouth is detected ...\r\n"
+    ],
+    [
+      2e-05,
+      "frame number 79 of 150\r\nwriting frame 80 with activation 1\r\n"
+    ],
+    [
+      0.001592,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11597,
+      "1\r\n"
+    ],
+    [
+      0.004465,
+      "The cropped mouth is detected ...\r\nframe number 80 of 150\r\nwriting frame 81 with activation 1\r\n"
+    ],
+    [
+      0.001655,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115208,
+      "1\r\n"
+    ],
+    [
+      0.00447,
+      "The cropped mouth is detected ...\r\nframe number 81 of 150\r\nwriting frame 82 with activation 1\r\n"
+    ],
+    [
+      0.001655,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115685,
+      "1\r\n"
+    ],
+    [
+      0.004617,
+      "The cropped mouth is detected ...\r\nframe number 82 of 150\r\nwriting frame 83 with activation 1\r\n"
+    ],
+    [
+      0.001681,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.119474,
+      "1\r\n"
+    ],
+    [
+      0.00447,
+      "The cropped mouth is detected ...\r\nframe number 83 of 150\r\nwriting frame 84 with activation 1\r\n"
+    ],
+    [
+      0.00168,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.118444,
+      "1\r\n"
+    ],
+    [
+      0.004499,
+      "The cropped mouth is detected ...\r\nframe number 84 of 150\r\nwriting frame 85 with activation 1\r\n"
+    ],
+    [
+      0.001634,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115872,
+      "1\r\n"
+    ],
+    [
+      0.004452,
+      "The cropped mouth is detected ...\r\nframe number 85 of 150\r\nwriting frame 86 with activation 1\r\n"
+    ],
+    [
+      0.001636,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116504,
+      "1\r\n"
+    ],
+    [
+      0.004468,
+      "The cropped mouth is detected ...\r\nframe number 86 of 150\r\nwriting frame 87 with activation 1\r\n"
+    ],
+    [
+      0.001632,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.120517,
+      "1\r\n"
+    ],
+    [
+      0.004487,
+      "The cropped mouth is detected ...\r\nframe number 87 of 150\r\nwriting frame 88 with activation 1\r\n"
+    ],
+    [
+      0.001635,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11558,
+      "1\r\n"
+    ],
+    [
+      0.004493,
+      "The cropped mouth is detected ...\r\nframe number 88 of 150\r\nwriting frame 89 with activation 1\r\n"
+    ],
+    [
+      0.001641,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116657,
+      "1\r\n"
+    ],
+    [
+      0.004495,
+      "The cropped mouth is detected ...\r\nframe number 89 of 150\r\nwriting frame 90 with activation 1\r\n"
+    ],
+    [
+      0.00167,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116134,
+      "1\r\n"
+    ],
+    [
+      0.004462,
+      "The cropped mouth is detected ...\r\nframe number 90 of 150\r\nwriting frame 91 with activation 1\r\n"
+    ],
+    [
+      0.001646,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.118231,
+      "1\r\n"
+    ],
+    [
+      0.004466,
+      "The cropped mouth is detected ...\r\nframe number 91 of 150\r\nwriting frame 92 with activation 1\r\n"
+    ],
+    [
+      0.001663,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.121155,
+      "1\r\n"
+    ],
+    [
+      0.004526,
+      "The cropped mouth is detected ...\r\nframe number 92 of 150\r\nwriting frame 93 with activation 1\r\n"
+    ],
+    [
+      0.001666,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116771,
+      "1\r\n"
+    ],
+    [
+      0.004477,
+      "The cropped mouth is detected ...\r\nframe number 93 of 150\r\nwriting frame 94 with activation 1\r\n"
+    ],
+    [
+      0.001656,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116774,
+      "1\r\n"
+    ],
+    [
+      0.004478,
+      "The cropped mouth is detected ...\r\nframe number 94 of 150\r\nwriting frame 95 with activation 1\r\n"
+    ],
+    [
+      0.001657,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.12067,
+      "1\r\n"
+    ],
+    [
+      0.004535,
+      "The cropped mouth is detected ...\r\n"
+    ],
+    [
+      2.2e-05,
+      "frame number 95 of 150\r\nwriting frame 96 with activation 1\r\n"
+    ],
+    [
+      0.001637,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116908,
+      "1\r\n"
+    ],
+    [
+      0.004478,
+      "The cropped mouth is detected ...\r\nframe number 96 of 150\r\nwriting frame 97 with activation 1\r\n"
+    ],
+    [
+      0.001628,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.117666,
+      "1\r\n"
+    ],
+    [
+      0.004501,
+      "The cropped mouth is detected ...\r\nframe number 97 of 150\r\nwriting frame 98 with activation 1\r\n"
+    ],
+    [
+      0.001645,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.1158,
+      "1\r\n"
+    ],
+    [
+      0.004463,
+      "The cropped mouth is detected ...\r\nframe number 98 of 150\r\nwriting frame 99 with activation 1\r\n"
+    ],
+    [
+      0.00166,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116393,
+      "1\r\n"
+    ],
+    [
+      0.004466,
+      "The cropped mouth is detected ...\r\nframe number 99 of 150\r\nwriting frame 100 with activation 1\r\n"
+    ],
+    [
+      0.001627,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11555,
+      "1\r\n"
+    ],
+    [
+      0.004476,
+      "The cropped mouth is detected ...\r\nframe number 100 of 150\r\nwriting frame 101 with activation 1\r\n"
+    ],
+    [
+      0.001667,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116538,
+      "1\r\n"
+    ],
+    [
+      0.004508,
+      "The cropped mouth is detected ...\r\nframe number 101 of 150\r\nwriting frame 102 with activation 1\r\n"
+    ],
+    [
+      0.001653,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115752,
+      "1\r\n"
+    ],
+    [
+      0.00457,
+      "The cropped mouth is detected ...\r\nframe number 102 of 150\r\nwriting frame 103 with activation 1\r\n"
+    ],
+    [
+      0.001644,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116205,
+      "1\r\n"
+    ],
+    [
+      0.00448,
+      "The cropped mouth is detected ...\r\nframe number 103 of 150\r\nwriting frame 104 with activation 1\r\n"
+    ],
+    [
+      0.001673,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115444,
+      "1\r\n"
+    ],
+    [
+      0.004528,
+      "The cropped mouth is detected ...\r\nframe number 104 of 150\r\nwriting frame 105 with activation 1\r\n"
+    ],
+    [
+      0.001623,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115428,
+      "1\r\n"
+    ],
+    [
+      0.004602,
+      "The cropped mouth is detected ...\r\nframe number 105 of 150\r\nwriting frame 106 with activation 1\r\n"
+    ],
+    [
+      0.001644,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.119756,
+      "1\r\n"
+    ],
+    [
+      0.004504,
+      "The cropped mouth is detected ...\r\nframe number 106 of 150\r\nwriting frame 107 with activation 1\r\n"
+    ],
+    [
+      0.001706,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.117907,
+      "1\r\n"
+    ],
+    [
+      0.00449,
+      "The cropped mouth is detected ...\r\nframe number 107 of 150\r\nwriting frame 108 with activation 1\r\n"
+    ],
+    [
+      0.001652,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115681,
+      "1\r\n"
+    ],
+    [
+      0.004542,
+      "The cropped mouth is detected ...\r\nframe number 108 of 150\r\nwriting frame 109 with activation 1\r\n"
+    ],
+    [
+      0.001623,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.117233,
+      "1\r\n"
+    ],
+    [
+      0.004468,
+      "The cropped mouth is detected ...\r\nframe number 109 of 150\r\nwriting frame 110 with activation 1\r\n"
+    ],
+    [
+      0.00163,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115785,
+      "1\r\n"
+    ],
+    [
+      0.004467,
+      "The cropped mouth is detected ...\r\nframe number 110 of 150\r\nwriting frame 111 with activation 1\r\n"
+    ],
+    [
+      0.001659,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115909,
+      "1\r\n"
+    ],
+    [
+      0.006424,
+      "The cropped mouth is detected ...\r\n"
+    ],
+    [
+      3.3e-05,
+      "frame number 111 of 150\r\nwriting frame 112 with activation 1\r\n"
+    ],
+    [
+      0.002967,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.198812,
+      "1\r\n"
+    ],
+    [
+      0.005217,
+      "The cropped mouth is detected ...\r\nframe number 112 of 150\r\nwriting frame 113 with activation 1\r\n"
+    ],
+    [
+      0.00185,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.132441,
+      "1\r\n"
+    ],
+    [
+      0.004937,
+      "The cropped mouth is detected ...\r\nframe number 113 of 150\r\nwriting frame 114 with activation 1\r\n"
+    ],
+    [
+      0.001796,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.131992,
+      "1\r\n"
+    ],
+    [
+      0.00496,
+      "The cropped mouth is detected ...\r\nframe number 114 of 150\r\nwriting frame 115 with activation 1\r\n"
+    ],
+    [
+      0.001795,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.131878,
+      "1\r\n"
+    ],
+    [
+      0.004943,
+      "The cropped mouth is detected ...\r\nframe number 115 of 150\r\nwriting frame 116 with activation 1\r\n"
+    ],
+    [
+      0.001827,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.13193,
+      "1\r\n"
+    ],
+    [
+      0.004984,
+      "The cropped mouth is detected ...\r\nframe number 116 of 150\r\nwriting frame 117 with activation 1\r\n"
+    ],
+    [
+      0.001809,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.131837,
+      "1\r\n"
+    ],
+    [
+      0.004954,
+      "The cropped mouth is detected ...\r\nframe number 117 of 150\r\nwriting frame 118 with activation 1\r\n"
+    ],
+    [
+      0.001812,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.127313,
+      "1\r\n"
+    ],
+    [
+      0.004607,
+      "The cropped mouth is detected ...\r\nframe number 118 of 150\r\nwriting frame 119 with activation 1\r\n"
+    ],
+    [
+      0.001663,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116172,
+      "1\r\n"
+    ],
+    [
+      0.004468,
+      "The cropped mouth is detected ...\r\nframe number 119 of 150\r\nwriting frame 120 with activation 1\r\n"
+    ],
+    [
+      0.001667,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116229,
+      "1\r\n"
+    ],
+    [
+      0.004524,
+      "The cropped mouth is detected ...\r\nframe number 120 of 150\r\nwriting frame 121 with activation 1\r\n"
+    ],
+    [
+      0.001628,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.119056,
+      "1\r\n"
+    ],
+    [
+      0.004457,
+      "The cropped mouth is detected ...\r\nframe number 121 of 150\r\nwriting frame 122 with activation 1\r\n"
+    ],
+    [
+      0.001578,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115776,
+      "1\r\n"
+    ],
+    [
+      0.004475,
+      "The cropped mouth is detected ...\r\nframe number 122 of 150\r\nwriting frame 123 with activation 1\r\n"
+    ],
+    [
+      0.001637,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.120602,
+      "1\r\n"
+    ],
+    [
+      0.004701,
+      "The cropped mouth is detected ...\r\nframe number 123 of 150\r\nwriting frame 124 with activation 1\r\n"
+    ],
+    [
+      0.001617,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116428,
+      "1\r\n"
+    ],
+    [
+      0.004556,
+      "The cropped mouth is detected ...\r\nframe number 124 of 150\r\nwriting frame 125 with activation 1\r\n"
+    ],
+    [
+      0.001683,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.119873,
+      "1\r\n"
+    ],
+    [
+      0.004498,
+      "The cropped mouth is detected ...\r\nframe number 125 of 150\r\nwriting frame 126 with activation 1\r\n"
+    ],
+    [
+      0.001577,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.121244,
+      "1\r\n"
+    ],
+    [
+      0.004531,
+      "The cropped mouth is detected ...\r\nframe number 126 of 150\r\nwriting frame 127 with activation 1\r\n"
+    ],
+    [
+      0.00159,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116699,
+      "1\r\n"
+    ],
+    [
+      0.004496,
+      "The cropped mouth is detected ...\r\nframe number 127 of 150\r\nwriting frame 128 with activation 1\r\n"
+    ],
+    [
+      0.001698,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11561,
+      "1\r\n"
+    ],
+    [
+      0.004506,
+      "The cropped mouth is detected ...\r\nframe number 128 of 150\r\nwriting frame 129 with activation 1\r\n"
+    ],
+    [
+      0.001639,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116143,
+      "1\r\n"
+    ],
+    [
+      0.004463,
+      "The cropped mouth is detected ...\r\nframe number 129 of 150\r\nwriting frame 130 with activation 1\r\n"
+    ],
+    [
+      0.001661,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.117009,
+      "1\r\n"
+    ],
+    [
+      0.00449,
+      "The cropped mouth is detected ...\r\nframe number 130 of 150\r\nwriting frame 131 with activation 1\r\n"
+    ],
+    [
+      0.001641,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116337,
+      "1\r\n"
+    ],
+    [
+      0.004468,
+      "The cropped mouth is detected ...\r\nframe number 131 of 150\r\nwriting frame 132 with activation 1\r\n"
+    ],
+    [
+      0.001646,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.117288,
+      "1\r\n"
+    ],
+    [
+      0.004503,
+      "The cropped mouth is detected ...\r\nframe number 132 of 150\r\nwriting frame 133 with activation 1\r\n"
+    ],
+    [
+      0.001658,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116968,
+      "1\r\n"
+    ],
+    [
+      0.00448,
+      "The cropped mouth is detected ...\r\nframe number 133 of 150\r\nwriting frame 134 with activation 1\r\n"
+    ],
+    [
+      0.001684,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116633,
+      "1\r\n"
+    ],
+    [
+      0.00449,
+      "The cropped mouth is detected ...\r\nframe number 134 of 150\r\nwriting frame 135 with activation 1\r\n"
+    ],
+    [
+      0.001616,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.117283,
+      "0\r\n"
+    ],
+    [
+      2.7e-05,
+      "Mouth is not detectable. ...\r\nframe number 135 of 150\r\nwriting frame 136 with activation 0\r\n"
+    ],
+    [
+      0.001594,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115962,
+      "1\r\n"
+    ],
+    [
+      0.004567,
+      "The cropped mouth is detected ...\r\nframe number 136 of 150\r\nwriting frame 137 with activation 1\r\n"
+    ],
+    [
+      0.001691,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116976,
+      "1\r\n"
+    ],
+    [
+      0.004486,
+      "The cropped mouth is detected ...\r\nframe number 137 of 150\r\nwriting frame 138 with activation 1\r\n"
+    ],
+    [
+      0.00162,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.118924,
+      "1\r\n"
+    ],
+    [
+      0.004473,
+      "The cropped mouth is detected ...\r\nframe number 138 of 150\r\nwriting frame 139 with activation 1\r\n"
+    ],
+    [
+      0.001626,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115847,
+      "1\r\n"
+    ],
+    [
+      0.004485,
+      "The cropped mouth is detected ...\r\nframe number 139 of 150\r\nwriting frame 140 with activation 1\r\n"
+    ],
+    [
+      0.001617,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116891,
+      "1\r\n"
+    ],
+    [
+      0.004528,
+      "The cropped mouth is detected ...\r\nframe number 140 of 150\r\nwriting frame 141 with activation 1\r\n"
+    ],
+    [
+      0.001588,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115834,
+      "1\r\n"
+    ],
+    [
+      0.004473,
+      "The cropped mouth is detected ...\r\nframe number 141 of 150\r\nwriting frame 142 with activation 1\r\n"
+    ],
+    [
+      0.001614,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11583,
+      "0\r\n"
+    ],
+    [
+      3.6e-05,
+      "Mouth is not detectable. ...\r\nframe number 142 of 150\r\nwriting frame 143 with activation 0\r\n"
+    ],
+    [
+      0.001578,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116273,
+      "0\r\n"
+    ],
+    [
+      4.3e-05,
+      "Mouth is not detectable. ...\r\nframe number 143 of 150\r\nwriting frame 144 with activation 0\r\n"
+    ],
+    [
+      0.0016,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11651,
+      "1\r\n"
+    ],
+    [
+      0.004564,
+      "The cropped mouth is detected ...\r\nframe number 144 of 150\r\nwriting frame 145 with activation 1\r\n"
+    ],
+    [
+      0.001568,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116901,
+      "1\r\n"
+    ],
+    [
+      0.004497,
+      "The cropped mouth is detected ...\r\nframe number 145 of 150\r\nwriting frame 146 with activation 1\r\n"
+    ],
+    [
+      0.001709,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11632,
+      "1\r\n"
+    ],
+    [
+      0.004507,
+      "The cropped mouth is detected ...\r\nframe number 146 of 150\r\nwriting frame 147 with activation 1\r\n"
+    ],
+    [
+      0.001624,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.115515,
+      "1\r\n"
+    ],
+    [
+      0.004467,
+      "The cropped mouth is detected ...\r\nframe number 147 of 150\r\nwriting frame 148 with activation 1\r\n"
+    ],
+    [
+      0.001693,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.11613,
+      "1\r\n"
+    ],
+    [
+      0.004544,
+      "The cropped mouth is detected ...\r\nframe number 148 of 150\r\nwriting frame 149 with activation 1\r\n"
+    ],
+    [
+      0.001613,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.116568,
+      "1\r\n"
+    ],
+    [
+      0.004506,
+      "The cropped mouth is detected ...\r\nframe number 149 of 150\r\nwriting frame 150 with activation 1\r\n"
+    ],
+    [
+      0.001652,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.117381,
+      "1\r\n"
+    ],
+    [
+      0.004489,
+      "The cropped mouth is detected ...\r\nframe number 150 of 150\r\nwriting frame 151 with activation 1\r\n"
+    ],
+    [
+      0.001589,
+      "('frame_shape:', (360, 480, 3))\r\n"
+    ],
+    [
+      0.270891,
+      "ffmpeg version N-76538-gb83c849 Copyright (c) 2000-2015 the FFmpeg developers\r\n  built with gcc 4.8 (Ubuntu 4.8.4-2ubuntu1~14.04.3)\r\n  configuration: --enable-nonfree --enable-nvenc --enable-nvresize --extra-cflags=-I../cudautils --extra-ldflags=-L../cudautils --enable-gpl --enable-libx264\r\n  libavutil      55.  5.100 / 55.  5.100\r\n  libavcodec     57. 15.100 / 57. 15.100\r\n  libavformat    57. 14.100 / 57. 14.100\r\n  libavdevice    57.  0.100 / 57.  0.100\r\n  libavfilter     6. 15.100 /  6. 15.100\r\n  libswscale      4.  0.100 /  4.  0.100\r\n  libswresample   2.  0.101 /  2.  0.101\r\n  libpostproc    54.  0.100 / 54.  0.100\r\n"
+    ],
+    [
+      0.000174,
+      "\u001b[0;35m[image2 @ 0x1f89360] \u001b[0m\u001b[0;33mPattern type 'glob_sequence' is deprecated: use pattern_type 'glob' instead\r\n\u001b[0m"
+    ],
+    [
+      0.001995,
+      "Input #0, image2, from './results/mouth/frame_%*.png':\r\n  Duration: 00:00:04.80, start: 0.000000, bitrate: N/A\r\n    Stream #0:0: Video: png, gray(pc), 110x90, 25 fps, 25 tbr, 25 tbn, 25 tbc\r\n"
+    ],
+    [
+      0.001263,
+      "Output #0, gif, to 'results/mouth.gif':\r\n  Metadata:\r\n    encoder         : Lavf57.14.100\r\n    Stream #0:0: Video: gif, gray, 110x90, q=2-31, 200 kb/s, 25 fps, 100 tbn, 25 tbc\r\n    Metadata:\r\n      encoder         : Lavc57.15.100 gif\r\nStream mapping:\r\n  Stream #0:0 -> #0:0 (png (native) -> gif (native))\r\nPress [q] to stop, [?] for help\r\n"
+    ],
+    [
+      0.033241,
+      "frame=  120 fps=0.0 q=-0.0 Lsize=    1015kB time=00:00:04.80 bitrate=1732.2kbits/s    \r\nvideo:1013kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.169723%\r\n"
+    ],
+    [
+      0.002379,
+      "\u001b]0;sina@sina-Alienware-Area-51-R2: ~/GITHUB/lip-reading-deeplearning\u0007sina@sina-Alienware-Area-51-R2:~/GITHUB/lip-reading-deeplearning$ "
+    ],
+    [
+      2.064141,
+      "#"
+    ],
+    [
+      0.335752,
+      " "
+    ],
+    [
+      0.608022,
+      "N"
+    ],
+    [
+      0.22403,
+      "o"
+    ],
+    [
+      0.095872,
+      "w"
+    ],
+    [
+      0.079984,
+      " "
+    ],
+    [
+      0.736614,
+      "t"
+    ],
+    [
+      0.09551,
+      "h"
+    ],
+    [
+      0.127999,
+      "e"
+    ],
+    [
+      0.096345,
+      " "
+    ],
+    [
+      1.216072,
+      "p"
+    ],
+    [
+      0.271521,
+      "r"
+    ],
+    [
+      0.272387,
+      "o"
+    ],
+    [
+      0.159634,
+      "c \r"
+    ],
+    [
+      0.223994,
+      "e"
+    ],
+    [
+      0.207961,
+      "s"
+    ],
+    [
+      0.144016,
+      "s"
+    ],
+    [
+      0.080049,
+      " "
+    ],
+    [
+      0.528107,
+      "i"
+    ],
+    [
+      0.079714,
+      "s"
+    ],
+    [
+      0.06416,
+      " "
+    ],
+    [
+      0.255867,
+      "f"
+    ],
+    [
+      0.096216,
+      "i"
+    ],
+    [
+      0.255818,
+      "n"
+    ],
+    [
+      0.160179,
+      "n"
+    ],
+    [
+      0.223796,
+      "i"
+    ],
+    [
+      0.144044,
+      "e"
+    ],
+    [
+      0.175998,
+      "s"
+    ],
+    [
+      0.144066,
+      "h"
+    ],
+    [
+      0.41593,
+      "!"
+    ],
+    [
+      0.720313,
+      "\r\n"
+    ],
+    [
+      0.001067,
+      "\u001b]0;sina@sina-Alienware-Area-51-R2: ~/GITHUB/lip-reading-deeplearning\u0007sina@sina-Alienware-Area-51-R2:~/GITHUB/lip-reading-deeplearning$ "
+    ],
+    [
+      0.942831,
+      "#"
+    ],
+    [
+      0.207958,
+      " "
+    ],
+    [
+      0.255925,
+      "P"
+    ],
+    [
+      0.175977,
+      "l"
+    ],
+    [
+      0.064171,
+      "e"
+    ],
+    [
+      0.175991,
+      "a"
+    ],
+    [
+      0.095865,
+      "s"
+    ],
+    [
+      0.143511,
+      "e"
+    ],
+    [
+      0.096542,
+      " "
+    ],
+    [
+      2.688453,
+      "c"
+    ],
+    [
+      0.111375,
+      "d"
+    ],
+    [
+      0.112178,
+      " "
+    ],
+    [
+      0.271949,
+      "t"
+    ],
+    [
+      0.159923,
+      "o \r"
+    ],
+    [
+      0.079601,
+      " "
+    ],
+    [
+      0.192755,
+      "t"
+    ],
+    [
+      0.079741,
+      "h"
+    ],
+    [
+      0.127958,
+      "e"
+    ],
+    [
+      0.096042,
+      " "
+    ],
+    [
+      0.159975,
+      "r"
+    ],
+    [
+      0.175982,
+      "e"
+    ],
+    [
+      0.175951,
+      "s"
+    ],
+    [
+      0.191995,
+      "u"
+    ],
+    [
+      1.040597,
+      "\b\u001b[K"
+    ],
+    [
+      1.488024,
+      "u"
+    ],
+    [
+      0.319355,
+      "l"
+    ],
+    [
+      0.095992,
+      "t"
+    ],
+    [
+      0.208205,
+      "s"
+    ],
+    [
+      0.079882,
+      " "
+    ],
+    [
+      0.336046,
+      "s"
+    ],
+    [
+      1.376357,
+      "\b\u001b[K"
+    ],
+    [
+      0.207837,
+      "f"
+    ],
+    [
+      0.176278,
+      "o"
+    ],
+    [
+      0.223451,
+      "l"
+    ],
+    [
+      0.175905,
+      "d"
+    ],
+    [
+      0.192029,
+      "e"
+    ],
+    [
+      0.192219,
+      "r"
+    ],
+    [
+      0.095407,
+      " "
+    ],
+    [
+      0.480456,
+      "a"
+    ],
+    [
+      0.288306,
+      "n"
+    ],
+    [
+      0.127718,
+      "d"
+    ],
+    [
+      0.096003,
+      " "
+    ],
+    [
+      1.296407,
+      "c"
+    ],
+    [
+      0.207471,
+      "h"
+    ],
+    [
+      0.080111,
+      "e"
+    ],
+    [
+      0.224221,
+      "c"
+    ],
+    [
+      0.095828,
+      "k"
+    ],
+    [
+      0.143979,
+      " "
+    ],
+    [
+      0.528058,
+      "t"
+    ],
+    [
+      0.095423,
+      "h"
+    ],
+    [
+      0.144507,
+      "e"
+    ],
+    [
+      0.047925,
+      " "
+    ],
+    [
+      0.160054,
+      "o"
+    ],
+    [
+      0.224581,
+      "u"
+    ],
+    [
+      0.159418,
+      "t"
+    ],
+    [
+      0.095973,
+      " "
+    ],
+    [
+      0.288647,
+      "\b\u001b[K"
+    ],
+    [
+      0.271413,
+      "o"
+    ],
+    [
+      0.624139,
+      "u"
+    ],
+    [
+      0.54414,
+      "\b\u001b[K"
+    ],
+    [
+      0.175728,
+      "\b\u001b[K"
+    ],
+    [
+      1.136467,
+      "p"
+    ],
+    [
+      0.303662,
+      "u"
+    ],
+    [
+      0.111784,
+      "t"
+    ],
+    [
+      0.384107,
+      "\r\n"
+    ],
+    [
+      0.001029,
+      "\u001b]0;sina@sina-Alienware-Area-51-R2: ~/GITHUB/lip-reading-deeplearning\u0007sina@sina-Alienware-Area-51-R2:~/GITHUB/lip-reading-deeplearning$ "
+    ],
+    [
+      1.567333,
+      "#"
+    ],
+    [
+      0.239541,
+      " "
+    ],
+    [
+      0.640309,
+      "T"
+    ],
+    [
+      0.223705,
+      "h"
+    ],
+    [
+      0.096035,
+      "a"
+    ],
+    [
+      0.159979,
+      "n"
+    ],
+    [
+      0.223933,
+      "k"
+    ],
+    [
+      0.192102,
+      "s"
+    ],
+    [
+      0.096099,
+      " "
+    ],
+    [
+      1.072541,
+      "f"
+    ],
+    [
+      0.223455,
+      "o"
+    ],
+    [
+      0.127996,
+      "r"
+    ],
+    [
+      0.079966,
+      " "
+    ],
+    [
+      0.560462,
+      "\b\u001b[K"
+    ],
+    [
+      1.328165,
+      " "
+    ],
+    [
+      0.303234,
+      "y \r"
+    ],
+    [
+      0.079646,
+      "o"
+    ],
+    [
+      0.256481,
+      "u"
+    ],
+    [
+      1.04063,
+      "r"
+    ],
+    [
+      0.079245,
+      " "
+    ],
+    [
+      0.768142,
+      "a"
+    ],
+    [
+      0.31994,
+      "t"
+    ],
+    [
+      0.144009,
+      "t"
+    ],
+    [
+      0.223967,
+      "e"
+    ],
+    [
+      0.207994,
+      "n"
+    ],
+    [
+      0.17625,
+      "t"
+    ],
+    [
+      0.127753,
+      "i"
+    ],
+    [
+      0.175954,
+      "o"
+    ],
+    [
+      0.224118,
+      "n"
+    ],
+    [
+      0.31992,
+      "!"
+    ],
+    [
+      1.888597,
+      "\r\n"
+    ],
+    [
+      0.001041,
+      "\u001b]0;sina@sina-Alienware-Area-51-R2: ~/GITHUB/lip-reading-deeplearning\u0007sina@sina-Alienware-Area-51-R2:~/GITHUB/lip-reading-deeplearning$ "
+    ]
+  ],
+  "duration": 124.087983,
+  "command": null,
+  "env": {
+    "TERM": "xterm",
+    "SHELL": "/bin/bash"
+  },
+  "version": 1,
+  "title": "liptracking"
+}
