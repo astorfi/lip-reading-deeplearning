@@ -397,56 +397,55 @@ def main(_):
         ################################
         tower_grads = []
         with tf.variable_scope(tf.get_variable_scope()):
-            for i in xrange(FLAGS.num_clones):
-                with tf.device('/gpu:%d' % i):
-                    with tf.name_scope('%s_%d' % ('tower', i)) as scope:
-                        """
-                        Two distance metric are defined:
-                           1 - distance_weighted: which is a weighted average of the distance between two structures.
-                           2 - distance_l2: which is the regular l2-norm of the two networks outputs.
-                        Place holders
+            with tf.device('/gpu:%d' % 0):
+                with tf.name_scope('%s_%d' % ('tower', i)) as scope:
+                    """
+                    Two distance metric are defined:
+                       1 - distance_weighted: which is a weighted average of the distance between two structures.
+                       2 - distance_l2: which is the regular l2-norm of the two networks outputs.
+                    Place holders
 
-                        """
-                        ########################################
-                        ######## Outputs of two networks #######
-                        ########################################
+                    """
+                    ########################################
+                    ######## Outputs of two networks #######
+                    ########################################
 
-                        logits_speech, end_points_speech = network_speech_fn(batch_speech)
-                        logits_mouth, end_points_mouth = network_mouth_fn(batch_mouth)
+                    logits_speech, end_points_speech = network_speech_fn(batch_speech)
+                    logits_mouth, end_points_mouth = network_mouth_fn(batch_mouth)
 
-                        # # Uncomment if the output embedding is desired to be as |f(x)| = 1
-                        # logits_speech = tf.nn.l2_normalize(logits_speech, dim=1, epsilon=1e-12, name=None)
-                        # logits_mouth = tf.nn.l2_normalize(logits_mouth, dim=1, epsilon=1e-12, name=None)
+                    # # Uncomment if the output embedding is desired to be as |f(x)| = 1
+                    # logits_speech = tf.nn.l2_normalize(logits_speech, dim=1, epsilon=1e-12, name=None)
+                    # logits_mouth = tf.nn.l2_normalize(logits_mouth, dim=1, epsilon=1e-12, name=None)
 
-                        #################################################
-                        ########### Loss Calculation ####################
-                        #################################################
+                    #################################################
+                    ########### Loss Calculation ####################
+                    #################################################
 
-                        # ##### Weighted distance using a fully connected layer #####
-                        # distance_vector = tf.subtract(logits_speech, logits_mouth,  name=None)
-                        # distance_weighted = slim.fully_connected(distance_vector, 1, activation_fn=tf.nn.sigmoid,
-                        #                                          normalizer_fn=None,
-                        #                                          scope='fc_weighted')
+                    # ##### Weighted distance using a fully connected layer #####
+                    # distance_vector = tf.subtract(logits_speech, logits_mouth,  name=None)
+                    # distance_weighted = slim.fully_connected(distance_vector, 1, activation_fn=tf.nn.sigmoid,
+                    #                                          normalizer_fn=None,
+                    #                                          scope='fc_weighted')
 
-                        ##### Euclidean distance ####
-                        distance_l2 = tf.sqrt(
-                            tf.reduce_sum(tf.pow(tf.subtract(logits_speech, logits_mouth), 2), 1, keep_dims=True))
+                    ##### Euclidean distance ####
+                    distance_l2 = tf.sqrt(
+                        tf.reduce_sum(tf.pow(tf.subtract(logits_speech, logits_mouth), 2), 1, keep_dims=True))
 
-                        ##### Contrastive loss ######
-                        loss = losses.contrastive_loss(batch_labels, distance_l2, margin_imp=margin_imp_tensor,
-                                                       scope=scope)
+                    ##### Contrastive loss ######
+                    loss = losses.contrastive_loss(batch_labels, distance_l2, margin_imp=margin_imp_tensor,
+                                                   scope=scope)
 
-                        # ##### call the optimizer ######
-                        # # TODO: call optimizer object outside of this gpu environment
-                        #
-                        # Reuse variables for the next tower.
-                        tf.get_variable_scope().reuse_variables()
+                    # ##### call the optimizer ######
+                    # # TODO: call optimizer object outside of this gpu environment
+                    #
+                    # Reuse variables for the next tower.
+                    tf.get_variable_scope().reuse_variables()
 
-                        # Calculate the gradients for the batch of data on this CIFAR tower.
-                        grads = opt.compute_gradients(loss)
+                    # Calculate the gradients for the batch of data on this CIFAR tower.
+                    grads = opt.compute_gradients(loss)
 
-                        # Keep track of the gradients across all towers.
-                        tower_grads.append(grads)
+                    # Keep track of the gradients across all towers.
+                    tower_grads.append(grads)
 
 
         # Calculate the mean of each gradient.
