@@ -28,17 +28,7 @@ application for this work.
 If you used this code, please kindly consider citing the following
 paper:
 
-```
-@ARTICLE{2017arXiv170605739T,
-  author = {{Torfi}, A. and {Iranmanesh}, S.~M. and {Nasrabadi}, N.~M. and {Dawson}, J.},
-  title = "{Cross Audio-Visual Recognition in the Wild Using Deep Learning}",
-  journal = {ArXiv e-prints},
-  archivePrefix = "arXiv",
-  eprint = {1706.05739},
-  year = 2017,
-  month = jun,
-  }
-```
+
 
 
 ### DEMO
