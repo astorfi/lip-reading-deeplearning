@@ -7,13 +7,15 @@ python:
 install:
   - pip install -r training_requirements.txt
   - pip install coveralls
+  - pip install codecov
 
 script:
 
   - coverage run --omit=*.virtualenvs*,*virtualenv* code/training_evaluation/train.py test
 
 after_success:
-  coveralls
+  - coveralls
+  - codecov
 
 sudo: enabled
 dist: trusty

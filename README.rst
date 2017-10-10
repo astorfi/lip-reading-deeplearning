@@ -10,15 +10,17 @@ Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Netwo
     :target: https://travis-ci.org/astorfi/lip-reading-deeplearning
 .. image:: https://coveralls.io/repos/github/astorfi/3D-convolutional-Audio-Visual/badge.svg?branch=master
     :target: https://coveralls.io/github/astorfi/3D-convolutional-Audio-Visual?branch=master
+.. image:: https://zenodo.org/badge/94938983.svg
+   :target: https://zenodo.org/badge/latestdoi/94938983
 
 This repository contains the code developed by TensorFlow_ for the following paper:
 
 
-| `Cross Audio-Visual Recognition in the Wild Using Deep Learning`_,
+| `3D Convolutional Neural Networks for Cross Audio-Visual Matching Recognition`_,
 | by: `Amirsina Torfi`_, `Seyed Mehdi Iranmanesh`_, `Nasser M. Nasrabadi`_ and Jeremy Dawson
 
 
-.. _Cross Audio-Visual Recognition in the Wild Using Deep Learning: https://arxiv.org/abs/1706.05739
+.. _3D Convolutional Neural Networks for Cross Audio-Visual Matching Recognition: https://arxiv.org/abs/1706.05739
 .. _TensorFlow: https://www.tensorflow.org/
 .. _Amirsina Torfi: https://astorfi.github.io/
 .. _Seyed Mehdi Iranmanesh: http://community.wvu.edu/~seiranmanesh/
@@ -43,14 +45,11 @@ If you used this code, please kindly consider citing the following paper:
 
 .. code:: shell
 
-  @ARTICLE{2017arXiv170605739T,
-    author = {{Torfi}, A. and {Iranmanesh}, S.~M. and {Nasrabadi}, N.~M. and {Dawson}, J.},
-    title = "{Cross Audio-Visual Recognition in the Wild Using Deep Learning}",
-    journal = {ArXiv e-prints},
-    archivePrefix = "arXiv",
-    eprint = {1706.05739},
-    year = 2017,
-    month = jun,
+  @article{torfi2017coupled,
+     title={Coupled 3D Convolutional Neural Networks for Audio-Visual Recognition},
+     author={Torfi, Amirsina and Iranmanesh, Seyed Mehdi and Nasrabadi, Nasser M and Dawson, Jeremy},
+     journal={arXiv preprint arXiv:1706.05739},
+     year={2017}
     }
 
 #################
