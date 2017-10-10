@@ -2,12 +2,10 @@ Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Netwo
 ===================================================================================
 
 ![image](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat%0A%20:target:%20https://github.com/astorfi/3D-convolutional-Audio-Visual/pulls)
-
 ![image](https://badges.frapsoft.com/os/v2/open-source.svg?v=102%0A%20:target:%20https://github.com/ellerbrock/open-source-badge/)
-
-![image](https://travis-ci.org/astorfi/lip-reading-deeplearning.svg?branch=master%0A%20:target:%20https://travis-ci.org/astorfi/lip-reading-deeplearning)
-
-![image](https://coveralls.io/repos/github/astorfi/3D-convolutional-Audio-Visual/badge.svg?branch=master%0A%20:target:%20https://coveralls.io/github/astorfi/3D-convolutional-Audio-Visual?branch=master)
+[![Build Status](https://travis-ci.org/astorfi/lip-reading-deeplearning.svg?branch=master)](https://travis-ci.org/astorfi/lip-reading-deeplearning)
+[![Coverage Status](https://coveralls.io/repos/github/astorfi/3D-convolutional-Audio-Visual/badge.svg?branch=master)](https://coveralls.io/github/astorfi/3D-convolutional-Audio-Visual?branch=master)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.840400.svg)](https://doi.org/10.5281/zenodo.840400)
 
 This repository contains the code developed by
 [TensorFlow](https://www.tensorflow.org/) for the following paper:
