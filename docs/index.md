@@ -228,5 +228,3 @@ We are looking forward to your kind feedback. Please help us to improve
 the code and make our work better. For contribution, please create the
 pull request and we will investigate it promptly. Once again, we
 appreciate your feedback and code inspections.
-
-**references**
