@@ -1,6 +1,6 @@
-===================================================================================
-Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Networks
-===================================================================================
+===========================================================================================================================
+Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Networks `Official Project Page`_
+===========================================================================================================================
 
 .. image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
     :target: https://github.com/astorfi/3D-convolutional-Audio-Visual/pulls
@@ -22,6 +22,7 @@ This repository contains the code developed by TensorFlow_ for the following pap
 
 .. _3D Convolutional Neural Networks for Cross Audio-Visual Matching Recognition: https://arxiv.org/abs/1706.05739
 .. _TensorFlow: https://www.tensorflow.org/
+.. _Official Project Page: https://codeocean.com/2017/07/14/3d-convolutional-neural-networks-for-audio-visual-recognition/code
 .. _Amirsina Torfi: https://astorfi.github.io/
 .. _Seyed Mehdi Iranmanesh: http://community.wvu.edu/~seiranmanesh/
 .. _Nasser M. Nasrabadi: http://nassernasrabadi.wixsite.com/mysite
