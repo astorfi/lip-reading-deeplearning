@@ -1,5 +1,5 @@
 ===========================================================================================================================
-Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Networks `Official Project Page`_
+Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Networks - `Official Project Page`_
 ===========================================================================================================================
 
 .. image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
