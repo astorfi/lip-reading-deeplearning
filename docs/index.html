@@ -1,0 +1,85 @@
+<h1 id="lip-reading---cross-audio-visual-recognition-using-3d-convolutional-neural-networks">Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Networks</h1>
+<p><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat%0A%20:target:%20https://github.com/astorfi/3D-convolutional-Audio-Visual/pulls" alt="image" /> <img src="https://badges.frapsoft.com/os/v2/open-source.svg?v=102%0A%20:target:%20https://github.com/ellerbrock/open-source-badge/" alt="image" /> <a href="https://travis-ci.org/astorfi/lip-reading-deeplearning"><embed src="https://travis-ci.org/astorfi/lip-reading-deeplearning.svg?branch=master" /></a> <a href="https://coveralls.io/github/astorfi/3D-convolutional-Audio-Visual?branch=master"><embed src="https://coveralls.io/repos/github/astorfi/3D-convolutional-Audio-Visual/badge.svg?branch=master" /></a> <a href="https://doi.org/10.5281/zenodo.840400"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.840400.svg" alt="DOI" /></a></p>
+<p>This repository contains the code developed by <a href="https://www.tensorflow.org/">TensorFlow</a> for the following paper:</p>
+<p><a href="https://arxiv.org/abs/1706.05739">Cross Audio-Visual Recognition in the Wild Using Deep Learning</a></p>
+<p>by: <a href="https://astorfi.github.io/">Amirsina Torfi</a>, <a href="http://community.wvu.edu/~seiranmanesh/">Seyed Mehdi Iranmanesh</a>, <a href="http://nassernasrabadi.wixsite.com/mysite">Nasser M. Nasrabadi</a> and Jeremy Dawson</p>
+<p><img src="readme_images/1.gif" alt="im1" /> <img src="readme_images/2.gif" alt="im2" /> <img src="readme_images/3.gif" alt="im3" /></p>
+<p>The input pipeline must be prepared by the users. This code is aimed to provide the implementation for <strong>Coupled 3D Convolutional Neural Networks</strong> for audio-visual matching. <strong>Lip-reading</strong> can be a specific application for this work.</p>
+<p>If you used this code, please kindly consider citing the following paper:</p>
+<h3 id="demo">DEMO</h3>
+<h4 id="trainingevaluation-demo">Training/Evaluation DEMO</h4>
+<div class="figure">
+<img src="readme_images/liptrackingdemo.png" alt="training" /><p class="caption">training</p>
+</div>
+<h4 id="lip-tracking-demo">Lip Tracking DEMO</h4>
+<div class="figure">
+<img src="readme_images/liptrackingdemo.png" alt="liptrackingdemo" /><p class="caption">liptrackingdemo</p>
+</div>
+<h3 id="general-view">General View</h3>
+<p><em>Audio-visual recognition</em> (AVR) has been considered as a solution for speech recognition tasks when the audio is corrupted, as well as a visual recognition method used for speaker verification in multi-speaker scenarios. The approach of AVR systems is to leverage the extracted information from one modality to improve the recognition ability of the other modality by complementing the missing information.</p>
+<h4 id="the-problem-and-the-approach">The Problem and the Approach</h4>
+<p>The essential problem is to find the correspondence between the audio and visual streams, which is the goal of this work. <strong>We proposed the utilization of a coupled 3D Convolutional Neural Network (CNN) architecture that can map both modalities into a representation space to evaluate the correspondence of audio-visual streams using the learned multimodal features</strong>.</p>
+<h4 id="how-to-leverage-3d-convolutional-neural-networks">How to leverage 3D Convolutional Neural Networks?</h4>
+<p>The proposed architecture will incorporate both spatial and temporal information jointly to effectively find the correlation between temporal information for different modalities. By using a relatively small network architecture and much smaller dataset, our proposed method surpasses the performance of the existing similar methods for audio-visual matching which use CNNs for feature representation. We also demonstrate that effective pair selection method can significantly increase the performance.</p>
+<h3 id="code-implementation">Code Implementation</h3>
+<p>The input pipeline must be provided by the user. The rest of the implementation consider the dataset which contains the utterance-based extracted features.</p>
+<h4 id="lip-tracking">Lip Tracking</h4>
+<p>For lip tracking, the desired video must be fed as the input. At first, cd to the corresponding directory:</p>
+<pre><code>cd code/lip_tracking</code></pre>
+<p>The run the dedicated <code>python file</code> as below:</p>
+<pre><code>python VisualizeLip.py --input input_video_file_name.ext --output output_video_file_name.ext</code></pre>
+<p>Running the aforementioned script extracts the lip motions by saving the mouth area of each frame and create the output video with a rectangular around the mouth area for better visualization.</p>
+<p>The required <code>arguments</code> are defined by the following python script which have been defined in the <code>VisualizeLip.py</code> file:</p>
+<pre><code>ap = argparse.ArgumentParser()
+ap.add_argument(&quot;-i&quot;, &quot;--input&quot;, required=True,
+             help=&quot;path to input video file&quot;)
+ap.add_argument(&quot;-o&quot;, &quot;--output&quot;, required=True,
+             help=&quot;path to output video file&quot;)
+ap.add_argument(&quot;-f&quot;, &quot;--fps&quot;, type=int, default=30,
+             help=&quot;FPS of output video&quot;)
+ap.add_argument(&quot;-c&quot;, &quot;--codec&quot;, type=str, default=&quot;MJPG&quot;,
+             help=&quot;codec of output video&quot;)
+args = vars(ap.parse_args())</code></pre>
+<p>Some of the defined arguments have their default values and no further action is required by them.</p>
+<h4 id="processing">Processing</h4>
+<p>In the visual section, the videos are post-processed to have an equal frame rate of 30 f/s. Then, face tracking and mouth area extraction are performed on the videos using the <code>dlib</code> library. Finally, all mouth areas are resized to have the same size and concatenated to form the input feature cube. The dataset does not contain any audio files. The audio files are extracted from videos using <code>FFmpeg</code> framework. The processing pipeline is the below figure.</p>
+<div class="figure">
+<img src="readme_images/processing.gif" alt="image" /><p class="caption">image</p>
+</div>
+<h4 id="input-pipeline-for-this-work">Input Pipeline for this work</h4>
+<p>The proposed architecture utilizes two non-identical ConvNets which uses a pair of speech and video streams. The network input is a pair of features that represent lip movement and speech features extracted from 0.3 second of a video clip. The main task is to determine if a stream of audio corresponds with a lip motion clip within the desired stream duration. In the two next sub-sections, we are going to explain the inputs for speech and visual streams.</p>
+<p><strong>Speech Net</strong></p>
+<p>On the time axis, the temporal features are non-overlapping 20ms windows which are used for the generation of spectrum features that possess a local characteristic. The input speech feature map, which is represented as an image cube, corresponds to the spectrogram as well as the first and second order derivatives of the MFEC features. These three channels correspond to the image depth. Collectively from a 0.3 second clip, 15 temporal feature sets (each forms 40 MFEC features) can be derived which form a speech feature cube. Each input feature map for a single audio stream has the dimensionality of 15 × 40 × 3. This representation is depicted in the following figure:</p>
+<div class="figure">
+<img src="readme_images/Speech_GIF.gif" alt="image" /><p class="caption">image</p>
+</div>
+<p>The <strong>speech features</strong> have been extracted using <a href="https://github.com/astorfi/speechpy">SpeechPy</a>.</p>
+<p><strong>Visual Net</strong></p>
+<p>The frame rate of each video clip used in this effort is 30 f/s. Consequently, 9 successive image frames form the 0.3 second visual stream. The input of the visual stream of the network is a cube of size 9x60x100, where 9 is the number of frames that represent the temporal information. Each channel is a 60x100 gray-scale image of mouth region.</p>
+<div class="figure">
+<img src="readme_images/lip_motion.jpg" alt="image" /><p class="caption">image</p>
+</div>
+<h4 id="architecture">Architecture</h4>
+<p>The architecture is a <strong>coupled 3D convolutional neural network</strong> in which <em>two different networks with different sets of weights must be trained</em>. For the visual network, the lip motions spatial information alongside the temporal information are incorporated jointly and will be fused for exploiting the temporal correlation. For the audio network, the extracted energy features are considered as a spatial dimension, and the stacked audio frames form the temporal dimension. In the proposed 3D CNN architecture, the convolutional operations are performed on successive temporal frames for both audio-visual streams.</p>
+<div class="figure">
+<img src="readme_images/DNN-Coupled.png" alt="image" /><p class="caption">image</p>
+</div>
+<h3 id="training-evaluation">Training / Evaluation</h3>
+<p>At first, clone the repository. Then, cd to the dedicated directory:</p>
+<pre><code>cd code/training_evaluation</code></pre>
+<p>Finally, the <code>train.py</code> file must be executed:</p>
+<pre><code>python train.py</code></pre>
+<p>For evaluation phase, a similar script must be executed:</p>
+<pre><code>python test.py</code></pre>
+<h3 id="results">Results</h3>
+<p>The below results demonstrate effects of the proposed method on the accuracy and the speed of convergence.</p>
+<div class="figure">
+<img src="readme_images/accuracy-bar-pairselection.png" alt="accuracy" /><p class="caption">accuracy</p>
+</div>
+<p>The best results, which is the right-most one, belongs to our proposed method.</p>
+<div class="figure">
+<img src="readme_images/convergence-speed.png" alt="converge" /><p class="caption">converge</p>
+</div>
+<p>The effect of proposed <strong>Online Pair Selection</strong> method has been shown in the figure.</p>
+<h3 id="contribution">Contribution</h3>
+<p>We are looking forward to your kind feedback. Please help us to improve the code and make our work better. For contribution, please create the pull request and we will investigate it promptly. Once again, we appreciate your feedback and code inspections.</p>
