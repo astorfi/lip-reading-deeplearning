@@ -3,7 +3,7 @@
 Contributing
 *************
 
-When contributing to this repository, you are more than welcome to discuss your feedback with any of the owners of this repository. *For typos, please do not create a pull request. Instead, declare them in issues or email the repository owner*.
+When contributing to this repository, you are more than welcome to discuss your feedback with any of the owners of this repository. *For typos, please do not create a pull request. Instead, declare them in issues or email the repository owner*. For technical and conceptual questions please feel free to **directly contact the repository owner**. Before asking general questions related to the concepts and techniques provided in this project, **please make sure to read and understand its associated paper**. 
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
