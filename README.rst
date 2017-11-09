@@ -46,11 +46,12 @@ If you used this code, please kindly consider citing the following paper:
 
 .. code:: shell
 
-  @article{torfi2017coupled,
-     title={Coupled 3D Convolutional Neural Networks for Audio-Visual Recognition},
-     author={Torfi, Amirsina and Iranmanesh, Seyed Mehdi and Nasrabadi, Nasser M and Dawson, Jeremy},
-     journal={arXiv preprint arXiv:1706.05739},
-     year={2017}
+  @article{torfi20173d,
+    title={3D Convolutional Neural Networks for Cross Audio-Visual Matching Recognition},
+    author={Torfi, Amirsina and Iranmanesh, Seyed Mehdi and Nasrabadi, Nasser and Dawson, Jeremy},
+    journal={IEEE Access},
+    year={2017},
+    publisher={IEEE}
     }
 
 #################
