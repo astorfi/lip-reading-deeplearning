@@ -303,7 +303,7 @@ Once again, we appreciate your feedback and code inspections.
                     month        = jun,
                     year         = 2017,
                     doi          = {10.5281/zenodo.810392},
-                    url          = {https://doi.org/10.5281/zenodo.810392}}
+                    url          = {https://doi.org/10.5281/zenodo.810391}}
 
 .. [dlib] D. E. King. Dlib-ml: A machine learning toolkit. Journal of Machine Learning Research, 10:1755–1758, 2009.
 .. [ffmpeg] F. Developers. FFmpeg tool (version be1d324) [software], 2016.
