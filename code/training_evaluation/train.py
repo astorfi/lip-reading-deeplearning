@@ -604,6 +604,7 @@ def main(_):
                             AUC) + ", AP= " + "{:.5f}".format(AP) + ", contrib = %d pairs" % label_train.shape[0])
                 except:
                     print("Error: " ,sys.exc_info()[0])
+                    print("No contributing impostor pair!")
 
             # Save the model
             saver.save(sess, FLAGS.train_dir, global_step=training_step)
