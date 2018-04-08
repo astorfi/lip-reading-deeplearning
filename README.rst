@@ -284,6 +284,12 @@ The best results, which is the right-most one, belongs to our proposed method.
 
 The effect of proposed **Online Pair Selection** method has been shown in the figure.
 
+-------------
+Disclaimer
+-------------
+
+The current version of the code does not contain the adaptive pair selection method proposed by `3D Convolutional Neural Networks for Cross Audio-Visual Matching Recognition`_ paper. Just a simple pair selection with hard thresholding is included at the moment.
+
 
 
 -------------
