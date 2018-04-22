@@ -23,19 +23,18 @@ fi
 if [ $do_training = 'train' ]; then
 
     # training
-    python -u ./code/training_evaluation/train.py --num_epochs=1 --batch_size=16 --train_dir=results/TRAIN_CNN_3D/train_logs
+    python -u ./code/training_evaluation/train.py --num_epochs=1 --batch_size=16 --train_dir=${HOME}/results/TRAIN_CNN_3D/train_logs
     # testing - Automatically restore the latest checkpoint from all saved checkpoints
-    python -u ./code/training_evaluation/test.py --checkpoint_dir=results/TRAIN_CNN_3D/
+    python -u ./code/training_evaluation/test.py --checkpoint_dir=${HOME}/results/
 
 elif [ $do_training = 'test' ]; then
   
     # Just performing the test
-    python -u ./code/training_evaluation/test.py --checkpoint_dir=results/TRAIN_CNN_3D/
+    python -u ./code/training_evaluation/test.py --checkpoint_dir=${HOME}/results/
 
 else
 
     echo "No training or testing will be performed!"
-
 fi
 
 # visualizing (using pretrained model)
