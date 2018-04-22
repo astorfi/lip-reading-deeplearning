@@ -11,6 +11,7 @@ from tensorflow.python.ops import control_flow_ops
 from nets import nets_factory
 from auxiliary import losses
 from roc_curve import calculate_roc
+import os
 
 slim = tf.contrib.slim
 
@@ -19,7 +20,7 @@ slim = tf.contrib.slim
 ######################
 
 tf.app.flags.DEFINE_string(
-    'train_dir', 'TRAIN_CNN_3D/train_logs',
+    'train_dir', os.path.expanduser('~/results/TRAIN_CNN_3D'),
     'Directory where checkpoints and event logs are written to.')
 
 tf.app.flags.DEFINE_integer('num_clones', 1,

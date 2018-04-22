@@ -5,13 +5,13 @@ from __future__ import print_function
 import tensorflow as tf
 
 import sys
-import tables
 import numpy as np
 from sklearn.model_selection import KFold
 from tensorflow.python.ops import control_flow_ops
 from nets import nets_factory
 from auxiliary import losses
 from roc_curve import calculate_roc
+import os
 # import matplotlib.pyplot as plt
 slim = tf.contrib.slim
 
@@ -24,7 +24,7 @@ tf.app.flags.DEFINE_string(
     'Directory where checkpoints and event logs are written to.')
 
 tf.app.flags.DEFINE_string(
-    'checkpoint_dir', 'results/TRAIN_CNN_3D',
+    'checkpoint_dir', os.path.expanduser('~/results/'),
     'Directory where checkpoints and event logs are written to.')
 
 
@@ -398,7 +398,7 @@ def main(_):
         tower_grads = []
         with tf.variable_scope(tf.get_variable_scope()):
             with tf.device('/gpu:%d' % 0):
-                with tf.name_scope('%s_%d' % ('tower', i)) as scope:
+                with tf.name_scope('%s_%d' % ('tower', 0)) as scope:
                     """
                     Two distance metric are defined:
                        1 - distance_weighted: which is a weighted average of the distance between two structures.

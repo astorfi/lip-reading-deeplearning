@@ -1,0 +1,2 @@
+model_checkpoint_path: "train_logs-31"
+all_model_checkpoint_paths: "train_logs-31"
