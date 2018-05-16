@@ -212,6 +212,8 @@ This representation is depicted in the following figure:
 
 The **speech features** have been extracted using [SpeechPy]_ package.
 
+**Please refer to** ``code/speech_input/input_feature.py`` **for having an idea about how the input pipeline works.**
+
 **Visual Net**
 
 The frame rate of each video clip used in this effort is 30 f/s.
