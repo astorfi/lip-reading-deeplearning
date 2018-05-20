@@ -86,7 +86,7 @@ class AudioDataset():
 
         # Staching frames
         frames = speechpy.processing.stack_frames(signal, sampling_frequency=fs, frame_length=0.025,
-                                                  frame_stride=0.01,
+                                                  frame_stride=0.025,
                                                   zero_padding=True)
 
         # # Extracting power spectrum (choosing 3 seconds and elimination of DC)
