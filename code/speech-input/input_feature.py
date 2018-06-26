@@ -85,16 +85,17 @@ class AudioDataset():
         num_coefficient = 40
 
         # Staching frames
-        frames = speechpy.processing.stack_frames(signal, sampling_frequency=fs, frame_length=0.025,
-                                                  frame_stride=0.025,
+        frames = speechpy.processing.stack_frames(signal, sampling_frequency=fs, frame_length=0.02,
+                                                  frame_stride=0.02,
                                                   zero_padding=True)
 
         # # Extracting power spectrum (choosing 3 seconds and elimination of DC)
         power_spectrum = speechpy.processing.power_spectrum(frames, fft_points=2 * num_coefficient)[:, 1:]
 
-        logenergy = speechpy.feature.lmfe(signal, sampling_frequency=fs, frame_length=0.025, frame_stride=0.01,
+        logenergy = speechpy.feature.lmfe(signal, sampling_frequency=fs, frame_length=0.02, frame_stride=0.02,
                                           num_filters=num_coefficient, fft_length=1024, low_frequency=0,
                                           high_frequency=None)
+        
 
         ########################
         ### Handling sample ####
@@ -128,9 +129,24 @@ class CMVN(object):
 
         # Mean variance normalization of the spectrum.
         # The following line should be Uncommented if cepstral mean variance normalization is desired!
-        # feature = speechpy.processing.cmvn(feature, variance_normalization=True)
+        feature = speechpy.processing.cmvn(feature, variance_normalization=True)
 
         return {'feature': feature, 'label': label}
+
+class Extract_Derivative(object):
+    """
+    Extract derivative features.
+
+    """
+
+    def __call__(self, sample):
+        feature, label = sample['feature'], sample['label']
+
+        # Extract derivative features
+        feature = speechpy.feature.extract_derivative_feature(feature)
+
+        return {'feature': feature, 'label': label}
+    
 
 class Feature_Cube(object):
     """Return a feature cube of desired size.
@@ -139,34 +155,25 @@ class Feature_Cube(object):
         cube_shape (tuple): The shape of the feature cube.
     """
 
-    def __init__(self, cube_shape, augmentation=True):
-        assert isinstance(cube_shape, (tuple))
-        self.augmentation = augmentation
+    def __init__(self, cube_shape):
+        
         self.cube_shape = cube_shape
-        self.num_utterances = cube_shape[0]
-        self.num_frames = cube_shape[1]
-        self.num_coefficient = cube_shape[2]
+        if self.cube_shape != None:
+            self.num_frames = cube_shape[0]
+            self.num_features = cube_shape[1]
+            self.num_channels = cube_shape[2]
 
 
     def __call__(self, sample):
-        feature, label = sample['feature'], sample['label']
+        feature, label = sample['feature'], sample['label']         
 
-        # Feature cube.
-        feature_cube = np.zeros((self.num_utterances, self.num_frames, self.num_coefficient), dtype=np.float32)
-
-        if self.augmentation:
-            # Get some random starting point for creation of the future cube of size (num_frames x num_coefficient x num_utterances)
-            # Since we are doing random indexing, the data augmentation is done as well because in each iteration it returns another indexing!
-            idx = np.random.randint(feature.shape[0] - self.num_frames, size=self.num_utterances)
-            for num, index in enumerate(idx):
-                feature_cube[num, :, :] = feature[index:index + self.num_frames, :]
+        if self.cube_shape != None:
+            feature_cube = np.zeros((self.num_frames, self.num_features, self.num_channels), dtype=np.float32)
+            feature_cube = feature[0:self.num_frames, :, :]
         else:
-            idx = range(self.num_utterances)
-            for num, index in enumerate(idx):
-                feature_cube[num, :, :] = feature[index:index + self.num_frames, :]
-
-
-
+            feature_cube = feature
+                 
+        
         # return {'feature': feature_cube, 'label': label}
         return {'feature': feature_cube[None, :, :, :], 'label': label}
 
@@ -179,7 +186,6 @@ class ToOutput(object):
     def __call__(self, sample):
         feature, label = sample['feature'], sample['label']
 
-        feature, label = sample['feature'], sample['label']
         return feature, label
 
 class Compose(object):
@@ -227,12 +233,12 @@ if __name__ == '__main__':
 
     # The directory of the audio files separated by subject
     parser.add_argument('--audio_dir',
-                        default=os.path.expanduser('~/github/3D-convolutional-speaker-recognition/code/0-input/Audio'),
+                        default=os.path.expanduser('~/github/lip-reading-deeplearning/code/speech-input/Audio'),
                         help='Location of sound files')
     args = parser.parse_args()
 
     dataset = AudioDataset(files_path=args.file_path, audio_dir=args.audio_dir,
-                           transform=Compose([CMVN(), Feature_Cube(cube_shape=(20, 80, 40), augmentation=True), ToOutput()]))
+                           transform=Compose([Extract_Derivative(), Feature_Cube(cube_shape=(15,40,3)), ToOutput()]))
     idx = 0
     feature, label = dataset.__getitem__(idx)
     print(feature.shape)
