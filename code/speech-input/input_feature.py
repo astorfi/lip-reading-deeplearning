@@ -153,6 +153,7 @@ class Feature_Cube(object):
 
     Args:
         cube_shape (tuple): The shape of the feature cube.
+        ex: cube_shape=(15,40,3)
     """
 
     def __init__(self, cube_shape):
@@ -238,7 +239,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     dataset = AudioDataset(files_path=args.file_path, audio_dir=args.audio_dir,
-                           transform=Compose([Extract_Derivative(), Feature_Cube(cube_shape=(15,40,3)), ToOutput()]))
+                           transform=Compose([Extract_Derivative(), Feature_Cube(cube_shape=None), ToOutput()]))
     idx = 0
     feature, label = dataset.__getitem__(idx)
     print(feature.shape)
