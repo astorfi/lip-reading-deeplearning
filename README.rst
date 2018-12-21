@@ -17,7 +17,7 @@ This repository contains the code developed by TensorFlow_ for the following pap
 
 
 | `3D Convolutional Neural Networks for Cross Audio-Visual Matching Recognition`_,
-| by: `Amirsina Torfi`_, `Seyed Mehdi Iranmanesh`_, `Nasser M. Nasrabadi`_ and Jeremy Dawson
+| by: `Amirsina Torfi`_
 
 
 .. _3D Convolutional Neural Networks for Cross Audio-Visual Matching Recognition: http://ieeexplore.ieee.org/document/8063416/
