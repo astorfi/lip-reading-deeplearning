@@ -1,3 +1,11 @@
+.. image:: readme_images/follow-twitter.gif
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
+   :target: https://twitter.com/amirsinatorfi
+
 ===========================================================================================================================
 Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Networks - `Official Project Page`_
 ===========================================================================================================================
@@ -12,6 +20,8 @@ Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Netwo
     :target: https://coveralls.io/github/astorfi/3D-convolutional-Audio-Visual?branch=master
 .. image:: https://zenodo.org/badge/94938983.svg
    :target: https://zenodo.org/badge/latestdoi/94938983
+.. image:: https://img.shields.io/twitter/follow/amirsinatorfi.svg?label=Follow&style=social
+      :target: https://twitter.com/amirsinatorfi
 
 This repository contains the code developed by TensorFlow_ for the following paper:
 
