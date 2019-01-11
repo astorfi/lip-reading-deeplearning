@@ -59,13 +59,13 @@ def lipread_speech_arg_scope(is_training, weight_decay=0.0005,):
     An arg_scope.
   """
   # Add normalizer_fn=slim.batch_norm if Batch Normalization is required!
-  with slim.arg_scope([slim.conv2d, slim.fully_connected],
+  with slim.arg_scope([slim.conv3d, slim.fully_connected],
                       activation_fn=None,
                       weights_initializer=tf.contrib.layers.variance_scaling_initializer(factor=1.0, mode='FAN_AVG'),
                       weights_regularizer=slim.l2_regularizer(weight_decay),
                       normalizer_fn=slim.batch_norm,
                       biases_initializer=tf.zeros_initializer()):
-    with slim.arg_scope([slim.conv2d], padding='VALID') as arg_sc:
+    with slim.arg_scope([slim.conv3d], padding='VALID') as arg_sc:
       return arg_sc
 
 def PReLU(input,scope):
@@ -90,7 +90,7 @@ def speech_cnn_lstm(inputs,
           scope='speech_cnn'):
   """Oxford Net VGG 11-Layers version A Example.
 
-  Note: All the fully_connected layers have been transformed to conv2d layers.
+  Note: All the fully_connected layers have been transformed to conv3d layers.
         To use in classification mode, resize input to 224x224.
 
   Args:
@@ -110,24 +110,24 @@ def speech_cnn_lstm(inputs,
     ##### CNN part #####
     # Tensor("batch:0", shape=(?, 15, 40, 1, 3), dtype=float32, device=/device:CPU:0)
     inputs = tf.to_float(inputs)
-    net = slim.repeat(inputs, 1, slim.conv2d, 16, [1, 5, 1], scope='conv1')
+    net = slim.repeat(inputs, 1, slim.conv3d, 16, [1, 5, 1], scope='conv1')
     net = PReLU(net, 'conv1_activation')
     net = tf.nn.max_pool3d(net, strides=[1, 1, 2, 1, 1], ksize=[1, 1, 2, 1, 1], padding='VALID', name='pool1')
 
-    net = slim.conv2d(net, 32, [1, 4, 1], scope='conv21')
+    net = slim.conv3d(net, 32, [1, 4, 1], scope='conv21')
     net = PReLU(net, 'conv21_activation')
-    net = slim.conv2d(net, 32, [1, 4, 1], scope='conv22')
+    net = slim.conv3d(net, 32, [1, 4, 1], scope='conv22')
     net = PReLU(net, 'conv22_activation')
     net = tf.nn.max_pool3d(net, strides=[1, 1, 2, 1, 1], ksize=[1, 1, 2, 1, 1], padding='VALID', name='pool2')
 
-    net = slim.conv2d(net, 64, [1, 3, 1], scope='conv31')
+    net = slim.conv3d(net, 64, [1, 3, 1], scope='conv31')
     net = PReLU(net, 'conv31_activation')
-    net = slim.conv2d(net, 64, [1, 3, 1], scope='conv32')
+    net = slim.conv3d(net, 64, [1, 3, 1], scope='conv32')
     net = PReLU(net, 'conv32_activation')
 
     ##### FC part #####
-    # Use conv2d instead of fully_connected layers.
-    net = slim.conv2d(net, 128, [1, 2, 1], padding='VALID', scope='fc4')
+    # Use conv3d instead of fully_connected layers.
+    net = slim.conv3d(net, 128, [1, 2, 1], padding='VALID', scope='fc4')
     net = PReLU(net, 'fc4_activation')
     # net = PReLU(net)
     # net = slim.dropout(net, dropout_keep_prob, is_training=is_training,
@@ -135,14 +135,14 @@ def speech_cnn_lstm(inputs,
 
     if LSTM_status:
 
-      net = slim.conv2d(net, 64, [1, 1, 1], padding='VALID', activation_fn=None, normalizer_fn=None, scope='fc5')
+      net = slim.conv3d(net, 64, [1, 1, 1], padding='VALID', activation_fn=None, normalizer_fn=None, scope='fc5')
       net = PReLU(net, 'fc5_activation')
 
       # Tensor("tower_0/speech_cnn/fc6/squeezed:0", shape=(?, 9, 128), dtype=float32, device=/device:GPU:0)
       net = tf.squeeze(net, [2, 3], name='fc5/squeezed')
 
     else:
-      net = slim.conv2d(net, 64, [15, 1, 1],padding='VALID', activation_fn=None, normalizer_fn=None, scope='fc5')
+      net = slim.conv3d(net, 64, [15, 1, 1],padding='VALID', activation_fn=None, normalizer_fn=None, scope='fc5')
 
       # Tensor("tower_0/speech_cnn/fc6/squeezed:0", shape=(?, 9, 128), dtype=float32, device=/device:GPU:0)
       net = tf.squeeze(net, [1, 2, 3], name='fc5/squeezed')

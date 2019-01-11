@@ -57,13 +57,13 @@ def lipread_mouth_arg_scope(is_training, weight_decay=0.0005):
     An arg_scope.
   """
   # Add normalizer_fn=slim.batch_norm if Batch Normalization is required!
-  with slim.arg_scope([slim.conv2d, slim.fully_connected],
+  with slim.arg_scope([slim.conv3d, slim.fully_connected],
                       activation_fn=None,
                       weights_initializer=tf.contrib.layers.variance_scaling_initializer(factor=1.0, mode='FAN_AVG'),
                       weights_regularizer=slim.l2_regularizer(weight_decay),
                       normalizer_fn=slim.batch_norm,
                       biases_initializer=tf.zeros_initializer()):
-    with slim.arg_scope([slim.conv2d], padding='SAME') as arg_sc:
+    with slim.arg_scope([slim.conv3d], padding='SAME') as arg_sc:
       return arg_sc
 
 def PReLU(input,scope):
@@ -87,7 +87,7 @@ def mouth_cnn_lstm(inputs,
           scope='mouth_cnn'):
   """Oxford Net VGG 11-Layers version A Example.
 
-  Note: All the fully_connected layers have been transformed to conv2d layers.
+  Note: All the fully_connected layers have been transformed to conv3d layers.
         To use in classification mode, resize input to 224x224.
 
   Args:
@@ -107,34 +107,34 @@ def mouth_cnn_lstm(inputs,
   end_points = {}
   with tf.variable_scope(scope, 'mouth_cnn', [inputs]) as sc:
     # end_points_collection = sc.name + '_end_points'
-    # # Collect outputs for conv2d, fully_connected and max_pool2d.
-    # with slim.arg_scope([slim.conv2d, slim.max_pool2d],
+    # # Collect outputs for conv3d, fully_connected and max_pool2d.
+    # with slim.arg_scope([slim.conv3d, slim.max_pool2d],
     #                     outputs_collections=end_points_collection):
 
     ##### Convolution Section #####
     # Tensor("batch:1", shape=(?, 9, 60, 100, 1), dtype=float32, device=/device:CPU:0)
     inputs = tf.to_float(inputs)
-    net = slim.repeat(inputs, 1, slim.conv2d, 16, [1, 3, 3], scope='conv1')
+    net = slim.repeat(inputs, 1, slim.conv3d, 16, [1, 3, 3], scope='conv1')
     net = PReLU(net, 'conv1_activation')
     net = tf.nn.max_pool3d(net, strides=[1, 1, 2, 2, 1], ksize=[1, 1, 3, 3, 1],padding='VALID', name='pool1')
     # net = slim.max_pool2d(net, [3, 3], scope='pool1')
-    net = slim.repeat(net, 1, slim.conv2d, 32, [1, 3, 3], scope='conv2')
+    net = slim.repeat(net, 1, slim.conv3d, 32, [1, 3, 3], scope='conv2')
     net = PReLU(net, 'conv2_activation')
     net = tf.nn.max_pool3d(net, strides=[1, 1, 2, 2, 1], ksize=[1, 1, 3, 3, 1], padding='VALID', name='pool2')
 
-    net = slim.conv2d(net, 64, [1, 3, 3], scope='conv31')
+    net = slim.conv3d(net, 64, [1, 3, 3], scope='conv31')
     net = PReLU(net, 'conv31_activation')
-    net = slim.conv2d(net, 64, [1, 3, 3], scope='conv32')
+    net = slim.conv3d(net, 64, [1, 3, 3], scope='conv32')
     net = PReLU(net, 'conv32_activation')
 
     net = tf.nn.max_pool3d(net, strides=[1, 1, 2, 2, 1], ksize=[1, 1, 3, 3, 1], padding='VALID', name='pool3')
-    net = slim.repeat(net, 1, slim.conv2d, 128, [1, 3, 3], scope='conv4')
+    net = slim.repeat(net, 1, slim.conv3d, 128, [1, 3, 3], scope='conv4')
     net = PReLU(net, 'conv4_activation')
     net = tf.nn.max_pool3d(net, strides=[1, 1, 2, 2, 1], ksize=[1, 1, 3, 3, 1], padding='VALID', name='pool4')
 
     ##### FC section #####
-    # Use conv2d instead of fully_connected layers.
-    net = slim.repeat(net, 1, slim.conv2d, 256, [1, 2, 5], padding='VALID', scope='fc5')
+    # Use conv3d instead of fully_connected layers.
+    net = slim.repeat(net, 1, slim.conv3d, 256, [1, 2, 5], padding='VALID', scope='fc5')
     net = PReLU(net, 'fc5_activation')
     # net = PReLU(net)
     # net = slim.dropout(net, dropout_keep_prob, is_training=is_training,
@@ -143,14 +143,14 @@ def mouth_cnn_lstm(inputs,
 
     if LSTM_status:
 
-      net = slim.conv2d(net, 64, [1, 1, 1], padding='VALID', activation_fn=None, normalizer_fn=None, scope='fc6')
+      net = slim.conv3d(net, 64, [1, 1, 1], padding='VALID', activation_fn=None, normalizer_fn=None, scope='fc6')
       net = PReLU(net, 'fc6_activation')
 
       # Tensor("tower_0/speech_cnn/fc6/squeezed:0", shape=(?, 9, 128), dtype=float32, device=/device:GPU:0)
       net = tf.squeeze(net, [2, 3], name='fc6/squeezed')
 
     else:
-      net = slim.conv2d(net, 64, [9, 1, 1],padding='VALID', activation_fn=None, normalizer_fn=None, scope='fc5')
+      net = slim.conv3d(net, 64, [9, 1, 1],padding='VALID', activation_fn=None, normalizer_fn=None, scope='fc5')
 
       # Tensor("tower_0/speech_cnn/fc6/squeezed:0", shape=(?, 9, 128), dtype=float32, device=/device:GPU:0)
       net = tf.squeeze(net, [1, 2, 3], name='fc6/squeezed')
