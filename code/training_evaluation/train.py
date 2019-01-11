@@ -425,7 +425,7 @@ def main(_):
 
                         ##### Euclidean distance ####
                         distance_l2 = tf.sqrt(
-                            tf.reduce_sum(tf.pow(tf.subtract(logits_speech, logits_mouth), 2), 1, keep_dims=True))
+                            tf.reduce_sum(tf.pow(tf.subtract(logits_speech, logits_mouth), 2), 1, keepdims=True))
 
                         ##### Contrastive loss ######
                         loss = losses.contrastive_loss(batch_labels, distance_l2, margin_imp=margin_imp_tensor,
