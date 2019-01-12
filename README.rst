@@ -10,12 +10,12 @@
 Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Networks - `Official Project Page`_
 ===========================================================================================================================
 
+.. image:: https://travis-ci.org/astorfi/lip-reading-deeplearning.svg?branch=master
+    :target: https://travis-ci.org/astorfi/lip-reading-deeplearning
 .. image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
     :target: https://github.com/astorfi/3D-convolutional-Audio-Visual/pulls
 .. image:: https://badges.frapsoft.com/os/v2/open-source.svg?v=102
     :target: https://github.com/ellerbrock/open-source-badge/
-.. image:: https://travis-ci.org/astorfi/lip-reading-deeplearning.svg?branch=master
-    :target: https://travis-ci.org/astorfi/lip-reading-deeplearning
 .. image:: https://coveralls.io/repos/github/astorfi/3D-convolutional-Audio-Visual/badge.svg?branch=master
     :target: https://coveralls.io/github/astorfi/3D-convolutional-Audio-Visual?branch=master
 .. image:: https://zenodo.org/badge/94938983.svg
