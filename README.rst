@@ -1,11 +1,3 @@
-.. image:: readme_images/follow-twitter.gif
-   :height: 100px
-   :width: 200 px
-   :scale: 50 %
-   :alt: alternate text
-   :align: right
-   :target: https://twitter.com/amirsinatorfi
-
 ===========================================================================================================================
 Lip Reading - Cross Audio-Visual Recognition using 3D Convolutional Neural Networks - `Official Project Page`_
 ===========================================================================================================================
