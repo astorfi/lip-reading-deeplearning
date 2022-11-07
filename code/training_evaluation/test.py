@@ -14,7 +14,7 @@ from auxiliary import losses
 from roc_curve import calculate_roc
 import os
 # import matplotlib.pyplot as plt
-slim = tf.contrib.slim
+import tf_slim as slim
 
 ######################
 # Train Directory #

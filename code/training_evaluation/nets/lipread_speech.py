@@ -45,7 +45,7 @@ import tensorflow
 tf = tensorflow.compat.v1
 import sys
 
-slim = tf.contrib.slim
+import tf_slim as slim
 LSTM_status = False
 
 

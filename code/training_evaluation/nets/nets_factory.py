@@ -24,7 +24,7 @@ tf = tensorflow.compat.v1
 from nets import lipread_mouth
 from nets import lipread_speech
 
-slim = tf.contrib.slim
+import tf_slim as slim
 
 networks_map = {'lipread_mouth':lipread_mouth.mouth_cnn_lstm,
                 'lipread_speech':lipread_speech.speech_cnn_lstm,
