@@ -20,22 +20,22 @@ import tf_slim as slim
 # Train Directory #
 ######################
 
-tf.app.flags.DEFINE_string(
+tf.flags.DEFINE_string(
     'test_dir', 'results/TRAIN_CNN_3D/test_logs',
     'Directory where checkpoints and event logs are written to.')
 
-tf.app.flags.DEFINE_string(
+tf.flags.DEFINE_string(
     'checkpoint_dir', os.path.expanduser('~/results/'),
     'Directory where checkpoints and event logs are written to.')
 
 
-tf.app.flags.DEFINE_integer('num_clones', 1,
+tf.flags.DEFINE_integer('num_clones', 1,
                             'Number of model clones to deploy.')
 
-tf.app.flags.DEFINE_boolean('clone_on_cpu', False,
+tf.flags.DEFINE_boolean('clone_on_cpu', False,
                             'Use CPUs to deploy clones.')
 
-tf.app.flags.DEFINE_integer(
+tf.flags.DEFINE_integer(
     'log_every_n_steps', 1,
     'The frequency with which logs are print.')
 
@@ -44,26 +44,26 @@ tf.app.flags.DEFINE_integer(
 # Optimization Flags #
 ######################
 
-tf.app.flags.DEFINE_float(
+tf.flags.DEFINE_float(
     'weight_decay', 0.00004, 'The weight decay on the model weights.')
 
-tf.app.flags.DEFINE_string(
+tf.flags.DEFINE_string(
     'optimizer', 'adam',
     'The name of the optimizer, one of "adadelta", "adagrad", "adam",'
     '"ftrl", "momentum", "sgd" or "rmsprop".')
 
 
-tf.app.flags.DEFINE_float(
+tf.flags.DEFINE_float(
     'adam_beta1', 0.9,
     'The exponential decay rate for the 1st moment estimates.')
 
-tf.app.flags.DEFINE_float(
+tf.flags.DEFINE_float(
     'adam_beta2', 0.999,
     'The exponential decay rate for the 2nd moment estimates.')
 
-tf.app.flags.DEFINE_float('opt_epsilon', 1.0, 'Epsilon term for the optimizer.')
+tf.flags.DEFINE_float('opt_epsilon', 1.0, 'Epsilon term for the optimizer.')
 
-tf.app.flags.DEFINE_float(
+tf.flags.DEFINE_float(
     'momentum', 0.9,
     'The momentum for the MomentumOptimizer and RMSPropOptimizer.')
 
@@ -71,37 +71,37 @@ tf.app.flags.DEFINE_float(
 # Learning Rate Flags #
 #######################
 
-tf.app.flags.DEFINE_string(
+tf.flags.DEFINE_string(
     'learning_rate_decay_type',
     'exponential',
     'Specifies how the learning rate is decayed. One of "fixed", "exponential",'
     ' or "polynomial"')
  
-tf.app.flags.DEFINE_float('learning_rate', 0.01, 'Initial learning rate.')
+tf.flags.DEFINE_float('learning_rate', 0.01, 'Initial learning rate.')
 
-tf.app.flags.DEFINE_float(
+tf.flags.DEFINE_float(
     'end_learning_rate', 0.0001,
     'The minimal end learning rate used by a polynomial decay learning rate.')
 
-tf.app.flags.DEFINE_float(
+tf.flags.DEFINE_float(
     'label_smoothing', 0.0, 'The amount of label smoothing.')
 
-tf.app.flags.DEFINE_float(
+tf.flags.DEFINE_float(
     'learning_rate_decay_factor', 0.94, 'Learning rate decay factor.')
 
-tf.app.flags.DEFINE_float(
+tf.flags.DEFINE_float(
     'num_epochs_per_decay', 5.0,
     'Number of epochs after which learning rate decays.')
 
-tf.app.flags.DEFINE_bool(
+tf.flags.DEFINE_bool(
     'sync_replicas', False,
     'Whether or not to synchronize the replicas during training.')
 
-tf.app.flags.DEFINE_integer(
+tf.flags.DEFINE_integer(
     'replicas_to_aggregate', 1,
     'The Number of gradients to collect before updating params.')
 
-tf.app.flags.DEFINE_float(
+tf.flags.DEFINE_float(
     'moving_average_decay', None,
     'The decay to use for the moving average.'
     'If left as None, then moving averages are not used.')
@@ -110,17 +110,17 @@ tf.app.flags.DEFINE_float(
 # Dataset Flags #
 #######################
 
-tf.app.flags.DEFINE_string(
+tf.flags.DEFINE_string(
     'model_speech_name', 'lipread_speech', 'The name of the architecture to train.')
 
-tf.app.flags.DEFINE_string(
+tf.flags.DEFINE_string(
     'model_mouth_name', 'lipread_mouth', 'The name of the architecture to train.')
 
 
-tf.app.flags.DEFINE_integer(
+tf.flags.DEFINE_integer(
     'batch_size', 128, 'The number of samples in each batch.')
 
-tf.app.flags.DEFINE_integer(
+tf.flags.DEFINE_integer(
     'num_epochs', 20, 'The number of epochs for training.')
 
 
@@ -128,26 +128,26 @@ tf.app.flags.DEFINE_integer(
 # Fine-Tuning Flags #
 #####################
 
-tf.app.flags.DEFINE_string(
+tf.flags.DEFINE_string(
     'checkpoint_path', None,
     'The path to a checkpoint from which to fine-tune. ex:/home/user/TRAIN/train_logs')
 
-tf.app.flags.DEFINE_string(
+tf.flags.DEFINE_string(
     'checkpoint_exclude_scopes', None,
     'Comma-separated list of scopes of variables to exclude when restoring'
     'from a checkpoint. ex: vgg_19/fc8/biases,vgg_19/fc8/weights')
 
-tf.app.flags.DEFINE_string(
+tf.flags.DEFINE_string(
     'trainable_scopes', None,
     'Comma-separated list of scopes to filter the set of variables to train.'
     'By default, None would train all the variables.')
 
-tf.app.flags.DEFINE_boolean(
+tf.flags.DEFINE_boolean(
     'ignore_missing_vars', False,
     'When restoring a checkpoint would ignore missing variables.')
 
 # Store all elemnts in FLAG structure!
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.flags.FLAGS
 
 
 def _configure_learning_rate(num_samples_per_epoch, global_step):
