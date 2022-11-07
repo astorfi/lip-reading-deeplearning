@@ -510,9 +510,9 @@ def main(_):
         sess.run(tf.local_variables_initializer())
 
         # Restore the model
-        print('Loading from:',FLAGS.checkpoint_dir)
-        latest_checkpoint = tf.train.latest_checkpoint(checkpoint_dir=FLAGS.checkpoint_dir)
-        saver.restore(sess, latest_checkpoint)
+        # print('Loading from:',FLAGS.checkpoint_dir)
+        # latest_checkpoint = tf.train.latest_checkpoint(checkpoint_dir=FLAGS.checkpoint_dir)
+        # saver.restore(sess, latest_checkpoint)
 
         # op to write logs to Tensorboard
         summary_writer = tf.summary.FileWriter(FLAGS.test_dir, graph=graph)
