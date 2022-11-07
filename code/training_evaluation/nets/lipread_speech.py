@@ -62,7 +62,7 @@ def lipread_speech_arg_scope(is_training, weight_decay=0.0005,):
   # Add normalizer_fn=slim.batch_norm if Batch Normalization is required!
   with slim.arg_scope([slim.conv3d, slim.fully_connected],
                       activation_fn=None,
-                      weights_initializer=tf.contrib.layers.variance_scaling_initializer(factor=1.0, mode='FAN_AVG'),
+                      weights_initializer=tf.layers.variance_scaling_initializer(factor=1.0, mode='FAN_AVG'),
                       weights_regularizer=slim.l2_regularizer(weight_decay),
                       normalizer_fn=slim.batch_norm,
                       biases_initializer=tf.zeros_initializer()):
