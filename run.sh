@@ -37,10 +37,10 @@ else
     echo "No training or testing will be performed!"
 fi
 
-# visualizing (using pretrained model)
-ln -s data/ dlib
-mkdir results && ln -s results/activation ./activation
-python -u ./code/lip_tracking/VisualizeLip.py --input $input_filename --output results/output_video.mp4
-
-# create gif from mouth frames
-ffmpeg -i ./results/mouth/frame_%*.png results/mouth.gif
+## visualizing (using pretrained model)
+#ln -s data/ dlib
+#mkdir results && ln -s results/activation ./activation
+#python -u ./code/lip_tracking/VisualizeLip.py --input $input_filename --output results/output_video.mp4
+#
+## create gif from mouth frames
+#ffmpeg -i ./results/mouth/frame_%*.png results/mouth.gif
