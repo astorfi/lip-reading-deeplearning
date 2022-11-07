@@ -29,7 +29,8 @@ COPY . .
 RUN apt-get update  \
     && pip install cmake  \
     && pip install dlib  \
-    && ./install_dependencies.sh
+    && ./install_dependencies.sh \
+    && pip install tf_slim
 
 ## The pipeline
 #COPY ./${JOB_NAME}/run.sh ./${JOB_NAME}/run.sh
