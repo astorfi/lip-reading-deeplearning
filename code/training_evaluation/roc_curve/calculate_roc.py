@@ -3,7 +3,8 @@
 import random
 import numpy as np
 import time
-import tensorflow as tf
+import tensorflow
+tf = tensorflow.compat.v1
 import math
 import pdb
 import sys

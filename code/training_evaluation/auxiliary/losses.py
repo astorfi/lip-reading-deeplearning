@@ -13,7 +13,8 @@ from tensorflow.python.ops import nn
 from tensorflow.python.ops import nn_ops
 from tensorflow.python.util.deprecation import deprecated
 
-import tensorflow as tf
+import tensorflow
+tf = tensorflow.compat.v1
 
 # def contrastive_loss(onehot_labels, logits, margin=1, scope=None):
 #     """With this definition the loss will be calculated.

@@ -19,7 +19,8 @@ from __future__ import division
 from __future__ import print_function
 import functools
 
-import tensorflow as tf
+import tensorflow
+tf = tensorflow.compat.v1
 from nets import lipread_mouth
 from nets import lipread_speech
 
