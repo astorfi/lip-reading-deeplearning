@@ -159,7 +159,7 @@ def mouth_cnn_lstm(inputs,
     if LSTM_status:
       ##### LSTM-1 #####
       # use sequence_length=X_lengths argument in tf.nn.dynamic_rnn if necessary.
-      cell_1 = tf.contrib.rnn.core_rnn_cell.LSTMCell(num_units=128, state_is_tuple=True)
+      cell_1 = tf.nn.rnn_cell.LSTMCell(num_units=128, state_is_tuple=True)
       outputs, last_states = tf.nn.dynamic_rnn(
         cell=cell_1,
         dtype=tf.float32,
